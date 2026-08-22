@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights — CLIxED | Research, Case Studies, Policy &amp; Media</title>
+  <meta name="description" content="The CLIxED knowledge library — research reports, case studies, policy briefs, articles and multimedia. Browsable and filterable by category and search.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/clixed.css">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23174F4A'/%3E%3Cpath d='M6 10l10-4 10 4-10 4z' fill='%23B88A45'/%3E%3Cpath d='M8 12v8c0 1.8 3.6 2.8 8 2.8S24 21.8 24 12' stroke='%23B88A45' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body class="clx-body clx-body--library">
+
+
+
+  <!-- ============ SCROLL PROGRESS ============ -->
+  <div id="clxScrollProgress" class="clx-scroll-progress" aria-hidden="true">
+    <span class="clx-scroll-progress-fill"></span>
+  </div>
+
+  <a class="clx-skip" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header id="siteHeader" class="clx-header">
+    <div class="clx-container clx-header-inner">
+      <a href="index.html" class="clx-brand" aria-label="CLIxED — home">
+        <span class="clx-brand-mark" aria-hidden="true">CLIxED</span>
+        <span class="clx-brand-tag">Education Research &amp; Advisory</span>
+      </a>
+      <nav id="mainNav" class="clx-nav" aria-label="Primary">
+        <a class="clx-nav-link" href="index.html">Home</a>
+        <a class="clx-nav-link" href="about.html">About</a>
+        <a class="clx-nav-link" href="team.html">Team</a>
+        <a class="clx-nav-link" href="what-we-do.html">What We Do</a>
+        <a class="clx-nav-link" href="podcast.html">Podcast</a>
+        <a class="clx-nav-link" href="insights.html">Insights</a>
+        <a class="clx-nav-link" href="blog.html">Blog</a>
+        <a class="clx-nav-link" href="partners.html">Partners</a>
+      </nav>
+      <a class="clx-btn clx-btn--primary" href="contact.html">Start a Conversation <span class="clx-arrow" aria-hidden="true">→</span></a>
+      <button id="navToggle" class="clx-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="clx-page-enter">
+
+    <!-- ============ BACKGROUND ANIMATION (subtle editorial layer) ============ -->
+    <div class="clx-insights-bg" aria-hidden="true">
+      <!-- Flowing editorial curves -->
+      <div class="clx-insights-bg-curve clx-insights-bg-curve--1">
+        <svg viewBox="0 0 1200 800" preserveAspectRatio="none">
+          <path d="M0,400 Q300,300 600,400 T1200,400" fill="none" stroke="var(--color-primary)" stroke-width="1.2"/>
+          <path d="M0,420 Q300,340 600,410 T1200,420" fill="none" stroke="var(--color-primary)" stroke-width="0.6"/>
+        </svg>
+      </div>
+      <div class="clx-insights-bg-curve clx-insights-bg-curve--2">
+        <svg viewBox="0 0 1200 800" preserveAspectRatio="none">
+          <path d="M0,250 Q400,180 800,250 T1200,250" fill="none" stroke="var(--color-accent)" stroke-width="1"/>
+          <path d="M0,270 Q400,210 800,260 T1200,270" fill="none" stroke="var(--color-accent)" stroke-width="0.5"/>
+        </svg>
+      </div>
+      <div class="clx-insights-bg-curve clx-insights-bg-curve--3">
+        <svg viewBox="0 0 1200 800" preserveAspectRatio="none">
+          <path d="M0,550 Q350,480 700,550 T1200,550" fill="none" stroke="var(--color-secondary)" stroke-width="1.1"/>
+          <path d="M0,570 Q350,510 700,560 T1200,570" fill="none" stroke="var(--color-secondary)" stroke-width="0.5"/>
+        </svg>
+      </div>
+
+      <!-- Soft radial gradient washes -->
+      <div class="clx-insights-bg-wash"></div>
+
+      <!-- Slowly drifting node dots -->
+      <div class="clx-insights-bg-nodes">
+        <div class="clx-insights-bg-node"></div>
+        <div class="clx-insights-bg-node"></div>
+        <div class="clx-insights-bg-node"></div>
+        <div class="clx-insights-bg-node"></div>
+        <div class="clx-insights-bg-node"></div>
+        <div class="clx-insights-bg-node"></div>
+        <div class="clx-insights-bg-node"></div>
+        <div class="clx-insights-bg-node"></div>
+      </div>
+
+      <!-- Subtle connection lines between nodes -->
+      <div class="clx-insights-bg-links">
+        <svg viewBox="0 0 1000 800" preserveAspectRatio="none">
+          <line x1="220" y1="144" x2="680" y2="336" stroke="var(--color-primary)" stroke-width="0.8"/>
+          <line x1="680" y1="336" x2="350" y2="576" stroke="var(--color-secondary)" stroke-width="0.6"/>
+          <line x1="350" y1="576" x2="820" y2="224" stroke="var(--color-primary)" stroke-width="0.7"/>
+          <line x1="820" y1="224" x2="150" y2="464" stroke="var(--color-accent)" stroke-width="0.5"/>
+          <line x1="150" y1="464" x2="750" y2="680" stroke="var(--color-primary)" stroke-width="0.6"/>
+          <line x1="550" y1="96" x2="880" y2="520" stroke="var(--color-secondary)" stroke-width="0.5"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- ============ HERO ============ -->
+    <section class="clx-section clx-section--lg clx-hero" aria-label="CLIxED insights library">
+      <div class="clx-nodes" aria-hidden="true"></div>
+      <div class="clx-container">
+        <div class="clx-lib-hero">
+          <div class="clx-lib-hero-copy">
+            <p class="clx-eyebrow clx-reveal">Insights — The CLIxED Library</p>
+            <h1 class="clx-h1 clx-reveal" data-delay="1">Insights.</h1>
+            <p class="clx-body-lg clx-reveal" data-delay="2" style="max-width:56ch">The place to explore CLIxED's research, case studies, policy work, articles and multimedia — our work made public.</p>
+            <p class="clx-pillars clx-reveal" data-delay="3">
+              <span class="clx-pillar">Research Reports</span>
+              <span class="clx-pillar">Case Studies</span>
+              <span class="clx-pillar">Policy Briefs</span>
+              <span class="clx-pillar">Articles</span>
+              <span class="clx-pillar">Podcasts</span>
+              <span class="clx-pillar">YouTube</span>
+              <span class="clx-pillar">Substack</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 01 — FEATURED ============ -->
+    <section class="clx-section" aria-label="Featured content">
+      <div class="clx-container">
+        <div class="clx-lib-featured clx-reveal">
+          <div class="clx-nodes clx-nodes--invert" aria-hidden="true"></div>
+          <div class="clx-lib-featured-inner">
+            <p class="clx-lib-featured-tag">Featured</p>
+            <h2 class="clx-lib-featured-title">The library is being populated.</h2>
+            <p class="clx-lib-featured-note">The first featured item — a research report, case study, policy brief, article or conversation — will be highlighted here as soon as it is published.</p>
+            <p class="clx-lib-featured-cta"><a class="clx-btn clx-btn--accent" href="contact.html">Write to us <span class="clx-arrow" aria-hidden="true">→</span></a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 — BROWSE THE LIBRARY ============ -->
+    <section class="clx-section" id="library" aria-label="Browse the insights library">
+      <div class="clx-container">
+        <div class="clx-grid-12">
+          <div class="clx-col-12">
+            <p class="clx-eyebrow clx-reveal">Explore Insights</p>
+            <h2 class="clx-h2 clx-reveal clx-muted">Filter by type, or search the library.</h2>
+          </div>
+        </div>
+
+        <!--
+          Library card pattern:
+          — data-lib-category — space-separated filter groups: research | cases | policy | articles | media
+          — data-lib-search   — keywords used by the search box
+          When actual items are published, add content cards here and replace the
+          matching "to be published" shelf card. Each card should carry a title,
+          a short description, an actual date (if one exists), an optional
+          thumbnail (if an actual image exists) and a link to the item's detail
+          page, following the URL structure:
+            /insights/research-report/{slug}
+            /insights/case-study/{slug}
+            /insights/policy-brief/{slug}
+            /insights/article/{slug}
+            /insights/podcast/{slug}
+            /insights/media/{slug}
+          No fictional titles, dates, URLs or statistics are used on this page.
+        -->
+        <div class="clx-lib-tools clx-reveal" data-delay="1">
+          <div class="clx-lib-filters" role="group" aria-label="Filter content by type">
+            <button class="clx-lib-filter is-active" type="button" data-lib-filter="all" aria-pressed="true">All <span class="clx-lib-filter-count" data-lib-count aria-hidden="true"></span></button>
+            <button class="clx-lib-filter" type="button" data-lib-filter="research" aria-pressed="false">Research <span class="clx-lib-filter-count" data-lib-count aria-hidden="true"></span></button>
+            <button class="clx-lib-filter" type="button" data-lib-filter="cases" aria-pressed="false">Case Studies <span class="clx-lib-filter-count" data-lib-count aria-hidden="true"></span></button>
+            <button class="clx-lib-filter" type="button" data-lib-filter="policy" aria-pressed="false">Policy <span class="clx-lib-filter-count" data-lib-count aria-hidden="true"></span></button>
+            <button class="clx-lib-filter" type="button" data-lib-filter="articles" aria-pressed="false">Articles <span class="clx-lib-filter-count" data-lib-count aria-hidden="true"></span></button>
+            <button class="clx-lib-filter" type="button" data-lib-filter="media" aria-pressed="false">Media <span class="clx-lib-filter-count" data-lib-count aria-hidden="true"></span></button>
+          </div>
+          <label class="clx-lib-search">
+            <span class="sr-only">Search the library</span>
+            <input class="clx-input" type="search" data-lib-search placeholder="Search the library—">
+          </label>
+        </div>
+        <p class="clx-lib-counter clx-reveal" data-delay="2" aria-live="polite">Showing <span data-lib-readout>7</span> of 7 items</p>
+
+        <div class="clx-lib-grid clx-reveal" data-delay="2">
+
+          <!-- Research Reports — shelf (no content published yet) -->
+          <article class="clx-lib-card clx-lib-card--research" id="research" data-lib-card data-lib-category="research" data-lib-search="research reports publications findings evaluations methods evidence sources">
+            <span class="clx-lib-tag">Research Report</span>
+            <h3 class="clx-lib-title">Reports in preparation</h3>
+            <p class="clx-lib-desc">Full research reports and research publications — findings, evaluations and methods, each stating its evidence, sources and limits.</p>
+            <p class="clx-lib-status">To be published</p>
+          </article>
+
+          <!-- Case Studies — shelf (no content published yet) -->
+          <article class="clx-lib-card clx-lib-card--cases" id="cases" data-lib-card data-lib-category="cases" data-lib-search="case studies stories projects programmes interventions classrooms design implementation evaluation">
+            <span class="clx-lib-tag">Case Study</span>
+            <h3 class="clx-lib-title">Case studies in preparation</h3>
+            <p class="clx-lib-desc">Detailed stories about CLIxED projects, programmes and interventions — what was designed, how it ran in classrooms and what changed.</p>
+            <p class="clx-lib-status">To be published</p>
+          </article>
+
+          <!-- Policy Briefs — shelf (no content published yet) -->
+          <article class="clx-lib-card clx-lib-card--policy" data-lib-card data-lib-category="policy" data-lib-search="policy briefs research decision making governments institutions recommendations analysis">
+            <span class="clx-lib-tag">Policy Brief</span>
+            <h3 class="clx-lib-title">Briefs for policy and decision-making</h3>
+            <p class="clx-lib-desc">Short, research-based content focused on policy and decision-making — for governments, institutions and practitioners.</p>
+            <p class="clx-lib-status">To be published</p>
+          </article>
+
+          <!-- Articles — shelf (no content published yet) -->
+          <article class="clx-lib-card clx-lib-card--articles" id="articles" data-lib-card data-lib-category="articles" data-lib-search="articles public writing commentary analysis educators researchers policymakers practice">
+            <span class="clx-lib-tag">Article</span>
+            <h3 class="clx-lib-title">Writing and commentary</h3>
+            <p class="clx-lib-desc">Public-facing writing and commentary — analysis and practice for educators, researchers and policymakers.</p>
+            <p class="clx-lib-status">To be published</p>
+          </article>
+
+          <!-- Podcast — live section (links to the podcast page) -->
+          <a class="clx-lib-card clx-lib-card--media clx-lib-card--link" data-lib-card data-lib-category="media podcast" data-lib-search="podcast clixed conversations episodes researchers policymakers educators practitioners audio" href="podcast.html">
+            <span class="clx-lib-tag">Media — Podcast</span>
+            <h3 class="clx-lib-title">CLIxED Conversations</h3>
+            <p class="clx-lib-desc">The official CLIxED podcast — conversations with researchers, policymakers, educators and practitioners on how education actually changes. Official episodes are being recorded.</p>
+            <span class="clx-lib-more">Visit the podcast <span class="clx-arrow" aria-hidden="true">→</span></span>
+          </a>
+
+          <!-- YouTube — shelf (no content published yet) -->
+          <article class="clx-lib-card clx-lib-card--youtube" data-lib-card data-lib-category="media youtube" data-lib-search="youtube videos episodes talks field recordings channel film">
+            <span class="clx-lib-tag">Media — YouTube</span>
+            <h3 class="clx-lib-title">CLIxED on YouTube</h3>
+            <p class="clx-lib-desc">CLIxED's own videos — episodes, talks and field recordings. The official channel will be linked here when it goes live.</p>
+            <p class="clx-lib-status">To be published</p>
+          </article>
+
+          <!-- Substack — shelf (no content published yet) -->
+          <article class="clx-lib-card clx-lib-card--substack" data-lib-card data-lib-category="articles substack" data-lib-search="substack newsletter field notes long form writing cross posted articles">
+            <span class="clx-lib-tag">Substack</span>
+            <h3 class="clx-lib-title">Field notes and long-form</h3>
+            <p class="clx-lib-desc">Cross-posted articles and field notes from CLIxED's Substack — a newsletter and long-form writing space, linked here when it launches.</p>
+            <p class="clx-lib-status">To be published</p>
+          </article>
+
+        </div>
+
+        <!-- No-results empty state (shown when a search matches nothing) -->
+        <div class="clx-lib-empty" data-lib-empty hidden>
+          <p class="clx-lib-empty-tag">No results</p>
+          <h3 class="clx-lib-empty-title">Nothing matches your search.</h3>
+          <p class="clx-lib-empty-note">No published items match —<span data-lib-term></span>— yet — the library is being populated. Try another term, or browse the sections above to see what is coming.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 — FROM SUBSTACK ============ -->
+    <section class="clx-section" id="from-substack" aria-label="From Substack">
+      <div class="clx-container">
+        <div class="clx-substack-head clx-reveal">
+          <div>
+            <p class="clx-eyebrow">From Substack</p>
+            <h2 class="clx-h2">Latest from CLIxED on Substack</h2>
+          </div>
+          <a class="clx-substack-visit" id="clxSubstackVisit" href="#" target="_blank" rel="noopener noreferrer" hidden>Visit the publication <span class="clx-arrow" aria-hidden="true">→</span></a>
+        </div>
+        <div id="clxSubstack" class="clx-substack clx-reveal" aria-live="polite" aria-busy="true">
+          <div aria-hidden="true">
+            <div class="clx-substack-feature clx-substack-skel">
+              <div class="clx-substack-skel-media"></div>
+              <div class="clx-substack-feature-body">
+                <div class="clx-substack-skel-line clx-substack-skel-line--wide"></div>
+                <div class="clx-substack-skel-line clx-substack-skel-line--wide"></div>
+                <div class="clx-substack-skel-line clx-substack-skel-line--half"></div>
+              </div>
+            </div>
+            <div class="clx-substack-grid">
+              <div class="clx-lib-card clx-substack-skel">
+                <div class="clx-substack-skel-img"></div>
+                <div class="clx-substack-skel-line"></div>
+                <div class="clx-substack-skel-line clx-substack-skel-line--half"></div>
+              </div>
+              <div class="clx-lib-card clx-substack-skel">
+                <div class="clx-substack-skel-img"></div>
+                <div class="clx-substack-skel-line"></div>
+                <div class="clx-substack-skel-line clx-substack-skel-line--half"></div>
+              </div>
+              <div class="clx-lib-card clx-substack-skel">
+                <div class="clx-substack-skel-img"></div>
+                <div class="clx-substack-skel-line"></div>
+                <div class="clx-substack-skel-line clx-substack-skel-line--half"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT / CTA ============ -->
+    <section class="clx-section clx-close-band" aria-label="Contact CLIxED">
+      <div class="clx-nodes clx-nodes--invert" aria-hidden="true"></div>
+      <div class="clx-container">
+        <div class="clx-close-band-inner clx-reveal">
+          <p class="clx-eyebrow clx-eyebrow--center clx-eyebrow--light">The Library, in Brief</p>
+          <h2 class="clx-close-band-title">The library grows as our work becomes public.</h2>
+          <p class="clx-close-band-lead" data-delay="1">If you want to know what we are releasing next — or want to discuss a finding, a programme or a partnership — write to us.</p>
+          <p class="clx-close-cta" data-delay="2"><a class="clx-btn clx-btn--accent" href="contact.html">Start a Conversation <span class="clx-arrow" aria-hidden="true">→</span></a></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="clx-footer">
+    <div class="clx-container">
+      <div class="clx-footer-grid">
+        <div class="clx-footer-brand">
+          <span class="clx-brand-mark" aria-hidden="true">CLIxED</span>
+          <p class="clx-muted" style="max-width:34ch; margin-top:var(--space-4)">A Section 8 non-profit working at the intersection of research rigour and classroom realities — across education policy, design, evaluation and professional development.</p>
+        </div>
+        <nav class="clx-footer-cols" aria-label="Explore">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="what-we-do.html">What We Do</a></li>
+            <li><a href="podcast.html">Podcast</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="partners.html">Partners</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Resources">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="insights.html#research">Research &amp; Reports</a></li>
+            <li><a href="insights.html#cases">Case Studies</a></li>
+            <li><a href="insights.html#articles">Articles</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="https://oneusefulthing.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Engage">
+          <h4>Engage</h4>
+          <ul>
+            <li><a href="contact.html">Start a Conversation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Legal">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="legal/privacy.html">Privacy Policy</a></li>
+            <li><a href="legal/terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="legal/cookies.html">Cookie Policy</a></li>
+            <li><a href="legal/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="clx-footer-legal">
+        <p>— <span id="year">2026</span> CLIxED Foundation. All rights reserved.</p>
+        <p>Registered: Bengaluru, India</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" class="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

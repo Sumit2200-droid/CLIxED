@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programme Evaluation — CLIxED | Independent Evaluation of Education Programmes</title>
+  <meta name="description" content="CLIxED conducts independent, rigorous evaluation of education programmes and policies — outcomes, implementation, cost and context — with findings decision-makers can act on.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/clixed.css">
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23174F4A'/%3E%3Cpath d='M6 10l10-4 10 4-10 4z' fill='%23B88A45'/%3E%3Cpath d='M8 12v8c0 1.8 3.6 2.8 8 2.8S24 21.8 24 12' stroke='%23B88A45' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body class="clx-body clx-body--evaluation">
+
+
+
+  <!-- ============ SCROLL PROGRESS ============ -->
+  <div id="clxScrollProgress" class="clx-scroll-progress" aria-hidden="true">
+    <span class="clx-scroll-progress-fill"></span>
+  </div>
+
+  <a class="clx-skip" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header id="siteHeader" class="clx-header">
+    <div class="clx-container clx-header-inner">
+      <a href="../index.html" class="clx-brand" aria-label="CLIxED — home">
+        <span class="clx-brand-mark" aria-hidden="true">CLIxED</span>
+        <span class="clx-brand-tag">Education Research &amp; Advisory</span>
+      </a>
+      <nav id="mainNav" class="clx-nav" aria-label="Primary">
+        <a class="clx-nav-link" href="../index.html">Home</a>
+        <a class="clx-nav-link" href="../about.html">About</a>
+        <a class="clx-nav-link" href="../team.html">Team</a>
+        <a class="clx-nav-link" href="../what-we-do.html">What We Do</a>
+        <a class="clx-nav-link" href="../podcast.html">Podcast</a>
+        <a class="clx-nav-link" href="../insights.html">Insights</a>
+        <a class="clx-nav-link" href="../partners.html">Partners</a>
+      </nav>
+      <a class="clx-btn clx-btn--primary" href="../contact.html">Start a Conversation <span class="clx-arrow" aria-hidden="true">→</span></a>
+      <button id="navToggle" class="clx-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="clx-page-enter">
+
+    <!-- --- Background animation: Evidence Flow --- -->
+    <div class="clx-eval-bg" aria-hidden="true">
+      <!-- Layer 1: Slow analytical grid -->
+      <div class="clx-eval-layer clx-eval-layer--grid">
+        <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+          <!-- Horizontal measurement lines -->
+          <line class="clx-eval-hline" x1="0" y1="120" x2="1200" y2="120" stroke="#174F4A" stroke-width="0.5" opacity="0.15"/>
+          <line class="clx-eval-hline" x1="0" y1="240" x2="1200" y2="240" stroke="#71877E" stroke-width="0.4" opacity="0.12"/>
+          <line class="clx-eval-hline" x1="0" y1="360" x2="1200" y2="360" stroke="#174F4A" stroke-width="0.5" opacity="0.1"/>
+          <line class="clx-eval-hline" x1="0" y1="480" x2="1200" y2="480" stroke="#B88A45" stroke-width="0.4" opacity="0.08"/>
+          <line class="clx-eval-hline" x1="0" y1="600" x2="1200" y2="600" stroke="#174F4A" stroke-width="0.4" opacity="0.1"/>
+          <!-- Vertical analysis markers -->
+          <line class="clx-eval-vline" x1="200" y1="0" x2="200" y2="800" stroke="#174F4A" stroke-width="0.3" opacity="0.08"/>
+          <line class="clx-eval-vline" x1="400" y1="0" x2="400" y2="800" stroke="#71877E" stroke-width="0.3" opacity="0.06"/>
+          <line class="clx-eval-vline" x1="600" y1="0" x2="600" y2="800" stroke="#B88A45" stroke-width="0.3" opacity="0.05"/>
+          <line class="clx-eval-vline" x1="800" y1="0" x2="800" y2="800" stroke="#174F4A" stroke-width="0.3" opacity="0.06"/>
+          <line class="clx-eval-vline" x1="1000" y1="0" x2="1000" y2="800" stroke="#71877E" stroke-width="0.3" opacity="0.05"/>
+        </svg>
+      </div>
+
+      <!-- Layer 2: Evidence paths flowing left to right -->
+      <div class="clx-eval-layer clx-eval-layer--paths">
+        <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+          <!-- Question to Evidence path -->
+          <path class="clx-eval-path clx-eval-path--1" d="M-100,400 C200,400 300,300 500,300 C700,300 800,400 1000,400 C1100,400 1200,350 1300,350" fill="none" stroke="#174F4A" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Evidence to Analysis path -->
+          <path class="clx-eval-path clx-eval-path--2" d="M-100,450 C150,450 250,380 450,380 C650,380 750,450 950,450 C1050,450 1150,400 1300,400" fill="none" stroke="#B88A45" stroke-width="1" stroke-linecap="round" stroke-dasharray="8 4"/>
+          <!-- Analysis to Insight path -->
+          <path class="clx-eval-path clx-eval-path--3" d="M-100,500 C100,500 200,440 400,440 C600,440 700,500 900,500 C1000,500 1100,460 1300,460" fill="none" stroke="#71877E" stroke-width="0.8" stroke-linecap="round"/>
+          <!-- Data points along paths -->
+          <circle class="clx-eval-dot" cx="200" cy="400" r="4" fill="#174F4A" opacity="0"/>
+          <circle class="clx-eval-dot" cx="500" cy="300" r="5" fill="#B88A45" opacity="0"/>
+          <circle class="clx-eval-dot" cx="800" cy="400" r="4" fill="#174F4A" opacity="0"/>
+          <circle class="clx-eval-dot" cx="1100" cy="350" r="3" fill="#71877E" opacity="0"/>
+        </svg>
+      </div>
+
+      <!-- Layer 3: Analysis rings and measurement markers -->
+      <div class="clx-eval-layer clx-eval-layer--analysis">
+        <!-- Question ring -->
+        <div class="clx-eval-ring clx-eval-ring--1">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="#174F4A" stroke-width="1" stroke-dasharray="4 6" opacity="0.3"/>
+            <circle cx="60" cy="60" r="40" fill="none" stroke="#174F4A" stroke-width="0.5" opacity="0.2"/>
+            <circle cx="60" cy="60" r="6" fill="#174F4A" opacity="0.4"/>
+          </svg>
+          <span class="clx-eval-label">Question</span>
+        </div>
+        <!-- Evidence ring -->
+        <div class="clx-eval-ring clx-eval-ring--2">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="#B88A45" stroke-width="1" stroke-dasharray="3 5" opacity="0.35"/>
+            <circle cx="60" cy="60" r="38" fill="none" stroke="#B88A45" stroke-width="0.5" opacity="0.25"/>
+            <circle cx="60" cy="60" r="7" fill="#B88A45" opacity="0.45"/>
+          </svg>
+          <span class="clx-eval-label">Evidence</span>
+        </div>
+        <!-- Analysis ring -->
+        <div class="clx-eval-ring clx-eval-ring--3">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="#71877E" stroke-width="1" stroke-dasharray="2 4" opacity="0.3"/>
+            <circle cx="60" cy="60" r="36" fill="none" stroke="#71877E" stroke-width="0.5" opacity="0.2"/>
+            <circle cx="60" cy="60" r="8" fill="#71877E" opacity="0.4"/>
+          </svg>
+          <span class="clx-eval-label">Analysis</span>
+        </div>
+        <!-- Insight ring -->
+        <div class="clx-eval-ring clx-eval-ring--4">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="#174F4A" stroke-width="1.5" stroke-dasharray="1 3" opacity="0.35"/>
+            <circle cx="60" cy="60" r="34" fill="none" stroke="#B88A45" stroke-width="0.8" opacity="0.3"/>
+            <circle cx="60" cy="60" r="9" fill="#B88A45" opacity="0.5"/>
+          </svg>
+          <span class="clx-eval-label">Insight</span>
+        </div>
+        <!-- Improvement ring -->
+        <div class="clx-eval-ring clx-eval-ring--5">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="#174F4A" stroke-width="2" opacity="0.4"/>
+            <circle cx="60" cy="60" r="32" fill="none" stroke="#B88A45" stroke-width="1" opacity="0.35"/>
+            <circle cx="60" cy="60" r="10" fill="#B88A45" opacity="0.55"/>
+          </svg>
+          <span class="clx-eval-label">Improvement</span>
+        </div>
+      </div>
+
+      <!-- Layer 4: Floating measurement bars -->
+      <div class="clx-eval-layer clx-eval-layer--bars">
+        <div class="clx-eval-bar clx-eval-bar--1"></div>
+        <div class="clx-eval-bar clx-eval-bar--2"></div>
+        <div class="clx-eval-bar clx-eval-bar--3"></div>
+        <div class="clx-eval-bar clx-eval-bar--4"></div>
+        <div class="clx-eval-bar clx-eval-bar--5"></div>
+      </div>
+
+      <!-- Layer 5: Converging evidence nodes -->
+      <div class="clx-eval-layer clx-eval-layer--nodes">
+        <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+          <!-- Converging lines to center -->
+          <line class="clx-eval-converge" x1="100" y1="200" x2="600" y2="400" stroke="#174F4A" stroke-width="0.5" opacity="0.1"/>
+          <line class="clx-eval-converge" x1="1100" y1="200" x2="600" y2="400" stroke="#174F4A" stroke-width="0.5" opacity="0.1"/>
+          <line class="clx-eval-converge" x1="100" y1="600" x2="600" y2="400" stroke="#B88A45" stroke-width="0.4" opacity="0.08"/>
+          <line class="clx-eval-converge" x1="1100" y1="600" x2="600" y2="400" stroke="#B88A45" stroke-width="0.4" opacity="0.08"/>
+          <line class="clx-eval-converge" x1="600" y1="100" x2="600" y2="400" stroke="#71877E" stroke-width="0.4" opacity="0.08"/>
+          <line class="clx-eval-converge" x1="600" y1="700" x2="600" y2="400" stroke="#71877E" stroke-width="0.4" opacity="0.08"/>
+          <!-- Evidence source nodes -->
+          <circle class="clx-eval-source" cx="100" cy="200" r="5" fill="#174F4A" opacity="0.2"/>
+          <circle class="clx-eval-source" cx="1100" cy="200" r="5" fill="#174F4A" opacity="0.2"/>
+          <circle class="clx-eval-source" cx="100" cy="600" r="4" fill="#B88A45" opacity="0.15"/>
+          <circle class="clx-eval-source" cx="1100" cy="600" r="4" fill="#B88A45" opacity="0.15"/>
+          <circle class="clx-eval-source" cx="600" cy="100" r="4" fill="#71877E" opacity="0.15"/>
+          <circle class="clx-eval-source" cx="600" cy="700" r="4" fill="#71877E" opacity="0.15"/>
+          <!-- Central insight point -->
+          <circle class="clx-eval-center" cx="600" cy="400" r="12" fill="none" stroke="#B88A45" stroke-width="1.5" opacity="0.3"/>
+          <circle class="clx-eval-center" cx="600" cy="400" r="6" fill="#B88A45" opacity="0.4"/>
+        </svg>
+      </div>
+
+      <!-- Layer 6: Gentle evidence waves -->
+      <div class="clx-eval-layer clx-eval-layer--waves">
+        <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+          <path class="clx-eval-wave" d="M0,400 Q300,350 600,400 T1200,400" fill="none" stroke="#174F4A" stroke-width="0.8" opacity="0.12"/>
+          <path class="clx-eval-wave" d="M0,420 Q300,370 600,420 T1200,420" fill="none" stroke="#B88A45" stroke-width="0.6" opacity="0.08"/>
+          <path class="clx-eval-wave" d="M0,440 Q300,390 600,440 T1200,440" fill="none" stroke="#71877E" stroke-width="0.5" opacity="0.06"/>
+        </svg>
+      </div>
+
+      <!-- Ambient wash -->
+      <div class="clx-eval-wash"></div>
+    </div>
+
+    <!-- ============ HERO ============ -->
+    <section class="clx-section clx-section--lg clx-hero" aria-label="Programme Evaluation">
+      <div class="clx-nodes" aria-hidden="true"></div>
+      <div class="clx-container">
+        <div class="clx-hero-grid">
+          <div class="clx-hero-copy">
+            <p class="clx-eyebrow clx-reveal">What We Do / 03</p>
+            <h1 class="clx-h1 clx-reveal" data-delay="1">Programme <span class="clx-text-accent">Evaluation.</span></h1>
+            <p class="clx-body-lg clx-reveal" data-delay="2" style="max-width:48ch">CLIxED conducts rigorous evaluations of educational interventions — including large-scale EdTech programmes, curriculum reforms and professional learning initiatives. We care not only whether an intervention works, but <strong>what works, why it works, and how it can be improved</strong>.</p>
+            <p class="clx-meta clx-reveal" data-delay="3" style="margin-top:var(--space-7)">Impact — Formative — Process — Cost — Outcomes</p>
+            <p class="clx-hero-cta clx-reveal" data-delay="3">
+              <a class="clx-btn clx-btn--primary" href="../contact.html">Start a Conversation <span class="clx-arrow" aria-hidden="true">→</span></a>
+              <a class="clx-link clx-link--arrow" href="../what-we-do.html#areas">All services <span class="clx-arrow" aria-hidden="true">→</span></a>
+            </p>
+          </div>
+          <!-- IMAGE: Pexels #18012456 (free license) — see IMAGE_SOURCES.md -->
+          <figure class="clx-hero-figure clx-reveal" data-delay="2">
+            <div class="clx-hero-frame clx-mask-reveal">
+              <img src="../images/about-tech-classroom.jpg" alt="Students at computers in a school in Chennai, India — technology-enabled learning" width="1920" height="1286" fetchpriority="high">
+              <svg class="clx-hero-frame-nodes" viewBox="0 0 96 96" aria-hidden="true">
+                <path d="M12 84 L84 12"/>
+                <path d="M12 84 L30 84 M84 12 L84 30"/>
+                <circle cx="12" cy="84" r="3"/>
+                <circle cx="84" cy="12" r="3"/>
+                <circle cx="84" cy="30" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                <circle cx="30" cy="84" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <figcaption class="clx-hero-caption">Ground truth — classrooms as the unit of measure</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OUR EVALUATION APPROACH ============ -->
+    <section class="clx-section" aria-label="Our evaluation approach">
+      <div class="clx-container">
+        <div class="clx-grid-12">
+          <div class="clx-col-4">
+            <p class="clx-eyebrow clx-reveal">Our Evaluation Approach</p>
+          </div>
+          <div class="clx-col-8">
+            <h2 class="clx-h2 clx-reveal">Methods that stand up to scrutiny.</h2>
+            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:58ch">Our evaluations are grounded in sound theoretical frameworks, based on appropriate research designs, designed to demonstrate clear impact, and intended to generate meaningful insights for improving educational programmes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EVALUATION TYPES ============ -->
+    <section class="clx-section clx-section--tight" aria-label="Evaluation types">
+      <div class="clx-container">
+        <div class="clx-grid-12">
+          <div class="clx-col-4">
+            <p class="clx-eyebrow clx-reveal">Evaluation Types</p>
+          </div>
+          <div class="clx-col-8">
+            <h2 class="clx-h2 clx-reveal">Five ways we evaluate.</h2>
+          </div>
+        </div>
+
+        <div class="clx-service-areas clx-reveal" data-delay="2">
+          <article class="clx-service-area">
+            <span class="clx-service-area-num" aria-hidden="true">01</span>
+            <h3>Impact Evaluation</h3>
+            <p>Evaluate the impact of educational programmes and interventions and determine whether they produce measurable outcomes.</p>
+          </article>
+          <article class="clx-service-area">
+            <span class="clx-service-area-num" aria-hidden="true">02</span>
+            <h3>Formative Evaluation</h3>
+            <p>Generate evidence during programme development to identify areas for improvement and strengthen the intervention.</p>
+          </article>
+          <article class="clx-service-area">
+            <span class="clx-service-area-num" aria-hidden="true">03</span>
+            <h3>Process &amp; Implementation Evaluation</h3>
+            <p>Understand how a programme was implemented, including the barriers and enablers that influence successful implementation.</p>
+          </article>
+          <article class="clx-service-area">
+            <span class="clx-service-area-num" aria-hidden="true">04</span>
+            <h3>Cost-Effectiveness Analysis</h3>
+            <p>Assess the relationship between the resources invested in an educational intervention and the outcomes achieved.</p>
+          </article>
+          <article class="clx-service-area">
+            <span class="clx-service-area-num" aria-hidden="true">05</span>
+            <h3>Learning Outcomes Assessment</h3>
+            <p>Assess learner outcomes using validated instruments to understand the learning impact of an intervention.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT YOU GET ============ -->
+    <section class="clx-section clx-section--tight" aria-label="What you get">
+      <div class="clx-container">
+        <div class="clx-wyg clx-reveal">
+          <p class="clx-eyebrow">What You Get</p>
+          <h2 class="clx-h3">Evidence-backed insights on what works, why it works, and how to improve.</h2>
+          <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:64ch; margin-top:var(--space-4)">The evaluation provides evidence that helps your organisation understand programme effectiveness, implementation challenges and opportunities for improvement — grounded in data, not assertion.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="clx-section" aria-label="Start a conversation">
+      <div class="clx-container">
+        <div class="clx-cta-final clx-reveal">
+          <div class="clx-nodes clx-nodes--invert" aria-hidden="true"></div>
+          <p class="clx-eyebrow clx-eyebrow--light">Start a Conversation</p>
+          <h2 class="clx-cta-final-title">Need to understand whether your educational programme is working?</h2>
+          <p class="clx-cta-final-sub">We bring methods, independence and an eye for what decision-makers must hear.</p>
+          <a class="clx-btn clx-btn--accent" href="../contact.html">Discuss Your Evaluation Needs <span class="clx-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="clx-footer">
+    <div class="clx-container">
+      <div class="clx-footer-grid">
+        <div class="clx-footer-brand">
+          <span class="clx-brand-mark" aria-hidden="true">CLIxED</span>
+          <p class="clx-muted" style="max-width:34ch; margin-top:var(--space-4)">A Section 8 non-profit working at the intersection of research rigour and classroom realities — across education policy, design, evaluation and professional development.</p>
+        </div>
+        <nav class="clx-footer-cols" aria-label="Explore">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../team.html">Team</a></li>
+            <li><a href="../what-we-do.html">What We Do</a></li>
+            <li><a href="../podcast.html">Podcast</a></li>
+            <li><a href="../insights.html">Insights</a></li>
+            <li><a href="../partners.html">Partners</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Resources">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="../insights.html#research">Research &amp; Reports</a></li>
+            <li><a href="../insights.html#cases">Case Studies</a></li>
+            <li><a href="../insights.html#articles">Articles</a></li>
+            <li><a href="https://oneusefulthing.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Engage">
+          <h4>Engage</h4>
+          <ul>
+            <li><a href="../contact.html">Start a Conversation</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Legal">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../legal/privacy.html">Privacy Policy</a></li>
+            <li><a href="../legal/terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="../legal/cookies.html">Cookie Policy</a></li>
+            <li><a href="../legal/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="clx-footer-legal">
+        <p>— <span id="year">2026</span> CLIxED Foundation. All rights reserved.</p>
+        <p>Registered: Bengaluru, India</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" class="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
+  </button>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/eval-animation.js"></script>
+</body>
+</html>

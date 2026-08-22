@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLIxED — Education Research, Consulting, Design & Evaluation</title>
+  <meta name="description" content="CLIxED is an education research, consulting, design, evaluation, policy and professional-development organisation working at the intersection of research rigour and classroom realities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/clixed.css">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23174F4A'/%3E%3Cpath d='M6 10l10-4 10 4-10 4z' fill='%23B88A45'/%3E%3Cpath d='M8 12v8c0 1.8 3.6 2.8 8 2.8S24 21.8 24 12' stroke='%23B88A45' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body class="clx-body clx-body--home">
+
+
+
+  <!-- ============ SCROLL PROGRESS ============ -->
+  <div id="clxScrollProgress" class="clx-scroll-progress" aria-hidden="true">
+    <span class="clx-scroll-progress-fill"></span>
+  </div>
+
+  <a class="clx-skip" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header id="siteHeader" class="clx-header">
+    <div class="clx-container clx-header-inner">
+      <a href="index.html" class="clx-brand" aria-label="CLIxED — home">
+        <span class="clx-brand-mark" aria-hidden="true">CLIxED</span>
+        <span class="clx-brand-tag">Education Research &amp; Advisory</span>
+      </a>
+      <nav id="mainNav" class="clx-nav" aria-label="Primary">
+        <a class="clx-nav-link" href="index.html">Home</a>
+        <a class="clx-nav-link" href="about.html">About</a>
+        <a class="clx-nav-link" href="team.html">Team</a>
+        <a class="clx-nav-link" href="what-we-do.html">What We Do</a>
+        <a class="clx-nav-link" href="podcast.html">Podcast</a>
+        <a class="clx-nav-link" href="insights.html">Insights</a>
+        <a class="clx-nav-link" href="blog.html">Blog</a>
+        <a class="clx-nav-link" href="partners.html">Partners</a>
+      </nav>
+      <a class="clx-btn clx-btn--primary" href="contact.html">Start a Conversation <span class="clx-arrow" aria-hidden="true">→</span></a>
+      <button id="navToggle" class="clx-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="clx-page-enter">
+
+    <!-- ============ 01 — HERO ============ -->
+    <section class="clx-section clx-section--lg clx-hero" aria-label="CLIxED — shaping the future of learning">
+      <canvas class="clx-hero-canvas" aria-hidden="true"></canvas>
+      <div class="clx-nodes" aria-hidden="true"></div>
+
+      <!-- --- Parallax layers (experimental — strong for testing) --- -->
+
+      <!-- DEEP BACKGROUND: Large, slow-moving shapes -->
+      <div class="clx-parallax-layer clx-parallax-layer--deep-bg" aria-hidden="true">
+        <div class="clx-parallax-el clx-parallax-el--deep-circle-1"></div>
+        <div class="clx-parallax-el clx-parallax-el--deep-circle-2"></div>
+        <div class="clx-parallax-el clx-parallax-el--deep-wave">
+          <svg viewBox="0 0 1200 400" preserveAspectRatio="none">
+            <path d="M0,300 C200,250 400,200 600,220 C800,240 1000,280 1200,260"
+                  fill="none" stroke="#174F4A" stroke-width="1.5" opacity="0.25"/>
+            <path d="M0,350 C250,300 450,260 650,280 C850,300 1050,340 1200,320"
+                  fill="none" stroke="#71877E" stroke-width="1" opacity="0.18"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- BACKGROUND: Medium-speed curves and shapes -->
+      <div class="clx-parallax-layer clx-parallax-layer--bg" aria-hidden="true">
+        <div class="clx-parallax-el clx-parallax-el--bg-curve-1">
+          <svg viewBox="0 0 800 400" preserveAspectRatio="none">
+            <path d="M0,350 C150,300 300,250 450,270 C600,290 750,340 800,320"
+                  fill="none" stroke="#174F4A" stroke-width="1.2" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="clx-parallax-el clx-parallax-el--bg-curve-2">
+          <svg viewBox="0 0 600 300" preserveAspectRatio="none">
+            <path d="M0,250 C100,230 200,180 300,160 C400,140 500,170 600,200"
+                  fill="none" stroke="#B88A45" stroke-width="1" opacity="0.22"/>
+          </svg>
+        </div>
+        <div class="clx-parallax-el clx-parallax-el--bg-circle-1"></div>
+        <div class="clx-parallax-el clx-parallax-el--bg-circle-2"></div>
+      </div>
+
+      <!-- MIDGROUND: Lines, arcs, geometric elements -->
+      <div class="clx-parallax-layer clx-parallax-layer--mid" aria-hidden="true">
+        <div class="clx-parallax-el clx-parallax-el--mid-line-1"></div>
+        <div class="clx-parallax-el clx-parallax-el--mid-line-2"></div>
+        <div class="clx-parallax-el clx-parallax-el--mid-arc-1"></div>
+        <div class="clx-parallax-el clx-parallax-el--mid-arc-2"></div>
+        <div class="clx-parallax-el clx-parallax-el--mid-dots">
+          <svg viewBox="0 0 150 150">
+            <circle cx="25" cy="35" r="3" fill="#174F4A" opacity="0.5"/>
+            <circle cx="75" cy="25" r="2.5" fill="#B88A45" opacity="0.4"/>
+            <circle cx="125" cy="45" r="3" fill="#71877E" opacity="0.45"/>
+            <circle cx="50" cy="85" r="2.5" fill="#174F4A" opacity="0.4"/>
+            <circle cx="100" cy="95" r="3" fill="#B88A45" opacity="0.35"/>
+            <circle cx="35" cy="120" r="2.5" fill="#71877E" opacity="0.4"/>
+            <circle cx="85" cy="130" r="2" fill="#174F4A" opacity="0.3"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- FOREGROUND: Accent elements moving fastest -->
+      <div class="clx-parallax-layer clx-parallax-layer--fg" aria-hidden="true">
+        <div class="clx-parallax-el clx-parallax-el--fg-corner-1">
+          <svg viewBox="0 0 100 100">
+            <path d="M0,0 L100,0 L100,100" fill="none" stroke="#174F4A" stroke-width="1" opacity="0.4"/>
+            <circle cx="100" cy="0" r="4" fill="none" stroke="#B88A45" stroke-width="1.2" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="clx-parallax-el clx-parallax-el--fg-corner-2">
+          <svg viewBox="0 0 80 80">
+            <path d="M80,80 L0,80 L0,0" fill="none" stroke="#71877E" stroke-width="0.8" opacity="0.35"/>
+            <circle cx="0" cy="80" r="3" fill="none" stroke="#174F4A" stroke-width="1" opacity="0.35"/>
+          </svg>
+        </div>
+        <div class="clx-parallax-el clx-parallax-el--fg-line-1"></div>
+        <div class="clx-parallax-el clx-parallax-el--fg-line-2"></div>
+        <div class="clx-parallax-el clx-parallax-el--fg-accent-1"></div>
+        <div class="clx-parallax-el clx-parallax-el--fg-accent-2"></div>
+      </div>
+
+      <!-- 3D DEPTH LAYER: Floating geometric elements -->
+      <div class="clx-3d-layer" aria-hidden="true">
+        <div class="clx-3d-el clx-3d-sphere" data-3d-depth="0.8"></div>
+        <div class="clx-3d-el clx-3d-ring" data-3d-depth="0.5"></div>
+        <div class="clx-3d-el clx-3d-disc" data-3d-depth="0.6"></div>
+        <div class="clx-3d-el clx-3d-plane" data-3d-depth="0.3"></div>
+      </div>
+
+      <div class="clx-container">
+        <div class="clx-hero-grid">
+          <div class="clx-hero-copy">
+            <p class="clx-eyebrow clx-reveal">01 — CLIxED Foundation</p>
+            <h1 class="clx-h1 clx-reveal" data-delay="1">Shaping and Scaling the Future of Learning. <span class="clx-text-accent">Equitably.</span></h1>
+            <p class="clx-body-lg clx-reveal" data-delay="2" style="max-width:46ch">We research how systems work. Advise on policy. Design learning experiences. And nurture educators and learning professionals on the ground.</p>
+            <div class="clx-hero-cta clx-reveal" data-delay="3">
+              <a class="clx-btn clx-btn--primary" href="#areas">Explore Our Work <span class="clx-arrow" aria-hidden="true">→</span></a>
+              <a class="clx-btn clx-btn--secondary" href="contact.html">Work With Us <span class="clx-arrow" aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <!-- IMAGE: Pexels #35552523 (free license) — verify subject before launch -->
+          <figure class="clx-hero-figure clx-reveal" data-delay="2">
+            <div class="clx-hero-frame clx-mask-reveal">
+              <img src="images/fieldwork-rural-classroom-india.jpg" alt="Women attending an educational session in a rural Indian classroom" width="1600" height="1200" fetchpriority="high" data-parallax="0.08">
+              <svg class="clx-hero-frame-nodes" viewBox="0 0 96 96" aria-hidden="true">
+                <path d="M12 84 L84 12"/>
+                <path d="M12 84 L30 84 M84 12 L84 30"/>
+                <circle cx="12" cy="84" r="3"/>
+                <circle cx="84" cy="12" r="3"/>
+                <circle cx="84" cy="30" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                <circle cx="30" cy="84" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <figcaption class="clx-hero-caption">Education / Field / India</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 — WHO WE ARE ============ -->
+    <section class="clx-section" aria-label="Who we are">
+      <canvas class="clx-bg" data-anim="orbs" aria-hidden="true"></canvas>
+      <div class="clx-container">
+        <div class="clx-who-grid">
+          <!-- IMAGE: Pexels #5212342 (free license) — verify subject before launch -->
+          <figure class="clx-reveal">
+            <div class="clx-frame clx-frame--4x3 clx-mask-reveal">
+              <img src="images/classroom-teacher-students.jpg" alt="Teacher interacting with students in a classroom" width="1600" height="1200" loading="lazy" data-parallax="0.06">
+            </div>
+            <figcaption class="clx-caption">Classroom practice — teachers and students</figcaption>
+          </figure>
+          <div class="clx-stack" style="gap:var(--space-6)">
+            <p class="clx-eyebrow clx-reveal">02 — Who We Are</p>
+            <h2 class="clx-h2 clx-reveal">Research rigour, classroom realities.</h2>
+            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:56ch">CLIxED is a Section 8 non-profit organisation working at the intersection of research rigour and classroom realities.</p>
+            <div class="clx-markers clx-reveal" data-delay="2">
+              <div class="clx-marker"><span class="clx-marker-dot" aria-hidden="true"></span><span class="clx-marker-label">Researchers</span></div>
+              <div class="clx-marker"><span class="clx-marker-dot" aria-hidden="true"></span><span class="clx-marker-label">Curriculum designers</span></div>
+              <div class="clx-marker"><span class="clx-marker-dot" aria-hidden="true"></span><span class="clx-marker-label">Consultants</span></div>
+            </div>
+            <p class="clx-muted clx-reveal" data-delay="2" style="max-width:56ch">Experience in Indian government-school contexts, built through the Connected Learning Initiative (CLIx) — recognised with the UNESCO—King Hamad Prize.</p>
+            <p class="clx-reveal" data-delay="3"><a class="clx-link clx-link--arrow" href="about.html">Learn About CLIxED <span class="clx-arrow" aria-hidden="true">→</span></a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TEAM PREVIEW ============ -->
+    <section class="clx-section clx-section--tight" aria-label="The team">
+      <canvas class="clx-bg" data-anim="rise" aria-hidden="true"></canvas>
+      <div class="clx-container">
+        <div class="clx-grid-12">
+          <div class="clx-col-4">
+            <p class="clx-eyebrow clx-reveal">03 — The Team</p>
+            <h2 class="clx-h2 clx-reveal">People who know classrooms.</h2>
+          </div>
+          <div class="clx-col-8">
+            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:52ch">CLIxED's work is carried by its leadership and by academics from reputed universities who contribute as experts on specific projects. Profiles are published as they are confirmed.</p>
+            <p class="clx-reveal" data-delay="2" style="margin-top:var(--space-6)"><a class="clx-link clx-link--arrow" href="team.html">Meet Our Team <span class="clx-arrow" aria-hidden="true">→</span></a></p>
+          </div>
+        </div>
+        <div class="clx-team-preview clx-reveal" data-delay="1">
+          <div class="clx-team-preview-tile">
+            <span class="clx-team-preview-role">Chief Mentor</span>
+            <span class="clx-team-preview-status">Coming soon</span>
+          </div>
+          <div class="clx-team-preview-tile">
+            <span class="clx-team-preview-role">Chief Advisor</span>
+            <span class="clx-team-preview-status">Coming soon</span>
+          </div>
+          <div class="clx-team-preview-tile">
+            <span class="clx-team-preview-role">Contributing Experts</span>
+            <span class="clx-team-preview-status">Project-based</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 — FIVE AREAS OF WORK ============ -->
+    <section class="clx-section clx-section--tight" id="areas" aria-label="What we do">
+      <canvas class="clx-bg" data-anim="gridwalk" aria-hidden="true"></canvas>
+      <div class="clx-container">
+        <div class="clx-grid-12">
+          <div class="clx-col-12">
+            <p class="clx-eyebrow clx-reveal">04 — What We Do</p>
+            <h2 class="clx-h2 clx-reveal clx-muted">Five areas of work.</h2>
+          </div>
+        </div>
+        <div class="clx-service-grid" style="margin-top:var(--space-6)">
+
+          <!-- 01 — Educational Consulting -->
+          <a class="clx-service-card clx-reveal" href="services/educational-consulting.html">
+            <span class="clx-service-num" aria-hidden="true">01</span>
+            <h3 class="clx-service-title">Educational Consulting</h3>
+            <p class="clx-service-desc">Strategy, design and implementation support for education systems, institutions and organisations — from a single school or programme to state and national scale.</p>
+            <span class="clx-btn clx-btn--secondary clx-btn--sm" aria-hidden="true">Learn More <span class="clx-arrow" aria-hidden="true">→</span></span>
+          </a>
+
+          <!-- 02 — Design, Development & Design Evaluation -->
+          <a class="clx-service-card clx-reveal" data-delay="1" href="services/design-development-evaluation.html">
+            <span class="clx-service-num" aria-hidden="true">02</span>
+            <h3 class="clx-service-title">Design, Development &amp; Design Evaluation</h3>
+            <p class="clx-service-desc">Learning experiences, curricula, programmes and products — designed with evidence, developed in context, evaluated for what actually changes.</p>
+            <span class="clx-btn clx-btn--secondary clx-btn--sm" aria-hidden="true">Learn More <span class="clx-arrow" aria-hidden="true">→</span></span>
+          </a>
+
+          <!-- 03 — Programme Evaluation -->
+          <a class="clx-service-card clx-reveal" href="services/programme-evaluation.html">
+            <span class="clx-service-num" aria-hidden="true">03</span>
+            <h3 class="clx-service-title">Programme Evaluation</h3>
+            <p class="clx-service-desc">Rigorous evaluation of education programmes and policies — measuring outcomes, understanding implementation, informing decisions.</p>
+            <span class="clx-btn clx-btn--secondary clx-btn--sm" aria-hidden="true">Learn More <span class="clx-arrow" aria-hidden="true">→</span></span>
+          </a>
+
+          <!-- 04 — Professional Development -->
+          <a class="clx-service-card clx-reveal" data-delay="1" href="services/professional-development.html">
+            <span class="clx-service-num" aria-hidden="true">04</span>
+            <h3 class="clx-service-title">Professional Development</h3>
+            <p class="clx-service-desc">Teacher educators, teachers and learning professionals developed through sustained, practice-connected professional learning.</p>
+            <span class="clx-btn clx-btn--secondary clx-btn--sm" aria-hidden="true">Learn More <span class="clx-arrow" aria-hidden="true">→</span></span>
+          </a>
+
+          <!-- 05 — Research, Policy & Communication -->
+          <a class="clx-service-card clx-reveal" href="services/research-policy-communication.html">
+            <span class="clx-service-num" aria-hidden="true">05</span>
+            <h3 class="clx-service-title">Research, Policy &amp; Communication</h3>
+            <p class="clx-service-desc">Research that informs policy, and communication that moves evidence into practice — reports, briefs and knowledge platforms.</p>
+            <span class="clx-btn clx-btn--secondary clx-btn--sm" aria-hidden="true">Learn More <span class="clx-arrow" aria-hidden="true">→</span></span>
+          </a>
+
+        </div>
+        <p class="clx-reveal" style="margin-top:var(--space-6)"><a class="clx-link clx-link--arrow" href="what-we-do.html">Overview of all services <span class="clx-arrow" aria-hidden="true">→</span></a></p>
+      </div>
+    </section>
+
+    <!-- ============ 05 — WHY CLIxED ============ -->
+    <section class="clx-section" aria-label="Why CLIxED">
+      <canvas class="clx-bg" data-anim="rings" aria-hidden="true"></canvas>
+      <div class="clx-container">
+        <div class="clx-grid-12">
+          <div class="clx-col-4">
+            <p class="clx-eyebrow clx-reveal">05 — Why CLIxED</p>
+            <h2 class="clx-h2 clx-muted clx-reveal">Six reasons change holds.</h2>
+          </div>
+          <div class="clx-col-8 clx-stack" style="gap:var(--space-4); margin-top:var(--space-4)">
+            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:56ch">We are not a generalist consultancy. We are domain specialists with research strength, policy reach and field credibility — built in large-scale Indian government-school contexts.</p>
+            <p class="clx-reveal" data-delay="2"><a class="clx-link clx-link--arrow" href="about.html#who">Why CLIxED, explained in full <span class="clx-arrow" aria-hidden="true">→</span></a></p>
+          </div>
+        </div>
+
+        <div class="clx-diff-grid">
+          <article class="clx-diff-card clx-reveal">
+            <span class="clx-diff-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c2.5-.7 5.5-.7 8 0v12.5c-2.5-1.1-5.5-1.1-8-.5z"/><path d="M12 6c2.5-1.2 5.5-1.2 8-.5v12c-2.5-.7-5.5-.7-8 .5z"/></svg></span>
+            <span class="clx-diff-num" aria-hidden="true">01</span>
+            <h3 class="clx-diff-title">Domain Expertise</h3>
+            <p class="clx-diff-desc">Education research, curriculum design, evaluation and professional development — across the full arc of the field.</p>
+          </article>
+
+          <article class="clx-diff-card clx-reveal" data-delay="1">
+            <span class="clx-diff-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v4L5.5 16a2 2 0 0 0 1.8 3h9.4a2 2 0 0 0 1.8-3L14 7V3"/><path d="M7.2 14h9.6"/></svg></span>
+            <span class="clx-diff-num" aria-hidden="true">02</span>
+            <h3 class="clx-diff-title">Research Strength</h3>
+            <p class="clx-diff-desc">Every claim we make about our work is documented. What we do not yet know, we say so.</p>
+          </article>
+
+          <article class="clx-diff-card clx-reveal" data-delay="2">
+            <span class="clx-diff-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10h14v11"/><path d="M12 3L4 9h16z"/></svg></span>
+            <span class="clx-diff-num" aria-hidden="true">03</span>
+            <h3 class="clx-diff-title">Policy Engagement</h3>
+            <p class="clx-diff-desc">We advise governments and institutions — and translate evidence into briefs and decisions that move.</p>
+          </article>
+
+          <article class="clx-diff-card clx-reveal">
+            <span class="clx-diff-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>
+            <span class="clx-diff-num" aria-hidden="true">04</span>
+            <h3 class="clx-diff-title">Field Credibility</h3>
+            <p class="clx-diff-desc">Findings and designs are produced and tested with teachers and classrooms — not only in papers.</p>
+          </article>
+
+          <article class="clx-diff-card clx-reveal" data-delay="1">
+            <span class="clx-diff-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="m9.5 13 2 2 3.5-4"/></svg></span>
+            <span class="clx-diff-num" aria-hidden="true">05</span>
+            <h3 class="clx-diff-title">Practical Understanding</h3>
+            <p class="clx-diff-desc">We understand infrastructure constraints, teacher capacity and the institutional realities that shape what is possible.</p>
+          </article>
+
+          <article class="clx-diff-card clx-reveal" data-delay="2">
+            <span class="clx-diff-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V8"/><path d="m7 13 5-5 5 5"/><path d="M5 4h14"/></svg></span>
+            <span class="clx-diff-num" aria-hidden="true">06</span>
+            <h3 class="clx-diff-title">Understanding of Scale</h3>
+            <p class="clx-diff-desc">Large-scale experience across multiple states — with teachers, teacher educators, departments and institutions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FIELDWORK BAND ============ -->
+    <section class="clx-section" aria-label="Fieldwork — documentary band">
+      <canvas class="clx-bg" data-anim="diagonals" aria-hidden="true"></canvas>
+      <div class="clx-container">
+        <figure class="clx-reveal clx-band-figure">
+          <!-- IMAGE: Pexels #5756659 (free license) — verify subject before launch -->
+          <div class="clx-frame clx-frame--16x9 clx-mask-reveal">
+            <img src="images/band-fieldwork-workshop.jpg" alt="Education specialist leading a professional development session with adult learners" width="2000" height="1125" loading="lazy" data-parallax="0.12">
+          </div>
+          <figcaption class="clx-band-caption">
+            <span class="clx-band-meta">Fieldwork</span>
+            <span class="clx-band-tags">Education / Practice / India</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ 06 — STRATEGIC FOCUS / FORESIGHT ============ -->
+    <section class="clx-section" aria-label="Strategic focus — foresight and futures thinking">
+      <canvas class="clx-bg" data-anim="orbits" aria-hidden="true"></canvas>
+      <div class="clx-container">
+        <div class="clx-grid-12">
+          <div class="clx-col-4">
+            <p class="clx-eyebrow clx-reveal">06 — Strategic Focus</p>
+          </div>
+          <div class="clx-col-8">
+            <h2 class="clx-h2 clx-reveal">Foresight &amp; Futures Thinking</h2>
+            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:58ch">CLIxED is building capability to help education systems anticipate technological, demographic and policy changes and prepare for multiple possible futures.</p>
+            <p class="clx-reveal" data-delay="2" style="margin-top:var(--space-6)"><a class="clx-link clx-link--arrow" href="foresight-futures.html">Explore Foresight &amp; Futures <span class="clx-arrow" aria-hidden="true">→</span></a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 07 — PARTNER ECOSYSTEM ============ -->
+    <section class="clx-section" aria-label="Who we partner with">
+      <canvas class="clx-bg" data-anim="waves" aria-hidden="true"></canvas>
+      <div class="clx-container">
+        <div class="clx-grid-12">
+          <div class="clx-col-4">
+            <p class="clx-eyebrow clx-reveal">07 — Who We Partner With</p>
+          </div>
+          <div class="clx-col-8">
+            <h2 class="clx-h2 clx-reveal">Organisations serious about change.</h2>
+            <p class="clx-muted clx-reveal" data-delay="1">Governments, institutions, foundations and practitioners — the ecosystem we work within and serve.</p>
+          </div>
+        </div>
+        <div class="clx-partner-wall clx-reveal" data-delay="1">
+          <div class="clx-partner-tile"><span class="clx-partner-mark" aria-hidden="true">GOV</span><span class="clx-partner-name">Government</span></div>
+          <div class="clx-partner-tile"><span class="clx-partner-mark" aria-hidden="true">ID</span><span class="clx-partner-name">International Development</span></div>
+          <div class="clx-partner-tile"><span class="clx-partner-mark" aria-hidden="true">TT</span><span class="clx-partner-name">Think Tanks</span></div>
+          <div class="clx-partner-tile"><span class="clx-partner-mark" aria-hidden="true">SCH</span><span class="clx-partner-name">Schools</span></div>
+          <div class="clx-partner-tile"><span class="clx-partner-mark" aria-hidden="true">HE</span><span class="clx-partner-name">Higher Education</span></div>
+          <div class="clx-partner-tile"><span class="clx-partner-mark" aria-hidden="true">NGO</span><span class="clx-partner-name">NGOs</span></div>
+          <div class="clx-partner-tile"><span class="clx-partner-mark" aria-hidden="true">FDN</span><span class="clx-partner-name">Foundations</span></div>
+          <div class="clx-partner-tile"><span class="clx-partner-mark" aria-hidden="true">IND</span><span class="clx-partner-name">Industry</span></div>
+        </div>
+        <p class="clx-reveal" style="margin-top:var(--space-6)"><a class="clx-link clx-link--arrow" href="what-we-do.html#partners">Who we serve, in detail <span class="clx-arrow" aria-hidden="true">→</span></a></p>
+      </div>
+    </section>
+
+    <!-- ============ 08 — FEATURED INSIGHTS ============ -->
+    <section class="clx-section clx-section--tight" aria-label="Featured insights">
+      <canvas class="clx-bg" data-anim="sheets" aria-hidden="true"></canvas>
+      <div class="clx-container">
+        <div class="clx-grid-12">
+          <div class="clx-col-12">
+            <p class="clx-eyebrow clx-reveal">08 — Featured Insights</p>
+            <h2 class="clx-h2 clx-reveal">What we're sharing, as it's published.</h2>
+            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:64ch">Three to six of the latest items from the CLIxED library — research reports, case studies, policy briefs, articles, podcast conversations and video. This space fills as the library is populated.</p>
+          </div>
+        </div>
+        <div class="clx-publications">
+          <a class="clx-pub clx-pub--research clx-reveal" data-delay="1" href="insights.html#research">
+            <span class="clx-pub-num">01</span>
+            <div>
+              <h3 class="clx-pub-title">Research Report</h3>
+              <p class="clx-pub-meta">Findings — Evaluations — Methods</p>
+            </div>
+            <span class="clx-pub-side">
+              <span class="clx-pub-state">In preparation</span>
+              <span class="clx-pub-more">Library section <span class="clx-arrow" aria-hidden="true">→</span></span>
+            </span>
+          </a>
+          <a class="clx-pub clx-pub--cases clx-reveal" data-delay="2" href="insights.html#cases">
+            <span class="clx-pub-num">02</span>
+            <div>
+              <h3 class="clx-pub-title">Case Study</h3>
+              <p class="clx-pub-meta">Programmes — Implementation — What did not work</p>
+            </div>
+            <span class="clx-pub-side">
+              <span class="clx-pub-state">In preparation</span>
+              <span class="clx-pub-more">Library section <span class="clx-arrow" aria-hidden="true">→</span></span>
+            </span>
+          </a>
+          <a class="clx-pub clx-pub--brief clx-reveal" data-delay="3" href="insights.html#research">
+            <span class="clx-pub-num">03</span>
+            <div>
+              <h3 class="clx-pub-title">Policy Brief</h3>
+              <p class="clx-pub-meta">Analysis — Recommendations — Priorities</p>
+            </div>
+            <span class="clx-pub-side">
+              <span class="clx-pub-state">In preparation</span>
+              <span class="clx-pub-more">Library section <span class="clx-arrow" aria-hidden="true">→</span></span>
+            </span>
+          </a>
+          <a class="clx-pub clx-pub--articles clx-reveal" data-delay="4" href="insights.html#articles">
+            <span class="clx-pub-num">04</span>
+            <div>
+              <h3 class="clx-pub-title">Article</h3>
+              <p class="clx-pub-meta">Commentary for practitioners &amp; policymakers</p>
+            </div>
+            <span class="clx-pub-side">
+              <span class="clx-pub-state">In preparation</span>
+              <span class="clx-pub-more">Library section <span class="clx-arrow" aria-hidden="true">→</span></span>
+            </span>
+          </a>
+          <a class="clx-pub clx-pub--podcast clx-reveal" data-delay="5" href="podcast.html">
+            <span class="clx-pub-num">05</span>
+            <div>
+              <h3 class="clx-pub-title">Podcast</h3>
+              <p class="clx-pub-meta">CLIxED Conversations — Education — Research — Policy</p>
+            </div>
+            <span class="clx-pub-side">
+              <span class="clx-pub-state">In preparation</span>
+              <span class="clx-pub-more">Visit the podcast <span class="clx-arrow" aria-hidden="true">→</span></span>
+            </span>
+          </a>
+          <a class="clx-pub clx-pub--video clx-reveal" data-delay="6" href="insights.html#media">
+            <span class="clx-pub-num">06</span>
+            <div>
+              <h3 class="clx-pub-title">Video</h3>
+              <p class="clx-pub-meta">Film, workshops &amp; field recordings</p>
+            </div>
+            <span class="clx-pub-side">
+              <span class="clx-pub-state">In preparation</span>
+              <span class="clx-pub-more">Library landing <span class="clx-arrow" aria-hidden="true">→</span></span>
+            </span>
+          </a>
+        </div>
+        <p class="clx-reveal" style="margin-top:var(--space-6)"><a class="clx-link clx-link--arrow" href="insights.html">Explore the insights library <span class="clx-arrow" aria-hidden="true">→</span></a></p>
+      </div>
+    </section>
+
+    <!-- ============ 09 — FINAL CTA ============ -->
+    <section class="clx-section clx-section--tight" aria-label="Final call to action">
+      <div class="clx-container">
+        <div class="clx-cta-final clx-reveal">
+          <canvas class="clx-bg clx-bg--cta" data-anim="aurora" aria-hidden="true"></canvas>
+          <div class="clx-nodes clx-nodes--invert" aria-hidden="true"></div>
+          <p class="clx-eyebrow clx-eyebrow--light">09 — Final CTA</p>
+          <h2 class="clx-cta-final-title">Let's talk about your context.</h2>
+          <p class="clx-cta-final-sub">One standard of work — research-led, field-tested and built for scale — across the three audiences we serve.</p>
+          <div class="clx-aud-grid">
+            <article class="clx-aud-card">
+              <span class="clx-aud-num" aria-hidden="true">01</span>
+              <h3 class="clx-aud-title">Educational Institutions &amp; Educators</h3>
+              <p class="clx-aud-desc">Curriculum, classrooms, digital readiness and professional learning — designed, evaluated and strengthened alongside your teams.</p>
+              <a class="clx-aud-link" href="contact.html">Start a conversation <span class="clx-arrow" aria-hidden="true">→</span></a>
+            </article>
+            <article class="clx-aud-card">
+              <span class="clx-aud-num" aria-hidden="true">02</span>
+              <h3 class="clx-aud-title">Social Enterprises, Trusts, Foundations &amp; Policy Bodies</h3>
+              <p class="clx-aud-desc">Programme design, evaluation and policy advice for organisations working to improve education at scale.</p>
+              <a class="clx-aud-link" href="contact.html">Discuss a programme <span class="clx-arrow" aria-hidden="true">→</span></a>
+            </article>
+            <article class="clx-aud-card">
+              <span class="clx-aud-num" aria-hidden="true">03</span>
+              <h3 class="clx-aud-title">Consulting Firms &amp; Industry Organisations</h3>
+              <p class="clx-aud-desc">Research, evidence and domain expertise that deepens your education practice — from first idea to final evaluation.</p>
+              <a class="clx-aud-link" href="contact.html">Partner with us <span class="clx-arrow" aria-hidden="true">→</span></a>
+            </article>
+          </div>
+          <p class="clx-aud-any clx-reveal" data-delay="2">Not sure where you fit? <a href="contact.html">Write to us directly</a>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="clx-footer">
+    <div class="clx-container">
+      <div class="clx-footer-grid">
+        <div class="clx-footer-brand">
+          <span class="clx-brand-mark" aria-hidden="true">CLIxED</span>
+          <p class="clx-muted" style="max-width:34ch; margin-top:var(--space-4)">A Section 8 non-profit working at the intersection of research rigour and classroom realities — across education policy, design, evaluation and professional development.</p>
+        </div>
+        <nav class="clx-footer-cols" aria-label="Explore">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="what-we-do.html">What We Do</a></li>
+            <li><a href="podcast.html">Podcast</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="partners.html">Partners</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Resources">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="insights.html#research">Research &amp; Reports</a></li>
+            <li><a href="insights.html#cases">Case Studies</a></li>
+            <li><a href="insights.html#articles">Articles</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="https://oneusefulthing.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Engage">
+          <h4>Engage</h4>
+          <ul>
+            <li><a href="contact.html">Start a Conversation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Legal">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="legal/privacy.html">Privacy Policy</a></li>
+            <li><a href="legal/terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="legal/cookies.html">Cookie Policy</a></li>
+            <li><a href="legal/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="clx-footer-legal">
+        <p>— <span id="year">2026</span> CLIxED Foundation. All rights reserved.</p>
+        <p>Registered: Bengaluru, India</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" class="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/home-bg.js"></script>
+  <script src="js/bg-engine.js"></script>
+  <script src="js/home-sections.js"></script>
+  <script src="js/home-parallax.js"></script>
+  <script src="js/home-3d.js"></script>
+</body>
+</html>

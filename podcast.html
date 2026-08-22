@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Podcast — CLIxED Conversations | Education, Learning, Research &amp; Policy</title>
+  <meta name="description" content="CLIxED Conversations — conversations on education, learning, research, policy and practice. Official episodes are being recorded.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/clixed.css">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23174F4A'/%3E%3Cpath d='M6 10l10-4 10 4-10 4z' fill='%23B88A45'/%3E%3Cpath d='M8 12v8c0 1.8 3.6 2.8 8 2.8S24 21.8 24 12' stroke='%23B88A45' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body class="clx-body clx-body--podcast">
+
+
+
+  <!-- ============ SCROLL PROGRESS ============ -->
+  <div id="clxScrollProgress" class="clx-scroll-progress" aria-hidden="true">
+    <span class="clx-scroll-progress-fill"></span>
+  </div>
+
+  <a class="clx-skip" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header id="siteHeader" class="clx-header">
+    <div class="clx-container clx-header-inner">
+      <a href="index.html" class="clx-brand" aria-label="CLIxED — home">
+        <span class="clx-brand-mark" aria-hidden="true">CLIxED</span>
+        <span class="clx-brand-tag">Education Research &amp; Advisory</span>
+      </a>
+      <nav id="mainNav" class="clx-nav" aria-label="Primary">
+        <a class="clx-nav-link" href="index.html">Home</a>
+        <a class="clx-nav-link" href="about.html">About</a>
+        <a class="clx-nav-link" href="team.html">Team</a>
+        <a class="clx-nav-link" href="what-we-do.html">What We Do</a>
+        <a class="clx-nav-link" href="podcast.html">Podcast</a>
+        <a class="clx-nav-link" href="insights.html">Insights</a>
+        <a class="clx-nav-link" href="blog.html">Blog</a>
+        <a class="clx-nav-link" href="partners.html">Partners</a>
+      </nav>
+      <a class="clx-btn clx-btn--primary" href="contact.html">Start a Conversation <span class="clx-arrow" aria-hidden="true">→</span></a>
+      <button id="navToggle" class="clx-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="clx-page-enter">
+
+    <!-- ============ 01 — HERO ============ -->
+    <section class="clx-section clx-section--lg clx-hero" aria-label="CLIxED Conversations — the podcast">
+      <canvas class="clx-hero-canvas" aria-hidden="true"></canvas>
+      <div class="clx-nodes" aria-hidden="true"></div>
+      <div class="clx-container">
+        <div class="pod-hero">
+          <div class="pod-hero-masthead clx-reveal">
+            <p class="clx-eyebrow">CLIxED Conversations</p>
+            <p class="clx-meta">Official episodes are being recorded</p>
+          </div>
+          <div class="pod-hero-grid">
+            <div class="pod-hero-copy">
+              <h1 class="clx-h1 clx-reveal" data-delay="1">Conversations Shaping <span class="clx-text-accent">the Future of Learning.</span></h1>
+              <p class="clx-body-lg clx-reveal" data-delay="2">CLIxED's space for conversations on education, research, policy, learning and educational practice — with researchers, policymakers, educators, designers and practitioners, on how education actually changes.</p>
+            </div>
+            <dl class="pod-hero-spec clx-reveal" data-delay="2">
+              <div class="pod-spec-row">
+                <dt>Format</dt>
+                <dd>In-depth conversations — field research, policy, classroom practice and the people behind education change.</dd>
+              </div>
+              <div class="pod-spec-row">
+                <dt>Who you'll hear</dt>
+                <dd>Researchers, educators, policymakers, designers, evaluators and practitioners from India and beyond.</dd>
+              </div>
+              <div class="pod-spec-row">
+                <dt>Where to listen</dt>
+                <dd>YouTube and leading podcast platforms — links published on this page when the official channel goes live.</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="pod-hero-foot clx-reveal" data-delay="3">
+            <div class="pod-wave" aria-hidden="true">
+              <span style="--h:18%"></span><span style="--h:34%"></span><span style="--h:52%"></span>
+              <span style="--h:28%"></span><span style="--h:15%"></span><span style="--h:44%"></span>
+              <span style="--h:62%"></span><span class="pod-wave--live" style="--h:30%;animation-delay:0s"></span>
+              <span style="--h:20%"></span><span style="--h:38%"></span><span style="--h:55%"></span>
+              <span class="pod-wave--live" style="--h:24%;animation-delay:.45s"></span>
+              <span style="--h:42%"></span><span style="--h:32%"></span><span style="--h:17%"></span>
+              <span style="--h:48%"></span><span class="pod-wave--live" style="--h:70%;animation-delay:.9s"></span>
+              <span style="--h:28%"></span><span style="--h:22%"></span><span style="--h:40%"></span>
+              <span style="--h:56%"></span><span style="--h:25%"></span><span style="--h:46%"></span>
+              <span style="--h:34%"></span><span style="--h:20%"></span><span style="--h:38%"></span>
+              <span style="--h:50%"></span><span style="--h:30%"></span><span style="--h:44%"></span>
+              <span style="--h:22%"></span><span style="--h:36%"></span><span style="--h:58%"></span>
+            </div>
+            <p class="clx-meta">Education — Research — Policy — Learning — Practice</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 — FEATURED EPISODE ============ -->
+    <section class="clx-section" aria-label="Featured episode" id="featured">
+      <canvas class="clx-bg" data-anim="eqband" aria-hidden="true"></canvas>
+      <div class="clx-container">
+        <div class="pod-featured">
+          <div class="pod-featured-head clx-reveal">
+            <p class="clx-eyebrow">Featured Episode</p>
+            <p class="clx-meta">Recommended from the field — not a CLIxED production</p>
+          </div>
+          <div class="pod-featured-grid">
+            <div class="pod-player clx-reveal">
+              <div class="pod-player-head">
+                <span class="pod-player-dot" aria-hidden="true"></span>
+                <span class="pod-player-label">Now playing</span>
+                <span class="pod-player-title">RISE Education Systems Diagnostic: Tool for Identifying Strategic Priorities for Ed System Reform</span>
+              </div>
+              <div class="pod-player-frame">
+                <a class="clx-video-thumb" href="https://www.youtube.com/watch?v=bkSF1Lgv9qE" target="_blank" rel="noopener noreferrer" data-youtube="bkSF1Lgv9qE" aria-label="Play RISE Education Systems Diagnostic — Tool for Identifying Strategic Priorities for Ed System Reform on YouTube">
+                  <img src="https://i.ytimg.com/vi/bkSF1Lgv9qE/hqdefault.jpg" alt="RISE Education Systems Diagnostic — Tool for Identifying Strategic Priorities for Ed System Reform" width="480" height="360" loading="eager">
+                  <span class="clx-video-play" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+                  </span>
+                </a>
+              </div>
+              <div class="pod-player-foot">
+                <span>Plays on YouTube</span>
+                <span>Starts when you press play</span>
+              </div>
+            </div>
+            <div class="pod-featured-copy clx-reveal" data-delay="1">
+              <p class="pod-byline">RISE Programme — Systems research</p>
+              <h2 class="clx-h3">RISE Education Systems Diagnostic: Tool for Identifying Strategic Priorities for Ed System Reform</h2>
+              <p class="pod-featured-desc">How an education systems approach can help identify where reform effort should go to improve learning.</p>
+              <time class="pod-published" datetime="2023-02-03T03:43:15Z" data-published="2023-02-03T03:43:15Z">Published: 3 February 2023 — 3:43 AM UTC</time>
+              <div class="pod-actions">
+                <a class="clx-btn clx-btn--primary" href="https://www.youtube.com/watch?v=bkSF1Lgv9qE" target="_blank" rel="noopener noreferrer">Listen Now <span class="clx-arrow" aria-hidden="true">→</span></a>
+                <a class="clx-btn clx-btn--secondary" href="#library">Browse the Library <span class="clx-arrow" aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 — EPISODE LIBRARY ============ -->
+    <section class="clx-section" aria-label="Episode library" id="library">
+      <canvas class="clx-bg" data-anim="sonicrings" aria-hidden="true"></canvas>
+      <div class="clx-container">
+        <div class="pod-library">
+          <div class="clx-grid-12">
+            <div class="clx-col-5">
+              <p class="clx-eyebrow clx-reveal">Episode Library</p>
+              <h2 class="clx-h2 clx-reveal" data-delay="1">Selected conversations from the field.</h2>
+            </div>
+            <div class="clx-col-7">
+              <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:60ch">While official CLIxED episodes are being recorded, we are sharing selected conversations from education research, policy and practice — published by the researchers and organisations who created them. These are not CLIxED productions; we simply recommend them.</p>
+            </div>
+          </div>
+          <div class="pod-filters clx-reveal" data-delay="1" role="group" aria-label="Filter episodes by area">
+            <button type="button" class="pod-chip" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="pod-chip" data-filter="systems-research" aria-pressed="false">Systems research</button>
+            <button type="button" class="pod-chip" data-filter="evidence-practice" aria-pressed="false">Evidence &amp; practice</button>
+            <button type="button" class="pod-chip" data-filter="field-measurement" aria-pressed="false">Field measurement</button>
+            <button type="button" class="pod-chip" data-filter="research-methods" aria-pressed="false">Research methods</button>
+          </div>
+          <div class="pod-episodes clx-reveal" data-delay="2">
+            <article class="clx-video-card pod-card pod-episode" data-tags="systems-research">
+              <a class="clx-video-thumb" href="https://www.youtube.com/watch?v=bkSF1Lgv9qE" target="_blank" rel="noopener noreferrer" data-youtube="bkSF1Lgv9qE" aria-label="Play RISE Education Systems Diagnostic — Tool for Identifying Strategic Priorities for Ed System Reform on YouTube">
+                <img src="https://i.ytimg.com/vi/bkSF1Lgv9qE/hqdefault.jpg" alt="RISE Education Systems Diagnostic — Tool for Identifying Strategic Priorities for Ed System Reform" width="480" height="360" loading="lazy">
+                <span class="clx-video-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+                </span>
+                <span class="pod-index" aria-hidden="true">No. 01</span>
+              </a>
+              <div class="clx-video-body">
+                <p class="clx-video-byline">RISE Programme — Systems research</p>
+                <h3 class="clx-video-title">RISE Education Systems Diagnostic: Tool for Identifying Strategic Priorities for Ed System Reform</h3>
+                <p class="clx-video-note">How an education systems approach can help identify where reform effort should go to improve learning.</p>
+                <time class="pod-published" datetime="2023-02-03T03:43:15Z" data-published="2023-02-03T03:43:15Z">Published: 3 February 2023 — 3:43 AM UTC</time>
+                <div class="pod-card-footer">
+                  <a class="clx-btn clx-btn--secondary clx-btn--sm" href="https://www.youtube.com/watch?v=bkSF1Lgv9qE" target="_blank" rel="noopener noreferrer">View on YouTube <span class="clx-arrow" aria-hidden="true">→</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="clx-video-card pod-card pod-episode" data-tags="evidence-practice">
+              <a class="clx-video-thumb" href="https://www.youtube.com/watch?v=AiRYrMr7NEY" target="_blank" rel="noopener noreferrer" data-youtube="AiRYrMr7NEY" aria-label="Play Evidence to Policy — Changing Lives Through Evidence on YouTube">
+                <img src="https://i.ytimg.com/vi/AiRYrMr7NEY/maxresdefault.jpg" alt="Evidence to Policy — Changing Lives Through Evidence" width="1280" height="720" loading="lazy">
+                <span class="clx-video-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+                </span>
+                <span class="pod-index" aria-hidden="true">No. 02</span>
+              </a>
+              <div class="clx-video-body">
+                <p class="clx-video-byline">J-PAL — Evidence &amp; practice</p>
+                <h3 class="clx-video-title">Evidence to Policy | Changing Lives Through Evidence</h3>
+                <p class="clx-video-note">How J-PAL works with partners to build a culture of evidence use and take proven programmes to scale.</p>
+                <time class="pod-published" datetime="2020-02-11T00:00:00Z" data-published="2020-02-11T00:00:00Z">Published: 11 February 2020 — 12:00 AM UTC</time>
+                <div class="pod-card-footer">
+                  <a class="clx-btn clx-btn--secondary clx-btn--sm" href="https://www.youtube.com/watch?v=AiRYrMr7NEY" target="_blank" rel="noopener noreferrer">View on YouTube <span class="clx-arrow" aria-hidden="true">→</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="clx-video-card pod-card pod-episode" data-tags="field-measurement">
+              <a class="clx-video-thumb" href="https://www.youtube.com/watch?v=qOCX_zPWuoY" target="_blank" rel="noopener noreferrer" data-youtube="qOCX_zPWuoY" aria-label="Play ASER 2024 — National findings on YouTube">
+                <img src="https://i.ytimg.com/vi/qOCX_zPWuoY/maxresdefault.jpg" alt="ASER 2024 — National findings" width="1280" height="720" loading="lazy">
+                <span class="clx-video-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+                </span>
+                <span class="pod-index" aria-hidden="true">No. 03</span>
+              </a>
+              <div class="clx-video-body">
+                <p class="clx-video-byline">ASER Centre — Field measurement</p>
+                <h3 class="clx-video-title">ASER 2024: National Findings</h3>
+                <p class="clx-video-note">National findings on school enrolment and foundational learning across rural India, from the citizen-led survey.</p>
+                <time class="pod-published" datetime="2025-01-28T06:05:53Z" data-published="2025-01-28T06:05:53Z">Published: 28 January 2025 — 6:05 AM UTC</time>
+                <div class="pod-card-footer">
+                  <a class="clx-btn clx-btn--secondary clx-btn--sm" href="https://www.youtube.com/watch?v=qOCX_zPWuoY" target="_blank" rel="noopener noreferrer">View on YouTube <span class="clx-arrow" aria-hidden="true">→</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="clx-video-card pod-card pod-episode" data-tags="research-methods">
+              <a class="clx-video-thumb" href="https://www.youtube.com/watch?v=KFRnY-5K5OU" target="_blank" rel="noopener noreferrer" data-youtube="KFRnY-5K5OU" aria-label="Play Prize Lecture — Esther Duflo, Prize in Economic Sciences 2019 on YouTube">
+                <img src="https://i.ytimg.com/vi/KFRnY-5K5OU/maxresdefault.jpg" alt="Prize Lecture — Esther Duflo, Prize in Economic Sciences 2019" width="1280" height="720" loading="lazy">
+                <span class="clx-video-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+                </span>
+                <span class="pod-index" aria-hidden="true">No. 04</span>
+              </a>
+              <div class="clx-video-body">
+                <p class="clx-video-byline">Nobel Prize — Research methods</p>
+                <h3 class="clx-video-title">Prize Lecture: Esther Duflo, Prize in Economic Sciences 2019</h3>
+                <p class="clx-video-note">Field experiments, rigorous evidence and how economics research can inform policy in education and poverty.</p>
+                <time class="pod-published" datetime="2019-12-08T16:02:54Z" data-published="2019-12-08T16:02:54Z">Published: 8 December 2019 — 4:02 PM UTC</time>
+                <div class="pod-card-footer">
+                  <a class="clx-btn clx-btn--secondary clx-btn--sm" href="https://www.youtube.com/watch?v=KFRnY-5K5OU" target="_blank" rel="noopener noreferrer">View on YouTube <span class="clx-arrow" aria-hidden="true">→</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 — FROM THE FIELD ============ -->
+    <!-- Contextual editorial image: not a CLIxED recording or guest. -->
+    <section class="clx-section" aria-label="Learning conversation context">
+      <div class="clx-container">
+        <figure class="clx-reveal" style="margin:0">
+          <div class="clx-frame clx-frame--16x9 clx-mask-reveal">
+            <img src="images/podcast-learning-discussion.jpg" alt="Learners and an educator taking part in a university classroom discussion" width="6000" height="4000" loading="lazy">
+          </div>
+          <figcaption class="clx-band-caption">
+            <span class="clx-band-meta">In conversation</span>
+            <span class="clx-band-tags">Contextual editorial image — not a CLIxED recording or guest</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ 05 — ABOUT THE PODCAST ============ -->
+    <section class="clx-section" aria-label="About the podcast" id="about">
+      <canvas class="clx-bg" data-anim="radiowave" aria-hidden="true"></canvas>
+      <div class="clx-container">
+        <div class="pod-about">
+          <div class="clx-grid-12">
+            <div class="clx-col-5">
+              <p class="clx-eyebrow clx-reveal">About the Podcast</p>
+              <h2 class="clx-h2 clx-reveal" data-delay="1">Conversations about how education actually changes.</h2>
+            </div>
+            <div class="clx-col-7">
+              <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:60ch">CLIxED Conversations will bring together researchers, policymakers, educators, designers and practitioners — talking about how education actually changes. Episode details and the official channel link will be published here when ready.</p>
+            </div>
+          </div>
+          <div class="pod-about-grid clx-reveal" data-delay="2">
+            <article class="pod-about-card">
+              <p class="clx-meta">Coming soon</p>
+              <h3 class="clx-h4">Episode format</h3>
+              <p>In-depth conversations — field research, policy, classroom practice and the people behind education change.</p>
+            </article>
+            <article class="pod-about-card">
+              <p class="clx-meta">Coming soon</p>
+              <h3 class="clx-h4">Who you'll hear</h3>
+              <p>Researchers, educators, policymakers, designers, evaluators and practitioners from India and beyond.</p>
+            </article>
+            <article class="pod-about-card">
+              <p class="clx-meta">Coming soon</p>
+              <h3 class="clx-h4">Where to listen</h3>
+              <p>YouTube and leading podcast platforms. Links will be published on this page when the official channel goes live.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 — FROM PODCAST TO PAPER ============ -->
+    <section class="clx-section" aria-label="Substack coming soon">
+      <canvas class="clx-bg" data-anim="fieldgrain" aria-hidden="true"></canvas>
+      <div class="clx-container">
+        <div class="clx-grid-12">
+          <div class="clx-col-4">
+            <p class="clx-eyebrow clx-reveal">In writing</p>
+          </div>
+          <div class="clx-col-8">
+            <h2 class="clx-h2 clx-reveal">From podcast to paper.</h2>
+            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:60ch">Our Substack publication — field notes, research briefs and longer essays from the same conversations — is coming soon.</p>
+            <p class="clx-meta clx-reveal" data-delay="2" style="margin-top:var(--space-4)">Substack publication coming soon</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 07 — CTA ============ -->
+    <section class="clx-section" aria-label="Stay connected with CLIxED">
+      <canvas class="clx-bg" data-anim="podaurora" aria-hidden="true"></canvas>
+      <div class="clx-container">
+        <div class="pod-cta">
+          <div class="clx-grid-12">
+            <div class="clx-col-7">
+              <p class="clx-eyebrow clx-reveal">Stay Connected With CLIxED</p>
+              <h2 class="clx-h2 clx-reveal" data-delay="1">Explore the wider CLIxED knowledge ecosystem.</h2>
+              <p class="clx-body-lg clx-reveal" data-delay="2" style="max-width:56ch">While official episodes are being recorded, follow the wider CLIxED knowledge ecosystem — research, reports, case studies, articles and conversations — as it is published.</p>
+              <div class="pod-actions clx-reveal" data-delay="3">
+                <a class="clx-btn clx-btn--primary" href="insights.html">Explore Insights <span class="clx-arrow" aria-hidden="true">→</span></a>
+                <a class="clx-btn clx-btn--secondary" href="contact.html">Start a Conversation <span class="clx-arrow" aria-hidden="true">→</span></a>
+              </div>
+              <p class="clx-meta clx-reveal" data-delay="3" style="margin-top:var(--space-6)">Substack publication — coming soon</p>
+            </div>
+            <div class="clx-col-5 clx-reveal" data-delay="2">
+              <figure class="pod-wave-panel" aria-hidden="true">
+                <div class="pod-wave pod-wave--small">
+                  <span style="--h:34%"></span><span style="--h:48%"></span><span style="--h:26%"></span>
+                  <span style="--h:56%"></span><span style="--h:38%"></span><span style="--h:22%"></span>
+                  <span style="--h:50%"></span><span class="pod-wave--live" style="--h:30%;animation-delay:.2s"></span>
+                  <span style="--h:44%"></span><span style="--h:24%"></span><span style="--h:58%"></span>
+                  <span style="--h:36%"></span><span style="--h:28%"></span><span class="pod-wave--live" style="--h:52%;animation-delay:.6s"></span>
+                  <span style="--h:20%"></span><span style="--h:46%"></span><span style="--h:32%"></span>
+                </div>
+                <figcaption class="pod-wave-caption">A conversation in progress — official episodes are being recorded.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="clx-footer">
+    <div class="clx-container">
+      <div class="clx-footer-grid">
+        <div class="clx-footer-brand">
+          <span class="clx-brand-mark" aria-hidden="true">CLIxED</span>
+          <p class="clx-muted" style="max-width:34ch; margin-top:var(--space-4)">A Section 8 non-profit working at the intersection of research rigour and classroom realities — across education policy, design, evaluation and professional development.</p>
+        </div>
+        <nav class="clx-footer-cols" aria-label="Explore">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="what-we-do.html">What We Do</a></li>
+            <li><a href="podcast.html">Podcast</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="partners.html">Partners</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Resources">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="insights.html#research">Research &amp; Reports</a></li>
+            <li><a href="insights.html#cases">Case Studies</a></li>
+            <li><a href="insights.html#articles">Articles</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="https://oneusefulthing.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Engage">
+          <h4>Engage</h4>
+          <ul>
+            <li><a href="contact.html">Start a Conversation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Legal">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="legal/privacy.html">Privacy Policy</a></li>
+            <li><a href="legal/terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="legal/cookies.html">Cookie Policy</a></li>
+            <li><a href="legal/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="clx-footer-legal">
+        <p>— <span id="year">2026</span> CLIxED Foundation. All rights reserved.</p>
+        <p>Registered: Bengaluru, India</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" class="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/bg-engine.js"></script>
+  <script src="js/podcast-hero.js"></script>
+  <script src="js/podcast-sections.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var publishedTimes = document.querySelectorAll('.pod-published[data-published]');
+      var dateFormatter = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'UTC',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+      var timeFormatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'UTC',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      });
+      Array.prototype.forEach.call(publishedTimes, function (publishedTime) {
+        var date = new Date(publishedTime.getAttribute('data-published'));
+        if (!isNaN(date.getTime())) {
+          publishedTime.textContent = 'Published: ' + dateFormatter.format(date) + ' — ' + timeFormatter.format(date) + ' UTC';
+        }
+      });
+      var thumbs = document.querySelectorAll('.clx-video-thumb[data-youtube]');
+      Array.prototype.forEach.call(thumbs, function (thumb) {
+        thumb.addEventListener('click', function (e) {
+          if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          e.preventDefault();
+          var id = thumb.getAttribute('data-youtube');
+          var player = document.createElement('div');
+          player.className = 'clx-video-player';
+          player.setAttribute('role', 'region');
+          player.setAttribute('aria-label', 'Video player');
+          var frame = document.createElement('iframe');
+          frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+          frame.title = thumb.getAttribute('aria-label') || 'Video';
+          frame.setAttribute('loading', 'lazy');
+          frame.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+          frame.setAttribute('allowfullscreen', '');
+          player.appendChild(frame);
+          thumb.replaceWith(player);
+        });
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      'use strict';
+      var chips = document.querySelectorAll('.pod-chip');
+      var episodes = document.querySelectorAll('.pod-episode');
+      Array.prototype.forEach.call(chips, function (chip) {
+        chip.addEventListener('click', function () {
+          var filter = chip.getAttribute('data-filter');
+          Array.prototype.forEach.call(chips, function (c) {
+            c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+          });
+          Array.prototype.forEach.call(episodes, function (ep) {
+            var tags = ep.getAttribute('data-tags') || '';
+            ep.hidden = filter !== 'all' && tags.indexOf(filter) === -1;
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

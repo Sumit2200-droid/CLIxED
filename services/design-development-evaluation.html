@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design, Development &amp; Design Evaluation — CLIxED</title>
+  <meta name="description" content="CLIxED designs learning experiences, curricula, programmes and products — from evidence, with teachers and classrooms — and evaluates designs independently for what they can actually achieve.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/clixed.css">
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23174F4A'/%3E%3Cpath d='M6 10l10-4 10 4-10 4z' fill='%23B88A45'/%3E%3Cpath d='M8 12v8c0 1.8 3.6 2.8 8 2.8S24 21.8 24 12' stroke='%23B88A45' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body class="clx-body clx-body--design-dev">
+
+
+
+  <!-- ============ SCROLL PROGRESS ============ -->
+  <div id="clxScrollProgress" class="clx-scroll-progress" aria-hidden="true">
+    <span class="clx-scroll-progress-fill"></span>
+  </div>
+
+  <a class="clx-skip" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header id="siteHeader" class="clx-header">
+    <div class="clx-container clx-header-inner">
+      <a href="../index.html" class="clx-brand" aria-label="CLIxED — home">
+        <span class="clx-brand-mark" aria-hidden="true">CLIxED</span>
+        <span class="clx-brand-tag">Education Research &amp; Advisory</span>
+      </a>
+      <nav id="mainNav" class="clx-nav" aria-label="Primary">
+        <a class="clx-nav-link" href="../index.html">Home</a>
+        <a class="clx-nav-link" href="../about.html">About</a>
+        <a class="clx-nav-link" href="../team.html">Team</a>
+        <a class="clx-nav-link" href="../what-we-do.html">What We Do</a>
+        <a class="clx-nav-link" href="../podcast.html">Podcast</a>
+        <a class="clx-nav-link" href="../insights.html">Insights</a>
+        <a class="clx-nav-link" href="../partners.html">Partners</a>
+      </nav>
+      <a class="clx-btn clx-btn--primary" href="../contact.html">Start a Conversation <span class="clx-arrow" aria-hidden="true">→</span></a>
+      <button id="navToggle" class="clx-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="clx-page-enter">
+
+    <!-- --- Background animation: Design in Motion --- -->
+    <div class="clx-design-bg" aria-hidden="true">
+      <!-- Layer 1: Blueprint grid (slowest) -->
+      <div class="clx-design-layer clx-design-layer--grid">
+        <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+          <line class="clx-design-hline" x1="0" y1="100" x2="1200" y2="100" stroke="#174F4A" stroke-width="0.4" opacity="0.12"/>
+          <line class="clx-design-hline" x1="0" y1="200" x2="1200" y2="200" stroke="#174F4A" stroke-width="0.3" opacity="0.1"/>
+          <line class="clx-design-hline" x1="0" y1="300" x2="1200" y2="300" stroke="#B88A45" stroke-width="0.3" opacity="0.08"/>
+          <line class="clx-design-hline" x1="0" y1="400" x2="1200" y2="400" stroke="#174F4A" stroke-width="0.4" opacity="0.1"/>
+          <line class="clx-design-hline" x1="0" y1="500" x2="1200" y2="500" stroke="#71877E" stroke-width="0.3" opacity="0.08"/>
+          <line class="clx-design-hline" x1="0" y1="600" x2="1200" y2="600" stroke="#174F4A" stroke-width="0.3" opacity="0.1"/>
+          <line class="clx-design-hline" x1="0" y1="700" x2="1200" y2="700" stroke="#B88A45" stroke-width="0.2" opacity="0.06"/>
+          <line class="clx-design-vline" x1="150" y1="0" x2="150" y2="800" stroke="#174F4A" stroke-width="0.3" opacity="0.06"/>
+          <line class="clx-design-vline" x1="300" y1="0" x2="300" y2="800" stroke="#174F4A" stroke-width="0.3" opacity="0.06"/>
+          <line class="clx-design-vline" x1="450" y1="0" x2="450" y2="800" stroke="#71877E" stroke-width="0.2" opacity="0.05"/>
+          <line class="clx-design-vline" x1="600" y1="0" x2="600" y2="800" stroke="#B88A45" stroke-width="0.3" opacity="0.06"/>
+          <line class="clx-design-vline" x1="750" y1="0" x2="750" y2="800" stroke="#174F4A" stroke-width="0.2" opacity="0.05"/>
+          <line class="clx-design-vline" x1="900" y1="0" x2="900" y2="800" stroke="#174F4A" stroke-width="0.3" opacity="0.06"/>
+          <line class="clx-design-vline" x1="1050" y1="0" x2="1050" y2="800" stroke="#71877E" stroke-width="0.2" opacity="0.04"/>
+        </svg>
+      </div>
+
+      <!-- Layer 2: Design shapes (medium-slow) -->
+      <div class="clx-design-layer clx-design-layer--shapes">
+        <div class="clx-design-shape clx-design-shape--1">
+          <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="#174F4A" stroke-width="1" stroke-dasharray="4 6" opacity="0.25"/></svg>
+        </div>
+        <div class="clx-design-shape clx-design-shape--2">
+          <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="35" fill="none" stroke="#B88A45" stroke-width="0.8" stroke-dasharray="3 5" opacity="0.2"/></svg>
+        </div>
+        <div class="clx-design-shape clx-design-shape--3">
+          <svg viewBox="0 0 120 80"><rect x="10" y="10" width="100" height="60" fill="none" stroke="#174F4A" stroke-width="1" stroke-dasharray="6 4" opacity="0.2"/><line x1="10" y1="30" x2="110" y2="30" stroke="#B88A45" stroke-width="0.5" opacity="0.15"/><line x1="10" y1="50" x2="110" y2="50" stroke="#71877E" stroke-width="0.5" opacity="0.12"/></svg>
+        </div>
+        <div class="clx-design-shape clx-design-shape--4">
+          <svg viewBox="0 0 100 100"><polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="none" stroke="#71877E" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.18"/></svg>
+        </div>
+        <div class="clx-design-shape clx-design-shape--5">
+          <svg viewBox="0 0 140 60"><rect x="5" y="5" width="40" height="50" rx="4" fill="none" stroke="#174F4A" stroke-width="0.8" opacity="0.2"/><rect x="50" y="15" width="40" height="30" rx="4" fill="none" stroke="#B88A45" stroke-width="0.8" opacity="0.18"/><rect x="95" y="5" width="40" height="50" rx="4" fill="none" stroke="#71877E" stroke-width="0.8" opacity="0.16"/><line x1="45" y1="30" x2="50" y2="30" stroke="#174F4A" stroke-width="0.5" opacity="0.15"/><line x1="90" y1="30" x2="95" y2="30" stroke="#174F4A" stroke-width="0.5" opacity="0.15"/></svg>
+        </div>
+        <div class="clx-design-shape clx-design-shape--6">
+          <svg viewBox="0 0 200 80"><path d="M10,40 C50,20 80,60 120,40 C160,20 180,50 190,40" fill="none" stroke="#174F4A" stroke-width="1" stroke-linecap="round" opacity="0.2"/><circle cx="10" cy="40" r="4" fill="#174F4A" opacity="0.25"/><circle cx="120" cy="40" r="4" fill="#B88A45" opacity="0.25"/><circle cx="190" cy="40" r="4" fill="#71877E" opacity="0.25"/></svg>
+        </div>
+        <div class="clx-design-shape clx-design-shape--7">
+          <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#B88A45" stroke-width="1.5" opacity="0.2"/><path d="M30,50 L45,65 L70,35" fill="none" stroke="#174F4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/></svg>
+        </div>
+      </div>
+
+      <!-- Layer 3: Connection paths (medium) -->
+      <div class="clx-design-layer clx-design-layer--connections">
+        <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+          <path class="clx-design-path clx-design-path--1" d="M100,200 C250,200 300,300 450,300 C600,300 650,400 800,400 C900,400 950,500 1050,500 C1100,500 1120,450 1150,400" fill="none" stroke="#174F4A" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="8 6"/>
+          <path class="clx-design-path clx-design-path--2" d="M80,350 C200,350 300,250 450,250 C600,250 700,350 850,350 C950,350 1000,300 1100,280" fill="none" stroke="#B88A45" stroke-width="0.8" stroke-linecap="round" stroke-dasharray="5 8"/>
+          <path class="clx-design-path clx-design-path--3" d="M120,500 C250,500 350,450 500,450 C650,450 700,520 850,520 C950,520 1050,480 1150,460" fill="none" stroke="#71877E" stroke-width="0.6" stroke-linecap="round" stroke-dasharray="4 6"/>
+          <circle class="clx-design-node" cx="100" cy="200" r="5" fill="#174F4A" opacity="0.2"/>
+          <circle class="clx-design-node" cx="450" cy="300" r="6" fill="#B88A45" opacity="0.22"/>
+          <circle class="clx-design-node" cx="800" cy="400" r="5" fill="#174F4A" opacity="0.2"/>
+          <circle class="clx-design-node" cx="1050" cy="500" r="5" fill="#71877E" opacity="0.18"/>
+          <circle class="clx-design-node" cx="1150" cy="400" r="7" fill="#B88A45" opacity="0.25"/>
+        </svg>
+      </div>
+
+      <!-- Layer 4: Stage labels (foreground, subtle) -->
+      <div class="clx-design-layer clx-design-layer--stages">
+        <div class="clx-design-stage clx-design-stage--1">
+          <span class="clx-design-stage-num">01</span>
+          <span class="clx-design-stage-label">Idea</span>
+        </div>
+        <div class="clx-design-stage clx-design-stage--2">
+          <span class="clx-design-stage-num">02</span>
+          <span class="clx-design-stage-label">Design</span>
+        </div>
+        <div class="clx-design-stage clx-design-stage--3">
+          <span class="clx-design-stage-num">03</span>
+          <span class="clx-design-stage-label">Development</span>
+        </div>
+        <div class="clx-design-stage clx-design-stage--4">
+          <span class="clx-design-stage-num">04</span>
+          <span class="clx-design-stage-label">Learning</span>
+        </div>
+        <div class="clx-design-stage clx-design-stage--5">
+          <span class="clx-design-stage-num">05</span>
+          <span class="clx-design-stage-label">Quality</span>
+        </div>
+      </div>
+
+      <!-- Ambient wash -->
+      <div class="clx-design-wash"></div>
+    </div>
+
+    <!-- ============ HERO ============ -->
+    <section class="clx-section clx-section--lg clx-hero" aria-label="Design, Development and Design Evaluation">
+      <div class="clx-nodes" aria-hidden="true"></div>
+      <div class="clx-container">
+        <div class="clx-hero-grid">
+          <div class="clx-hero-copy">
+            <p class="clx-eyebrow clx-reveal">What We Do / 02</p>
+            <h1 class="clx-h1 clx-reveal" data-delay="1">Design, Development &amp; <span class="clx-text-accent">Design Evaluation.</span></h1>
+            <p class="clx-body-lg clx-reveal" data-delay="2" style="max-width:48ch">CLIxED designs and develops educational programmes, curricula, learning experiences and resources — grounded in pedagogical principles and tailored to specific institutional contexts and learner needs.</p>
+            <p class="clx-meta clx-reveal" data-delay="3" style="margin-top:var(--space-7)">Curriculum — Learning design — Content — Assessment — Evaluation</p>
+            <p class="clx-hero-cta clx-reveal" data-delay="3">
+              <a class="clx-btn clx-btn--primary" href="../contact.html">Start a Conversation <span class="clx-arrow" aria-hidden="true">→</span></a>
+              <a class="clx-link clx-link--arrow" href="../what-we-do.html#areas">All services <span class="clx-arrow" aria-hidden="true">→</span></a>
+            </p>
+          </div>
+          <!-- IMAGE: Pexels #35551059 (free license) -->
+          <figure class="clx-hero-figure clx-reveal" data-delay="2">
+            <div class="clx-hero-frame clx-mask-reveal">
+              <img src="../images/wwd-tech-classroom.jpg" alt="Students learning with an interactive classroom display in Gujarat, India" width="2000" height="1125" fetchpriority="high">
+              <svg class="clx-hero-frame-nodes" viewBox="0 0 96 96" aria-hidden="true">
+                <path d="M12 84 L84 12"/>
+                <path d="M12 84 L30 84 M84 12 L84 30"/>
+                <circle cx="12" cy="84" r="3"/>
+                <circle cx="84" cy="12" r="3"/>
+                <circle cx="84" cy="30" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                <circle cx="30" cy="84" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <figcaption class="clx-hero-caption">Design that meets a real classroom</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OUR DESIGN & DEVELOPMENT WORK ============ -->
+    <section class="clx-section" aria-label="Our design and development work">
+      <div class="clx-container">
+        <div class="clx-grid-12">
+          <div class="clx-col-4">
+            <p class="clx-eyebrow clx-reveal">Our Design &amp; Development Work</p>
+          </div>
+          <div class="clx-col-8">
+            <h2 class="clx-h2 clx-reveal">From curricula to classrooms.</h2>
+            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:58ch">Eight connected areas of work — each grounded in pedagogical principles and tailored to specific institutional contexts and learner needs.</p>
+          </div>
+        </div>
+
+        <div class="clx-service-areas clx-reveal" data-delay="2">
+          <article class="clx-service-area">
+            <span class="clx-service-area-num" aria-hidden="true">01</span>
+            <h3>Curriculum Design &amp; Redesign</h3>
+            <p>Curriculum development and redesign aligned with research-backed educational frameworks.</p>
+          </article>
+          <article class="clx-service-area">
+            <span class="clx-service-area-num" aria-hidden="true">02</span>
+            <h3>Learning Design</h3>
+            <p>Learning experiences for blended and technology-enhanced learning environments.</p>
+          </article>
+          <article class="clx-service-area">
+            <span class="clx-service-area-num" aria-hidden="true">03</span>
+            <h3>Content Development</h3>
+            <p>Instructional materials, textbooks, digital resources/tools and assessments.</p>
+          </article>
+          <article class="clx-service-area">
+            <span class="clx-service-area-num" aria-hidden="true">04</span>
+            <h3>Pedagogical Frameworks</h3>
+            <p>Teaching-learning modules and pedagogical frameworks.</p>
+          </article>
+          <article class="clx-service-area">
+            <span class="clx-service-area-num" aria-hidden="true">05</span>
+            <h3>Assessment &amp; Learning Analytics</h3>
+            <p>Assessment instruments and learning analytics frameworks.</p>
+          </article>
+          <article class="clx-service-area">
+            <span class="clx-service-area-num" aria-hidden="true">06</span>
+            <h3>Teacher &amp; Implementation Resources</h3>
+            <p>Teacher guides and resources that support effective implementation.</p>
+          </article>
+          <article class="clx-service-area">
+            <span class="clx-service-area-num" aria-hidden="true">07</span>
+            <h3>Design &amp; Development Guides</h3>
+            <p>Guides for learning professionals involved in educational design and development.</p>
+          </article>
+          <article class="clx-service-area">
+            <span class="clx-service-area-num" aria-hidden="true">08</span>
+            <h3>Design Evaluation &amp; Quality Review</h3>
+            <p>Independent review of existing educational solutions, with research-informed recommendations for improvement.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT YOU GET ============ -->
+    <section class="clx-section clx-section--tight" aria-label="What you get">
+      <div class="clx-container">
+        <div class="clx-wyg clx-reveal">
+          <p class="clx-eyebrow">What You Get</p>
+          <h2 class="clx-h3">Work that is ready to be used — and to be judged.</h2>
+          <p class="clx-body-lg" data-delay="1" style="max-width:64ch; margin-top:var(--space-4)">Every engagement produces concrete, usable outcomes. Working with CLIxED gives you:</p>
+          <ul class="clx-wyg-list" data-delay="2">
+            <li>Evidence-informed educational products and frameworks</li>
+            <li>Solutions appropriate to specific institutional contexts and learner needs</li>
+            <li>Products and frameworks prepared for implementation and scaling</li>
+            <li>Expert design reviews that strengthen existing educational solutions</li>
+            <li>Research-informed recommendations for improvement</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="clx-section" aria-label="Start a conversation">
+      <div class="clx-container">
+        <div class="clx-cta-final clx-reveal">
+          <div class="clx-nodes clx-nodes--invert" aria-hidden="true"></div>
+          <p class="clx-eyebrow clx-eyebrow--light">Start a Conversation</p>
+          <h2 class="clx-cta-final-title">Have an educational solution to design or improve?</h2>
+          <p class="clx-cta-final-sub">We build with evidence — and evaluate without bias.</p>
+          <a class="clx-btn clx-btn--accent" href="../contact.html">Start a Conversation <span class="clx-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="clx-footer">
+    <div class="clx-container">
+      <div class="clx-footer-grid">
+        <div class="clx-footer-brand">
+          <span class="clx-brand-mark" aria-hidden="true">CLIxED</span>
+          <p class="clx-muted" style="max-width:34ch; margin-top:var(--space-4)">A Section 8 non-profit working at the intersection of research rigour and classroom realities — across education policy, design, evaluation and professional development.</p>
+        </div>
+        <nav class="clx-footer-cols" aria-label="Explore">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../team.html">Team</a></li>
+            <li><a href="../what-we-do.html">What We Do</a></li>
+            <li><a href="../podcast.html">Podcast</a></li>
+            <li><a href="../insights.html">Insights</a></li>
+            <li><a href="../partners.html">Partners</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Resources">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="../insights.html#research">Research &amp; Reports</a></li>
+            <li><a href="../insights.html#cases">Case Studies</a></li>
+            <li><a href="../insights.html#articles">Articles</a></li>
+            <li><a href="https://oneusefulthing.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Engage">
+          <h4>Engage</h4>
+          <ul>
+            <li><a href="../contact.html">Start a Conversation</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="clx-footer-cols" aria-label="Legal">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../legal/privacy.html">Privacy Policy</a></li>
+            <li><a href="../legal/terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="../legal/cookies.html">Cookie Policy</a></li>
+            <li><a href="../legal/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="clx-footer-legal">
+        <p>— <span id="year">2026</span> CLIxED Foundation. All rights reserved.</p>
+        <p>Registered: Bengaluru, India</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" class="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
+  </button>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/design-animation.js"></script>
+</body>
+</html>
