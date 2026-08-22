@@ -6,7 +6,7 @@
     author: 'CLIxED Editorial',
     articles: [
       {
-        slug: 'beyond-access-educational-equity', category: 'Education', date: '2026-08-22', readingTime: '8 min',
+        slug: 'beyond-access-educational-equity', category: 'Education', date: '2026-08-22',
         title: 'Beyond Access: What Educational Equity Really Requires',
         excerpt: 'Access is a beginning, not a definition of equity. A more useful question asks what learners can do, with whom, and under what conditions.',
         image: 'images/about-tech-classroom.jpg',
@@ -40,41 +40,51 @@
         ], related: ['educational-technology-real-classrooms', 'rethinking-professional-development', 'education-policy-classroom-practice']
       },
       {
-        slug: 'educational-technology-real-classrooms', category: 'Technology in Education', date: '2026-08-19', readingTime: '7 min',
+        slug: 'educational-technology-real-classrooms', category: 'Technology in Education', date: '2026-08-19',
         title: 'What Makes Educational Technology Work in Real Classrooms?',
         excerpt: 'Technology becomes educationally useful when it strengthens a purposeful learning activity and fits the people and institutions expected to sustain it.',
         image: 'images/wwd-tech-classroom.jpg',
-        dek: 'The difficult question is rarely whether a tool has features. It is whether the tool helps teachers and learners do something worthwhile, in the actual conditions of a school day.',
+        dek: 'Technology becomes educationally useful when it strengthens a purposeful learning activity and fits the people and institutions expected to sustain it.',
         sections: [
-          ['Start with the learning problem', [
+          ['Start with the learning goal', [
             'Technology projects often begin with a product: a platform, device, dashboard or content library. A classroom begins somewhere else. It begins with learners who know some things and not others, a teacher making decisions in real time, and a curriculum that creates demands on attention and time. A tool is useful only when it helps with a meaningful part of that work.',
-            'Starting with the learning problem changes the design conversation. Instead of asking how many features can be activated, a team asks what learners need to practise, what feedback is missing, and which teacher decisions could be better supported. The answer may involve technology, but it may also involve a clearer routine, stronger materials or more time for discussion.',
-            'This discipline protects projects from confusing novelty with value. It also makes evaluation more precise because the intended contribution of the technology is visible.'
+            'Starting with the learning goal changes the design conversation. Instead of asking how many features can be activated, a team asks what learners need to understand, what activity the technology supports, and why technology is useful for that particular task rather than an alternative approach. The answer may involve a digital tool, but it may also involve a clearer routine, stronger materials or more time for discussion.',
+            'This discipline protects projects from confusing novelty with value. When technology is adopted because it is new rather than because it serves a specific educational purpose, the result is often a tool in search of a problem. The more productive question is always: what does this make possible for learners that was difficult or impossible before? If the answer is unclear, the technology is not yet ready for classroom use.'
           ]],
-          ['Pedagogy comes before the interface', [
-            'An attractive interface cannot compensate for a weak learning sequence. Learners need a clear purpose, opportunities to think and practise, feedback that helps them improve, and a way to connect new ideas with prior knowledge. Technology can support these elements, but it cannot decide what they should look like in every context.',
-            'Teachers need to understand the pedagogic choice behind a tool. If an application provides automated feedback, what kind of misunderstanding can it detect? If a video is assigned, what should learners do before and after watching? If a platform enables collaboration, how will the teacher help learners build on one another rather than simply post separate answers?',
-            'Good implementation makes these decisions discussable. It gives teachers a reason to use the tool and enough flexibility to adapt the activity without losing its purpose.'
+          ['Technology must fit classroom reality', [
+            'A technically impressive product can still fail if it does not fit the environment in which it is expected to be used. Real classrooms operate within constraints that demonstrations and pilot conditions often obscure: shared devices, unreliable connectivity, limited charging, maintenance backlogs, crowded timetables and competing curriculum demands. These are not exceptions to plan around. They are the ordinary conditions of implementation.',
+            'Infrastructure is more than connectivity and electricity, important as those are. It includes account management, technical help, accessible content, time to prepare and a way to recover when things go wrong. A tool that works smoothly in a controlled setting may become burdensome when a teacher has to reset passwords, manage shared devices and recover from an interrupted session in the middle of a lesson.',
+            'Designing for classroom reality means asking practical questions early. What happens when the network drops? Can the activity continue offline? What is the low-tech alternative? Who can help when something breaks? These questions are not signs of low ambition. They are signs of respect for the people who must carry the work forward after the initial demonstration ends.'
           ]],
-          ['Infrastructure includes time and confidence', [
-            'Infrastructure is more than connectivity and electricity, important as those are. It includes charging, maintenance, account management, technical help, accessible content and time to prepare. A tool that works in a demonstration may become burdensome when a teacher has to reset passwords, manage shared devices and recover from an interrupted session.',
-            'Confidence matters too. Teachers and learners need to know what to do when the expected path fails. This is why implementation plans should include ordinary failure scenarios rather than treating them as exceptions. What happens when the network drops? Can the activity continue offline? What is the low-tech alternative? Who can help?',
-            'Designing for these questions is a sign of respect for classroom time. It also reduces the risk that technology becomes an additional layer of work for the people already carrying the lesson.'
+          ['Teachers are central', [
+            'Teachers remain central to meaningful technology integration because they make the judgements that no tool can replace. They interpret materials, notice misunderstanding, adjust explanations, organise participation and decide what deserves time. Their professional knowledge determines whether a technology-supported activity becomes a learning experience or simply a task that learners complete without understanding.',
+            'Supporting that judgement requires more than a one-off training session. Teachers need time to try a practice with their learners, discuss what happened, examine the results and refine the next attempt. They also need professional learning that connects a tool to pedagogy rather than simply demonstrating interface features. When training focuses only on navigation, teachers are left to invent the pedagogical reasoning on their own.',
+            'Confidence matters as much as competence. Teachers need to know what to do when the expected path fails and to trust that using technology does not mean losing control of the learning environment. This is why implementation plans should include ordinary failure scenarios and give teachers authority to adapt or pause a technology-based activity when the conditions are not right. Technology should support teacher judgement, not circumvent it.'
           ]],
-          ['Readiness is distributed across the institution', [
-            'A school can contain enthusiasm and constraint at the same time. A teacher may see value in a tool while the timetable leaves no space for it. A leader may support experimentation while procurement or reporting systems reward other priorities. Institutional readiness should therefore be examined as a set of relationships, not as a single rating.',
-            'Teams can map who needs to make which decision, what routines must change, and which support structures are already present. They can identify a small number of practices that should be stable and a wider set that can be locally adapted. This creates a more honest implementation plan than a universal checklist.',
-            'Readiness grows through useful experience. Early use should generate learning for the institution, not only usage data for the provider.'
+          ['Design for learners, not just devices', [
+            'The learner experience should remain the focus of every design decision. Learners differ in age, developmental stage, language, prior knowledge, learning needs and the support available to them at home and in school. A tool designed for a general user may not serve any particular learner well. Effective educational technology accounts for this variation from the beginning rather than treating it as an edge case.',
+            'Accessibility is a design condition, not a feature added later. Content should be usable for learners with different visual, auditory, motor and cognitive needs. Interfaces should be clear enough for learners who are still developing literacy or digital fluency. Activities should manage cognitive load so that technology supports thinking rather than overwhelming it with unnecessary complexity.',
+            'Meaningful interaction matters more than screen time. A learner can be active on a device and still be engaged in shallow work. The question is whether the technology creates opportunities for thinking, practising, receiving feedback, making connections and demonstrating understanding. When the design keeps learning at the centre, technology becomes a means rather than an end.'
           ]],
-          ['Evaluate contribution, not excitement', [
-            'Evaluation should ask whether the technology contributed to better learning or better teaching, and under what conditions. Usage counts can describe activity, but they do not explain understanding, transfer, confidence or the quality of classroom interaction. Interviews, observation, learner work and implementation records can help fill that gap.',
-            'A practical evaluation combines questions about outcomes with questions about process. What changed for learners? What did teachers have to do? Which parts were feasible? Where did the model need adaptation? What resources did the approach consume? These questions support decisions about continuation and improvement.',
-            'Educational technology works in real classrooms when its ambition is matched by pedagogy, infrastructure, capacity, institutional readiness and honest evaluation. The measure of success is not that a tool was introduced. It is that learning became more possible.'
+          ['Implementation matters', [
+            'Successful educational technology requires implementation support that extends well beyond initial deployment. Preparation, training, technical support, institutional coordination and ongoing feedback are not optional extras. They are the conditions under which a tool can become part of a functioning learning environment. A product should not be considered successful simply because it has been distributed.',
+            'Implementation is a process of learning, not a sequence of delivery steps. Early use should generate information about what is working, what needs adaptation and where support is missing. Teams that treat implementation as a source of knowledge rather than a compliance exercise are more likely to identify and resolve the problems that determine whether a tool helps or hinders.',
+            'Adaptation is a sign of healthy implementation, not a failure of the original design. Different classrooms, schools and institutions will use a tool in ways that reflect their particular conditions. The design question is what must remain true for the intended educational contribution to survive, and which elements can flex without losing the purpose. Ongoing improvement depends on honest feedback loops between users, support teams and designers.'
+          ]],
+          ['Evaluate what actually works', [
+            'Evaluation should ask whether the technology contributed to better learning or better teaching, and under what conditions. Usage counts can describe activity, but they do not explain understanding, transfer, confidence or the quality of classroom interaction. A more useful evaluation combines outcome questions with process questions: what changed for learners, what did teachers have to do, and which parts of the approach were feasible in practice.',
+            'It is equally important to ask for whom the intervention works and under what conditions. A tool that helps one group of learners may not help another. An approach that works in a well-resourced school may not survive in a setting with different constraints. Honest evaluation names these differences rather than presenting an average as a universal result.',
+            'Teams should also examine what is helping implementation and what barriers are getting in the way. Is the training sufficient? Are the technical systems reliable? Do teachers have time to prepare? Are learners able to engage meaningfully? These questions connect outcomes to the conditions that produce them and create a basis for improvement rather than simply a verdict on success or failure.'
+          ]],
+          ['Design for sustainability and scale', [
+            'Educational technology needs to work beyond a pilot environment to deliver durable value. Sustainability depends on institutional capacity, recurring resources, infrastructure that can be maintained, teacher capability that can be renewed and support systems that do not depend on exceptional individuals. An approach that works only while extraordinary funding or unusually motivated people are present may still be useful, but its limits should be visible.',
+            'Scale changes the conditions of the work. What succeeds in a small, carefully supported setting may require different training structures, clearer materials, defined leadership roles and data systems that support learning without creating excessive reporting burden. The question is not whether an idea is attractive at larger volume. It is which parts of the idea are essential, which can adapt, and what capabilities must exist for both to work.',
+            'The goal should be durable educational value rather than initial adoption. Teams can examine sustainability by asking what resources are recurring, which skills remain locally, how materials are updated and what happens when a key person moves on. A strong approach leaves institutions with more capability, not simply more tasks. Designing for sustainability from the beginning is more effective than attempting to retrofit it after a pilot ends.'
           ]]
-        ], related: ['beyond-access-educational-equity', 'designing-for-institutional-context', 'why-education-ideas-struggle-to-scale']
+        ], related: ['rethinking-professional-development', 'education-policy-classroom-practice', 'beyond-access-educational-equity']
       },
       {
-        slug: 'evidence-to-action-education-research', category: 'Research', date: '2026-08-15', readingTime: '8 min',
+        slug: 'evidence-to-action-education-research', category: 'Research', date: '2026-08-15',
         title: 'From Evidence to Action: Making Education Research Useful',
         excerpt: 'Research becomes useful when its findings are connected to decisions, translated without distortion and tested against the realities of practice.',
         image: 'images/insights-research.jpg',
@@ -108,7 +118,7 @@
         ], related: ['what-education-leaders-need-from-research', 'education-policy-classroom-practice', 'evaluating-education-programmes-well']
       },
       {
-        slug: 'why-education-ideas-struggle-to-scale', category: 'Educational Leadership', date: '2026-08-11', readingTime: '8 min',
+        slug: 'why-education-ideas-struggle-to-scale', category: 'Educational Leadership', date: '2026-08-11',
         title: 'Why Good Educational Ideas Struggle to Scale',
         excerpt: 'Scaling is not the act of making a pilot larger. It is the work of building the capacity, adaptation and institutional support that a larger system requires.',
         image: 'images/approach-educator-workshop.jpg',
@@ -142,7 +152,7 @@
         ], related: ['educational-technology-real-classrooms', 'designing-for-institutional-context', 'preparing-for-multiple-futures']
       },
       {
-        slug: 'rethinking-professional-development', category: 'Teacher Development', date: '2026-08-07', readingTime: '7 min',
+        slug: 'rethinking-professional-development', category: 'Teacher Development', date: '2026-08-07',
         title: 'Rethinking Professional Development for Educators',
         excerpt: 'Professional learning has greater value when it is connected to practice, supported over time and treated as a capability of the institution.',
         image: 'images/approach-educator-workshop.jpg',
@@ -176,7 +186,7 @@
         ], related: ['beyond-access-educational-equity', 'educational-technology-real-classrooms', 'evaluating-education-programmes-well']
       },
       {
-        slug: 'evaluating-education-programmes-well', category: 'Assessment', date: '2026-08-03', readingTime: '9 min',
+        slug: 'evaluating-education-programmes-well', category: 'Assessment', date: '2026-08-03',
         title: 'What Does It Mean to Evaluate an Education Programme Well?',
         excerpt: 'Good evaluation asks not only whether change occurred, but for whom, through what process, at what cost and under which conditions.',
         image: 'images/wwd-research-discussion.jpg',
@@ -210,7 +220,7 @@
         ], related: ['evidence-to-action-education-research', 'why-education-ideas-struggle-to-scale', 'education-policy-classroom-practice']
       },
       {
-        slug: 'education-policy-classroom-practice', category: 'Policy', date: '2026-07-29', readingTime: '8 min',
+        slug: 'education-policy-classroom-practice', category: 'Policy', date: '2026-07-29',
         title: 'The Gap Between Education Policy and Classroom Practice',
         excerpt: 'Policy becomes real through interpretation, routines and resources. Understanding that journey makes implementation more practical and less mysterious.',
         image: 'images/about-classroom-band.jpg',
@@ -244,7 +254,7 @@
         ], related: ['evidence-to-action-education-research', 'what-education-leaders-need-from-research', 'preparing-for-multiple-futures']
       },
       {
-        slug: 'preparing-for-multiple-futures', category: 'Future of Education', date: '2026-07-24', readingTime: '7 min',
+        slug: 'preparing-for-multiple-futures', category: 'Future of Education', date: '2026-07-24',
         title: 'Preparing Education Systems for Multiple Possible Futures',
         excerpt: 'Foresight is not prediction. It is a disciplined way to examine uncertainty, test assumptions and build choices that remain useful across possible futures.',
         image: 'images/hero-2.jpg',
@@ -278,32 +288,32 @@
         ], related: ['why-education-ideas-struggle-to-scale', 'education-policy-classroom-practice', 'educational-technology-real-classrooms']
       },
       {
-        slug: 'designing-for-institutional-context', category: 'Learning', date: '2026-07-18', readingTime: '6 min',
+        slug: 'designing-for-institutional-context', category: 'Learning', date: '2026-07-18',
         title: 'Designing Learning for Real Institutional Contexts', excerpt: 'Learning design improves when it accounts for the routines, authority and constraints surrounding the learner.', image: 'images/collaborative-learning-session.jpg', related: ['beyond-access-educational-equity','educational-technology-real-classrooms','rethinking-professional-development']
       },
       {
-        slug: 'what-education-leaders-need-from-research', category: 'Educational Leadership', date: '2026-07-12', readingTime: '6 min', title: 'What Educational Leaders Need From Research', excerpt: 'Leaders need evidence that clarifies choices, exposes trade-offs and supports learning after a decision is made.', image: 'images/wwd-research-discussion.jpg', related: ['evidence-to-action-education-research','evaluating-education-programmes-well','education-policy-classroom-practice']
+        slug: 'what-education-leaders-need-from-research', category: 'Educational Leadership', date: '2026-07-12', title: 'What Educational Leaders Need From Research', excerpt: 'Leaders need evidence that clarifies choices, exposes trade-offs and supports learning after a decision is made.', image: 'images/wwd-research-discussion.jpg', related: ['evidence-to-action-education-research','evaluating-education-programmes-well','education-policy-classroom-practice']
       },
       {
-        slug: 'assessment-as-learning', category: 'Assessment', date: '2026-07-06', readingTime: '5 min', title: 'When Assessment Becomes Part of Learning', excerpt: 'Assessment can be more than a record of performance when feedback helps learners and teachers decide what to do next.', image: 'images/classroom-teacher-students.jpg', related: ['evaluating-education-programmes-well','rethinking-professional-development','beyond-access-educational-equity']
+        slug: 'assessment-as-learning', category: 'Assessment', date: '2026-07-06', title: 'When Assessment Becomes Part of Learning', excerpt: 'Assessment can be more than a record of performance when feedback helps learners and teachers decide what to do next.', image: 'images/classroom-teacher-students.jpg', related: ['evaluating-education-programmes-well','rethinking-professional-development','beyond-access-educational-equity']
       },
       {
-        slug: 'technology-and-teacher-judgement', category: 'Technology in Education', date: '2026-06-28', readingTime: '5 min', title: 'Technology and the Value of Teacher Judgement', excerpt: 'Digital tools can extend professional judgement, but they should not make important classroom decisions invisible.', image: 'images/about-tech-classroom.jpg', related: ['educational-technology-real-classrooms','rethinking-professional-development','beyond-access-educational-equity']
+        slug: 'technology-and-teacher-judgement', category: 'Technology in Education', date: '2026-06-28', title: 'Technology and the Value of Teacher Judgement', excerpt: 'Digital tools can extend professional judgement, but they should not make important classroom decisions invisible.', image: 'images/about-tech-classroom.jpg', related: ['educational-technology-real-classrooms','rethinking-professional-development','beyond-access-educational-equity']
       },
       {
-        slug: 'learning-from-implementation', category: 'Commentary', date: '2026-06-20', readingTime: '6 min', title: 'Learning From Implementation, Not Just Outcomes', excerpt: 'The way a programme unfolds can reveal what a result means and what should change next.', image: 'images/fieldwork-rural-classroom-india.jpg', related: ['evaluating-education-programmes-well','why-education-ideas-struggle-to-scale','evidence-to-action-education-research']
+        slug: 'learning-from-implementation', category: 'Commentary', date: '2026-06-20', title: 'Learning From Implementation, Not Just Outcomes', excerpt: 'The way a programme unfolds can reveal what a result means and what should change next.', image: 'images/fieldwork-rural-classroom-india.jpg', related: ['evaluating-education-programmes-well','why-education-ideas-struggle-to-scale','evidence-to-action-education-research']
       },
       {
-        slug: 'designing-around-real-constraints', category: 'Policy', date: '2026-06-13', readingTime: '5 min', title: 'Designing Educational Interventions Around Real Constraints', excerpt: 'Constraints are not an inconvenience to hide; they are design information about what a system can sustain.', image: 'images/fieldwork-rural-classroom-india.jpg', related: ['designing-for-institutional-context','why-education-ideas-struggle-to-scale','education-policy-classroom-practice']
+        slug: 'designing-around-real-constraints', category: 'Policy', date: '2026-06-13', title: 'Designing Educational Interventions Around Real Constraints', excerpt: 'Constraints are not an inconvenience to hide; they are design information about what a system can sustain.', image: 'images/fieldwork-rural-classroom-india.jpg', related: ['designing-for-institutional-context','why-education-ideas-struggle-to-scale','education-policy-classroom-practice']
       },
       {
-        slug: 'equity-in-everyday-learning', category: 'Education', date: '2026-06-05', readingTime: '5 min', title: 'Equity in Everyday Learning Decisions', excerpt: 'Equity becomes practical through the small decisions that shape participation, feedback and belonging.', image: 'images/collaborative-learning-session.jpg', related: ['beyond-access-educational-equity','assessment-as-learning','rethinking-professional-development']
+        slug: 'equity-in-everyday-learning', category: 'Education', date: '2026-06-05', title: 'Equity in Everyday Learning Decisions', excerpt: 'Equity becomes practical through the small decisions that shape participation, feedback and belonging.', image: 'images/collaborative-learning-session.jpg', related: ['beyond-access-educational-equity','assessment-as-learning','rethinking-professional-development']
       },
       {
-        slug: 'the-work-of-educational-leadership', category: 'Educational Leadership', date: '2026-05-28', readingTime: '5 min', title: 'The Work of Educational Leadership', excerpt: 'Leadership is the work of creating conditions in which good educational practice can be tried, examined and sustained.', image: 'images/approach-educator-workshop.jpg', related: ['what-education-leaders-need-from-research','why-education-ideas-struggle-to-scale','education-policy-classroom-practice']
+        slug: 'the-work-of-educational-leadership', category: 'Educational Leadership', date: '2026-05-28', title: 'The Work of Educational Leadership', excerpt: 'Leadership is the work of creating conditions in which good educational practice can be tried, examined and sustained.', image: 'images/approach-educator-workshop.jpg', related: ['what-education-leaders-need-from-research','why-education-ideas-struggle-to-scale','education-policy-classroom-practice']
       },
       {
-        slug: 'a-practical-language-for-change', category: 'Commentary', date: '2026-05-19', readingTime: '4 min', title: 'A Practical Language for Educational Change', excerpt: 'Better conversations about change begin with clear purposes, visible assumptions and room for revision.', image: 'images/contact-education-discussion.jpg', related: ['evidence-to-action-education-research','preparing-for-multiple-futures','designing-for-institutional-context']
+        slug: 'a-practical-language-for-change', category: 'Commentary', date: '2026-05-19', title: 'A Practical Language for Educational Change', excerpt: 'Better conversations about change begin with clear purposes, visible assumptions and room for revision.', image: 'images/contact-education-discussion.jpg', related: ['evidence-to-action-education-research','preparing-for-multiple-futures','designing-for-institutional-context']
       }
     ]
   };
@@ -319,13 +329,13 @@
     return element;
   }
 
-  function card(article, related) {
+  function card(article, related, basePath) {
     var item = make('article', 'clx-blog-card');
     item.setAttribute('data-blog-category', article.category);
     var media = make('div', 'clx-blog-card-media');
     var image = make('img', 'clx-blog-card-image');
-    image.src = article.image;
-    image.alt = '';
+    image.src = (basePath || '') + article.image;
+    image.alt = article.title;
     image.loading = 'lazy';
     media.appendChild(image);
     item.appendChild(media);
@@ -338,10 +348,10 @@
     time.dateTime = article.date;
     meta.appendChild(time);
     meta.appendChild(make('span', 'clx-blog-card-sep', '·'));
-    meta.appendChild(make('span', '', article.readingTime + ' · ' + window.CLIXED_BLOG_CONTENT.author));
+    meta.appendChild(make('span', '', window.CLIXED_BLOG_CONTENT.author));
     body.appendChild(meta);
     var link = make('a', 'clx-blog-card-link', 'Read More ');
-    link.href = articleUrl(article.slug);
+    link.href = (basePath || '') + articleUrl(article.slug);
     link.setAttribute('aria-label', 'Read ' + article.title);
     link.appendChild(make('span', 'clx-arrow', '→'));
     body.appendChild(link);
@@ -375,27 +385,42 @@
     });
   }
 
+  function formatDate(isoDate) {
+    return new Date(isoDate + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+  }
+
   function renderArticle() {
     var slug = document.body.getAttribute('data-blog-slug');
     if (!slug) return;
     var article = window.CLIXED_BLOG_CONTENT.articles.find(function (item) { return item.slug === slug; });
     if (!article) return;
-    document.title = article.title + ' – CLIxED Blog';
+    document.title = article.title + ' \u2013 CLI\u00E9D Blog';
     var header = document.querySelector('[data-article-header]');
     var featured = document.querySelector('[data-article-featured]');
     var body = document.querySelector('[data-article-body]');
     if (!header || !featured || !body) return;
+    var author = window.CLIXED_BLOG_CONTENT.author;
+    var formattedDate = formatDate(article.date);
     header.querySelector('[data-article-category]').textContent = article.category;
     header.querySelector('[data-article-title]').textContent = article.title;
     header.querySelector('[data-article-dek]').textContent = article.dek;
-    header.querySelector('[data-article-meta]').textContent = 'Published: ' + new Date(article.date + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) + ' · ' + article.readingTime + ' · By ' + window.CLIXED_BLOG_CONTENT.author;
-    var image = make('img', 'clx-blog-article-image');
+    header.querySelector('[data-article-date]').textContent = formattedDate;
+    header.querySelector('[data-article-author]').textContent = author;
+    var breadcrumbCat = document.querySelector('[data-article-category-breadcrumb]');
+    if (breadcrumbCat) breadcrumbCat.textContent = article.category;
+    var sidebarCategory = document.querySelector('[data-sidebar-category]');
+    var sidebarDate = document.querySelector('[data-sidebar-date]');
+    var sidebarAuthor = document.querySelector('[data-sidebar-author]');
+    if (sidebarCategory) sidebarCategory.textContent = article.category;
+    if (sidebarDate) sidebarDate.textContent = formattedDate;
+    if (sidebarAuthor) sidebarAuthor.textContent = author;
+    var image = make('img', 'clx-article-featured-img');
     image.src = '../' + article.image;
     image.alt = article.title;
     image.loading = 'eager';
     featured.appendChild(image);
     var sections = article.sections || [
-      ['A short editorial note', [article.dek, article.excerpt, 'This draft perspective is part of the CLIxED editorial testing collection. It is intended to open a useful question for educators, researchers and education leaders, and should be reviewed before publication.']]
+      ['A short editorial note', [article.dek, article.excerpt, 'This draft perspective is part of the CLI\u00E9D editorial testing collection. It is intended to open a useful question for educators, researchers and education leaders, and should be reviewed before publication.']]
     ];
     if (article.sections) {
       sections.push(['Questions for teams working on this issue', [
@@ -414,9 +439,35 @@
     var related = document.querySelector('[data-article-related]');
     if (related) article.related.forEach(function (relatedSlug) {
       var relatedArticle = window.CLIXED_BLOG_CONTENT.articles.find(function (item) { return item.slug === relatedSlug; });
-      if (relatedArticle) related.appendChild(card(relatedArticle, true));
+      if (relatedArticle) related.appendChild(card(relatedArticle, true, '../'));
     });
   }
 
-  document.addEventListener('DOMContentLoaded', function () { renderListing(); renderArticle(); });
+  function initArticleProgress() {
+    var fill = document.getElementById('articleProgressFill');
+    if (!fill) return;
+    var article = document.querySelector('.clx-article');
+    if (!article) return;
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function update() {
+      var rect = article.getBoundingClientRect();
+      var articleTop = rect.top + window.scrollY;
+      var articleHeight = rect.height;
+      var scrolled = window.scrollY - articleTop;
+      var total = articleHeight - window.innerHeight;
+      var progress = total > 0 ? Math.min(Math.max(scrolled / total, 0), 1) : 0;
+      fill.style.width = (progress * 100) + '%';
+    }
+    if (!prefersReduced) {
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    renderListing();
+    renderArticle();
+    initArticleProgress();
+  });
 })();
