@@ -563,7 +563,7 @@
     link.href = item.link;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
-    link.textContent = 'Read More ';
+    link.textContent = 'Read on Substack ';
     var arrow = document.createElement('span');
     arrow.className = 'clx-arrow';
     arrow.setAttribute('aria-hidden', 'true');
