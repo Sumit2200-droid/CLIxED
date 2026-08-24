@@ -19,21 +19,33 @@
   }
 
   /* ---- Mobile menu ---- */
+  var navBackdrop = document.getElementById('clxNavBackdrop');
+  if (!navBackdrop) {
+    navBackdrop = document.createElement('div');
+    navBackdrop.id = 'clxNavBackdrop';
+    navBackdrop.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(navBackdrop);
+  }
+
   function closeMenu() {
     mainNav.classList.add('closing');
+    navBackdrop.classList.remove('is-visible');
     setTimeout(function () {
       mainNav.classList.remove('is-open', 'open', 'closing');
     }, 350);
     navToggle.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open menu');
     setTimeout(function () { document.body.classList.remove('menu-open'); }, 350);
   }
 
   function openMenu() {
     mainNav.classList.remove('closing');
     mainNav.classList.add('is-open', 'open');
+    navBackdrop.classList.add('is-visible');
     navToggle.classList.add('open');
     navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.setAttribute('aria-label', 'Close menu');
     document.body.classList.add('menu-open');
   }
 
@@ -42,13 +54,9 @@
       if (mainNav.classList.contains('open') || mainNav.classList.contains('is-open')) closeMenu();
       else openMenu();
     });
+    navBackdrop.addEventListener('click', function () { closeMenu(); });
     mainNav.addEventListener('click', function (e) {
       if (e.target.closest('a:not(.nav-trigger)')) closeMenu();
-    });
-    document.addEventListener('click', function (e) {
-      if ((mainNav.classList.contains('open') || mainNav.classList.contains('is-open')) &&
-          !e.target.closest('#mainNav') &&
-          !e.target.closest('#navToggle')) closeMenu();
     });
   }
 
@@ -79,13 +87,13 @@
   }
 
   document.addEventListener('click', function (e) {
-    if (mainNav && !mainNav.classList.contains('open') &&
+    if (mainNav && !mainNav.classList.contains('open') && !mainNav.classList.contains('is-open') &&
         !e.target.closest('#mainNav') && !e.target.closest('#navToggle')) closeDropdowns();
   });
 
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
-    if (mainNav && mainNav.classList.contains('open')) { closeMenu(); return; }
+    if (mainNav && (mainNav.classList.contains('open') || mainNav.classList.contains('is-open'))) { closeMenu(); return; }
     closeDropdowns();
   });
 

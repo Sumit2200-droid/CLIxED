@@ -490,6 +490,7 @@ html.js .clx-mask-reveal.is-visible { animation: clx-media-reveal 700ms var(--t-
     transition: none; transform: none;
   }
   .clx-nodes { animation: none; }
+  .clx-nav, #clxNavBackdrop { transition: none; }
 }
 
 /* ==========================================================================
@@ -520,15 +521,18 @@ html.js .clx-mask-reveal.is-visible { animation: clx-media-reveal 700ms var(--t-
    ========================================================================== */
 body { background-color: var(--color-bg); color: var(--color-text); font-family: var(--font-body); margin: 0; }
 
-.clx-header { position: sticky; top: 0; z-index: 50; background: rgba(247, 245, 239, 0.92); backdrop-filter: blur(8px); border-bottom: var(--rule); }
+.clx-header { position: sticky; top: 0; z-index: 100; background: rgba(247, 245, 239, 0.92); backdrop-filter: blur(8px); border-bottom: var(--rule); }
 .clx-header-inner { display: flex; align-items: center; gap: var(--space-6); padding-block: var(--space-4); }
 
 .clx-brand { text-decoration: none; display: flex; flex-direction: column; gap: 2px; }
 .clx-brand-mark { font-family: var(--font-display); font-size: 1.5rem; line-height: 1; color: var(--color-primary); letter-spacing: 0.02em; }
 .clx-brand-tag { font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); }
 
-.clx-nav { margin-left: auto; display: contents; }
+.clx-nav { margin-left: auto; display: flex; align-items: center; gap: var(--space-6); }
 .clx-nav-link { text-decoration: none; }
+
+/* Override legacy #mainNav { display: contents } from styles.css */
+#mainNav.clx-nav { display: flex; }
 
 .clx-nav-more { position: relative; }
 .clx-nav-more summary { list-style: none; cursor: pointer; font-weight: 500; padding-block: var(--space-2); user-select: none; }
@@ -571,16 +575,43 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
 /* Legacy-nav temporary state (legal + archived pages) */
 .nav-coming { display: inline-block; font-size: var(--type-small); color: var(--color-muted); cursor: default; }
 
-/* --- Mobile nav (simple disclosure) --- */
+/* --- Mobile nav (slide-in panel) --- */
 @media (max-width: 1024px) {
-  .clx-nav { position: fixed; inset: 0 0 auto 0; background: var(--color-bg); border-bottom: var(--border-strong);
-    flex-direction: column; align-items: stretch; gap: var(--space-2); padding: var(--space-6) var(--gutter) var(--space-8);
-    transform: translateY(-12px); opacity: 0; pointer-events: none; transition: opacity var(--t-fast), transform var(--t-fast); }
-  .clx-nav.is-open { opacity: 1; transform: none; pointer-events: auto; }
-  .clx-nav .clx-nav-link, .clx-nav-more summary { display: block; font-size: var(--type-h4); padding-block: var(--space-3); }
+  .clx-nav, #mainNav.clx-nav {
+    position: fixed; top: 0; right: 0; bottom: 0; left: auto;
+    width: min(360px, 88vw); height: 100dvh;
+    display: flex; flex-direction: column; align-items: stretch;
+    gap: var(--space-1); padding: calc(var(--space-6) + 60px) var(--space-6) var(--space-8);
+    background: var(--color-bg); border-left: var(--border-strong);
+    box-shadow: -8px 0 30px rgba(0,0,0,0.12);
+    z-index: 90; overflow-y: auto;
+    transform: translateX(100%); opacity: 0; visibility: hidden;
+    transition: transform 0.32s cubic-bezier(0.4,0,0.2,1), opacity 0.32s, visibility 0.32s;
+  }
+  .clx-nav.is-open, #mainNav.clx-nav.is-open { transform: translateX(0); visibility: visible; opacity: 1; }
+  .clx-nav.closing, #mainNav.clx-nav.closing { transform: translateX(100%); opacity: 0; visibility: hidden; }
+  .clx-nav .clx-nav-link {
+    display: block; font-size: 1.05rem; font-weight: 500;
+    padding: var(--space-3) var(--space-4); border-radius: var(--radius-sm);
+    transition: background 0.15s, color 0.15s;
+  }
+  .clx-nav .clx-nav-link:hover,
+  .clx-nav .clx-nav-link[aria-current="page"] { background: rgba(23,79,74,0.06); color: var(--color-primary); }
+  .clx-nav-more summary { display: block; font-size: 1.05rem; padding: var(--space-3) var(--space-4); }
   .clx-nav-dropdown { position: static; transform: none; opacity: 1; pointer-events: auto; box-shadow: none; border: 0; padding: 0 0 0 var(--space-4); }
   .clx-nav-toggle { display: block; }
-  .clx-header .clx-btn { display: none; }
+  /* Keep CTA visible in header on mobile */
+  .clx-header-inner > .clx-btn { font-size: 0.8rem; padding: var(--space-2) var(--space-4); white-space: nowrap; }
+  .clx-header-inner { gap: var(--space-3); }
+  /* Hide brand tag on small screens to save space */
+  .clx-brand-tag { display: none; }
+  /* Backdrop overlay behind panel */
+  #clxNavBackdrop {
+    position: fixed; inset: 0; z-index: 80;
+    background: rgba(0,0,0,0.3); opacity: 0; pointer-events: none;
+    transition: opacity 0.32s;
+  }
+  #clxNavBackdrop.is-visible { opacity: 1; pointer-events: auto; }
 }
 
 /* ==========================================================================
