@@ -12,6 +12,7 @@ from email.utils import parsedate_to_datetime
 PUB_URL = "https://test7334.substack.com"
 API_URL = PUB_URL + "/api/v1/archive?sort=new&limit=50"
 FEED_URL = PUB_URL + "/feed"
+PROXY_FEED_URL = "https://api.allorigins.win/raw?url=" + FEED_URL
 OUTPUT = "data/posts.json"
 PLACEHOLDER_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%23E8E4DF'/%3E%3Crect x='200' y='140' width='200' height='120' rx='8' fill='%23D4CFC8'/%3E%3Cpath d='M260 200h80M260 220h60' stroke='%23B8AFA5' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E"
 
@@ -56,8 +57,9 @@ def parse_api_date(date_str):
 
 def try_api():
     """Fetch posts from Substack API. Returns list of post dicts or None on failure."""
-    print(f"Trying API: {API_URL}")
-    data = fetch_json(API_URL)
+    proxy_api_url = "https://api.allorigins.win/raw?url=" + API_URL
+    print(f"Trying API via proxy: {proxy_api_url}")
+    data = fetch_json(proxy_api_url)
     if not isinstance(data, list):
         print("API returned non-list response")
         return None
@@ -91,8 +93,8 @@ def try_api():
 
 def try_rss():
     """Fetch posts from RSS feed. Returns list of post dicts or None on failure."""
-    print(f"Trying RSS fallback: {FEED_URL}")
-    xml_data = fetch_xml(FEED_URL)
+    print(f"Trying RSS fallback via proxy: {PROXY_FEED_URL}")
+    xml_data = fetch_xml(PROXY_FEED_URL)
     root = ET.fromstring(xml_data)
     channel = root.find("channel")
     if channel is None:
