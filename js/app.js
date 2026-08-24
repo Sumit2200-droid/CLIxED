@@ -486,48 +486,124 @@
     libApply();
   }
 
-  /* ---- Insights: "From Substack" live feed (insights.html) ---- */
+  /* ---- Substack: load posts from static JSON ---- */
   var substackEl = document.getElementById('clxSubstack');
   if (substackEl) initSubstack(substackEl);
-
-  function validHttpsUrl(raw) {
-    try {
-      var u = new URL(raw);
-      return u.protocol === 'https:';
-    } catch (e) {
-      return false;
-    }
-  }
 
   function substackDate(iso) {
     if (!iso) return '';
     var t = new Date(iso);
     if (isNaN(t.getTime())) return '';
-    return t.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    return t.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
   }
 
-  function substackLive(root, cfg) {
-    var pub = cfg.publication.replace(/\/+$/, '');
-    var embedSrc = pub + '/embed';
+  var SUBSTACK_PLACEHOLDER = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" fill="none"><rect width="600" height="400" fill="%23E8E4DF"/><rect x="200" y="140" width="200" height="120" rx="8" fill="%23D4CFC8"/><path d="M260 200h80M260 220h60" stroke="%23B8AFA5" stroke-width="3" stroke-linecap="round"/></svg>');
 
-    function replaceWith(node) {
-      root.textContent = '';
-      root.appendChild(node);
+  function postCard(item) {
+    var hasImage = item.thumbnail && /^https:/.test(item.thumbnail);
+    var card = document.createElement('article');
+    card.className = 'clx-substack-post';
+
+    var imgWrap = document.createElement('div');
+    imgWrap.className = 'clx-substack-post-img-wrap';
+    var img = document.createElement('img');
+    img.className = 'clx-substack-post-img';
+    img.src = hasImage ? item.thumbnail : SUBSTACK_PLACEHOLDER;
+    img.alt = 'Thumbnail for ' + (item.title || 'Substack post');
+    img.loading = 'lazy';
+    imgWrap.appendChild(img);
+    card.appendChild(imgWrap);
+
+    var body = document.createElement('div');
+    body.className = 'clx-substack-post-body';
+
+    var cat = document.createElement('span');
+    cat.className = 'clx-substack-post-category';
+    cat.textContent = 'PERSPECTIVES';
+    body.appendChild(cat);
+
+    var h = document.createElement('h3');
+    h.className = 'clx-substack-post-title';
+    h.textContent = item.title || 'Untitled post';
+    body.appendChild(h);
+
+    if (item.description) {
+      var d = document.createElement('p');
+      d.className = 'clx-substack-post-excerpt';
+      d.textContent = item.description;
+      body.appendChild(d);
     }
 
-    function linkBtn(href, label) {
+    var meta = document.createElement('div');
+    meta.className = 'clx-substack-post-meta';
+    var dateSpan = document.createElement('span');
+    dateSpan.className = 'clx-substack-post-date';
+    dateSpan.textContent = substackDate(item.pubDate);
+    meta.appendChild(dateSpan);
+    var sep = document.createElement('span');
+    sep.className = 'clx-substack-post-sep';
+    sep.textContent = '\u00B7';
+    meta.appendChild(sep);
+    var authorSpan = document.createElement('span');
+    authorSpan.className = 'clx-substack-post-author';
+    authorSpan.textContent = 'CLI\x47ed Editorial';
+    meta.appendChild(authorSpan);
+    body.appendChild(meta);
+
+    var link = document.createElement('a');
+    link.className = 'clx-substack-post-link';
+    link.href = item.link;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'Read More ';
+    var arrow = document.createElement('span');
+    arrow.className = 'clx-arrow';
+    arrow.setAttribute('aria-hidden', 'true');
+    arrow.textContent = '\u2192';
+    link.appendChild(arrow);
+    body.appendChild(link);
+
+    card.appendChild(body);
+    return card;
+  }
+
+  function initSubstack(el) {
+    var cfg = window.SUBSTACK_CONFIG;
+    if (!cfg || typeof cfg.publication !== 'string') return;
+    var pub = cfg.publication.replace(/\/+$/, '');
+    var visit = document.getElementById('clxSubstackVisit');
+    if (visit) { visit.href = pub; visit.hidden = false; }
+
+    function replaceWith(node) { el.textContent = ''; el.appendChild(node); }
+
+    function renderError() {
+      var box = document.createElement('div');
+      box.className = 'clx-substack-fallback';
+      var tag = document.createElement('span');
+      tag.className = 'clx-lib-tag';
+      tag.textContent = 'Substack';
+      box.appendChild(tag);
+      var t = document.createElement('h3');
+      t.className = 'clx-substack-empty-title';
+      t.textContent = 'We couldn\u2019t load the latest Substack posts right now.';
+      box.appendChild(t);
+      var n = document.createElement('p');
+      n.className = 'clx-substack-empty-note';
+      n.textContent = 'The feed is temporarily unavailable. Visit the publication directly to read the latest.';
+      box.appendChild(n);
       var a = document.createElement('a');
       a.className = 'clx-btn clx-btn--primary';
-      a.href = href;
+      a.href = pub;
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
-      var span = document.createElement('span');
-      span.className = 'clx-arrow';
-      span.setAttribute('aria-hidden', 'true');
-      span.textContent = '\u2192';
-      a.textContent = label + ' ';
-      a.appendChild(span);
-      return a;
+      a.textContent = 'Visit Substack ';
+      var s = document.createElement('span');
+      s.className = 'clx-arrow';
+      s.setAttribute('aria-hidden', 'true');
+      s.textContent = '\u2192';
+      a.appendChild(s);
+      box.appendChild(a);
+      replaceWith(box);
     }
 
     function renderEmpty() {
@@ -537,191 +613,43 @@
       tag.className = 'clx-lib-tag';
       tag.textContent = 'Substack';
       box.appendChild(tag);
-      var title = document.createElement('h3');
-      title.className = 'clx-substack-empty-title';
-      title.textContent = 'Nothing published yet';
-      box.appendChild(title);
-      var note = document.createElement('p');
-      note.className = 'clx-substack-empty-note';
-      note.textContent = 'Field notes and long-form writing from the publication will appear here as soon as they are released.';
-      box.appendChild(note);
-      box.appendChild(linkBtn(pub, 'Read on Substack'));
+      var t = document.createElement('h3');
+      t.className = 'clx-substack-empty-title';
+      t.textContent = 'No Substack posts available yet.';
+      box.appendChild(t);
+      var n = document.createElement('p');
+      n.className = 'clx-substack-empty-note';
+      n.textContent = 'New posts will appear here automatically when published on Substack.';
+      box.appendChild(n);
+      var a = document.createElement('a');
+      a.className = 'clx-btn clx-btn--primary';
+      a.href = pub;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.textContent = 'Visit Substack ';
+      var s = document.createElement('span');
+      s.className = 'clx-arrow';
+      s.setAttribute('aria-hidden', 'true');
+      s.textContent = '\u2192';
+      a.appendChild(s);
+      box.appendChild(a);
       replaceWith(box);
     }
 
-    function substackMeta(item) {
-      var meta = document.createElement('div');
-      meta.className = 'clx-substack-meta';
-      var tag = document.createElement('span');
-      tag.className = 'clx-lib-tag';
-      tag.textContent = 'Substack';
-      meta.appendChild(tag);
-      var date = substackDate(item.date);
-      if (date) {
-        var dt = document.createElement('span');
-        dt.className = 'clx-lib-date';
-        dt.textContent = date;
-        meta.appendChild(dt);
-      }
-      return meta;
-    }
-
-    function substackMore() {
-      var more = document.createElement('span');
-      more.className = 'clx-lib-more';
-      var arrow = document.createElement('span');
-      arrow.className = 'clx-arrow';
-      arrow.setAttribute('aria-hidden', 'true');
-      arrow.textContent = '\u2192';
-      more.textContent = 'Read on Substack ';
-      more.appendChild(arrow);
-      return more;
-    }
-
-    function featureCard(item) {
-      var hasImage = item.image && validHttpsUrl(item.image);
-      var a = document.createElement('a');
-      a.className = 'clx-substack-feature' + (hasImage ? '' : ' clx-substack-feature--no-media');
-      a.href = item.url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      if (hasImage) {
-        var media = document.createElement('div');
-        media.className = 'clx-substack-feature-media';
-        var img = document.createElement('img');
-        img.className = 'clx-substack-feature-img';
-        img.src = item.image;
-        img.alt = 'Thumbnail for ' + (item.title || 'Substack post');
-        img.loading = 'lazy';
-        media.appendChild(img);
-        a.appendChild(media);
-      }
-      var body = document.createElement('div');
-      body.className = 'clx-substack-feature-body';
-      body.appendChild(substackMeta(item));
-      var h = document.createElement('h3');
-      h.className = 'clx-substack-feature-title';
-      h.textContent = item.title || 'Untitled post';
-      body.appendChild(h);
-      if (item.excerpt) {
-        var d = document.createElement('p');
-        d.className = 'clx-substack-feature-desc';
-        d.textContent = item.excerpt;
-        body.appendChild(d);
-      }
-      body.appendChild(substackMore());
-      a.appendChild(body);
-      return a;
-    }
-
-    function compactCard(item) {
-      var a = document.createElement('a');
-      a.className = 'clx-lib-card clx-lib-card--substack clx-lib-card--link clx-substack-card';
-      a.href = item.url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      if (item.image && validHttpsUrl(item.image)) {
-        var img = document.createElement('img');
-        img.className = 'clx-substack-img';
-        img.src = item.image;
-        img.alt = 'Thumbnail for ' + (item.title || 'Substack post');
-        img.loading = 'lazy';
-        a.appendChild(img);
-      }
-      a.appendChild(substackMeta(item));
-      var h = document.createElement('h3');
-      h.className = 'clx-lib-title';
-      h.textContent = item.title || 'Untitled post';
-      a.appendChild(h);
-      if (item.excerpt) {
-        var d = document.createElement('p');
-        d.className = 'clx-lib-desc';
-        d.textContent = item.excerpt;
-        a.appendChild(d);
-      }
-      a.appendChild(substackMore());
-      return a;
-    }
-
-    function renderCards(items) {
-      var wrap = document.createElement('div');
-      wrap.appendChild(featureCard(items[0]));
-      if (items.length > 1) {
-        var grid = document.createElement('div');
-        grid.className = 'clx-substack-grid';
-        for (var i = 1; i < items.length; i++) {
-          grid.appendChild(compactCard(items[i]));
-        }
-        wrap.appendChild(grid);
-      }
-      replaceWith(wrap);
-    }
-
-    function renderFallback() {
-      var embedBox = document.createElement('div');
-      embedBox.className = 'clx-substack-embed';
-      var embedHead = document.createElement('div');
-      embedHead.className = 'clx-substack-embed-head';
-      var embedLabel = document.createElement('p');
-      embedLabel.textContent = 'Latest posts, live from Substack';
-      embedHead.appendChild(embedLabel);
-      embedHead.appendChild(linkBtn(pub, 'Read on Substack'));
-      var embedBody = document.createElement('div');
-      embedBody.className = 'clx-substack-embed-body';
-      var iframe = document.createElement('iframe');
-      iframe.src = embedSrc;
-      iframe.title = 'Latest posts from ' + (cfg.label || 'our Substack');
-      iframe.setAttribute('loading', 'lazy');
-      embedBody.appendChild(iframe);
-      embedBox.appendChild(embedHead);
-      embedBox.appendChild(embedBody);
-      replaceWith(embedBox);
-    }
-
-    var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
-    var timer = controller ? setTimeout(function () { controller.abort(); }, 12000) : null;
-    var reqInit = { headers: { Accept: 'application/json' } };
-    if (controller) reqInit.signal = controller.signal;
-
-    fetch(cfg.endpoint, reqInit)
+    fetch('./data/posts.json', { cache: 'no-store' })
       .then(function (r) {
-        if (!r.ok) throw new Error('http ' + r.status);
+        if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       })
-      .then(function (data) {
-        if (!data || !data.ok || !Array.isArray(data.items)) throw new Error('bad payload');
-        var items = data.items.filter(function (i) {
-          return i && typeof i.url === 'string' && validHttpsUrl(i.url);
-        });
-        if (!items.length) renderEmpty();
-        else renderCards(items);
+      .then(function (posts) {
+        if (!Array.isArray(posts) || !posts.length) { renderEmpty(); return; }
+        var grid = document.createElement('div');
+        grid.className = 'clx-substack-posts';
+        posts.forEach(function (item) { grid.appendChild(postCard(item)); });
+        replaceWith(grid);
       })
-      .catch(renderFallback)
-      .finally(function () {
-        if (timer) clearTimeout(timer);
-        root.setAttribute('aria-busy', 'false');
-      });
-  }
-
-  function initSubstack(el) {
-    var cfg = window.SUBSTACK_CONFIG;
-    if (!cfg || typeof cfg.publication !== 'string') {
-      el.textContent = 'The Substack feed is not configured yet.';
-      el.setAttribute('aria-busy', 'false');
-      return;
-    }
-    try {
-      var u = new URL(cfg.publication);
-      if (u.protocol !== 'https:') return;
-    } catch (e) {
-      return;
-    }
-    var visit = document.getElementById('clxSubstackVisit');
-    if (visit) {
-      visit.href = cfg.publication.replace(/\/+$/, '');
-      visit.hidden = false;
-    }
-    substackLive(el, cfg);
+      .catch(function () { renderError(); })
+      .finally(function () { el.setAttribute('aria-busy', 'false'); });
   }
 
   /* ---- Destination list → globe event (home only) ---- */

@@ -3101,6 +3101,19 @@ html.js .clx-scroll-progress {
 .clx-body--library .clx-lib-featured .clx-nodes--invert,
 .clx-body--library .clx-close-band .clx-nodes--invert { opacity: 0.15; }
 
+/* --- 31.10b Substack page (substack.html — .clx-body--substack) ---------- */
+.clx-body--substack .clx-section { padding-block: clamp(2rem, 3.75vw, 3.5rem); }
+.clx-body--substack .clx-hero { padding-top: clamp(3.5rem, 7vw, 6rem); padding-bottom: clamp(2.5rem, 5vw, 4.5rem); }
+.clx-body--substack .clx-section > .clx-container { position: relative; z-index: 1; }
+
+@media (max-width: 640px) {
+  .clx-body--substack .clx-section { padding-block: 2.25rem; }
+  .clx-body--substack .clx-hero { padding-top: 3.25rem; padding-bottom: 2.5rem; }
+}
+
+.clx-body--substack .clx-hero .clx-nodes { opacity: 0.12; }
+.clx-body--substack .clx-close-band .clx-nodes--invert { opacity: 0.15; }
+
 /* --- 31.9 Anchors land below the sticky header -------------------------- */
 main #library, main #research, main #cases, main #articles { scroll-margin-top: 96px; }
 
@@ -3193,6 +3206,7 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
   aspect-ratio: 16 / 9; min-height: 180px;
   background: var(--color-border-strong); opacity: 0.35;
 }
+.clx-substack-skel .clx-substack-post-body { gap: var(--space-3); }
 .clx-substack-skel-line {
   height: 14px; border-radius: 2px; background: var(--color-border-strong); opacity: 0.35;
 }
@@ -3246,6 +3260,79 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
   .clx-substack-grid { grid-template-columns: minmax(0, 1fr); }
   .clx-substack-feature-body { padding: var(--space-5); }
   .clx-substack-embed-body iframe { height: 540px; }
+}
+
+/* ============================================================
+   31.11 — SUBSTACK POST CARDS (uniform editorial grid)
+   ============================================================ */
+.clx-substack-posts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+.clx-substack-post {
+  display: flex; flex-direction: column;
+  background: var(--color-surface);
+  border: var(--border-thin);
+  border-radius: var(--radius);
+  overflow: hidden;
+  color: var(--color-text); text-decoration: none;
+  transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
+}
+.clx-substack-post:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-3px);
+}
+.clx-substack-post-img-wrap {
+  aspect-ratio: 16 / 9; overflow: hidden;
+  background: var(--color-primary-dark);
+}
+.clx-substack-post-img {
+  display: block; width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(0.9); transition: filter var(--t-base);
+}
+.clx-substack-post:hover .clx-substack-post-img { filter: none; }
+.clx-substack-post-body {
+  display: flex; flex-direction: column; flex: 1;
+  gap: var(--space-3); padding: var(--space-5);
+}
+.clx-substack-post-category {
+  font-size: var(--type-label); letter-spacing: var(--tracking-label);
+  text-transform: uppercase; font-weight: 600; color: var(--color-accent);
+  margin: 0;
+}
+.clx-substack-post-title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(1.15rem, 1.5vw, 1.4rem); line-height: 1.25; margin: 0;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+}
+.clx-substack-post-excerpt {
+  font-size: var(--type-small); color: var(--color-muted); line-height: var(--leading-body);
+  margin: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;
+}
+.clx-substack-post-meta {
+  display: flex; align-items: center; gap: var(--space-2);
+  font-size: var(--type-meta); color: var(--color-muted); margin: 0;
+  flex-wrap: wrap;
+}
+.clx-substack-post-date { white-space: nowrap; }
+.clx-substack-post-sep { opacity: 0.5; }
+.clx-substack-post-author { white-space: nowrap; }
+.clx-substack-post-link {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  margin-top: auto; padding-top: var(--space-2);
+  font-size: var(--type-meta); letter-spacing: 0.16em; text-transform: uppercase;
+  font-weight: 600; color: var(--color-accent); text-decoration: none;
+  transition: color var(--t-fast);
+}
+.clx-substack-post-link .clx-arrow { transition: transform var(--t-fast); }
+.clx-substack-post:hover .clx-substack-post-link .clx-arrow { transform: translateX(4px); }
+@media (max-width: 1024px) {
+  .clx-substack-posts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .clx-substack-posts { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* ============================================================
@@ -6817,5 +6904,287 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
 
   .clx-article-meta-sep {
     display: none;
+  }
+}
+
+/* ==========================================================================
+   39. SUBSTACK PAGE — "Ideas in Motion"
+   Unique editorial animation: flowing lines, paper-like forms, knowledge flow.
+   Never reused on other pages.
+   ========================================================================== */
+
+/* --- Background container --- */
+.clx-substack-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* --- Flowing editorial lines --- */
+.clx-substack-bg-line {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.clx-substack-bg-line svg {
+  width: 100%;
+  height: 100%;
+}
+
+.clx-substack-bg-line--1 {
+  animation: clxSubstackLine1 60s ease-in-out infinite alternate;
+}
+.clx-substack-bg-line--2 {
+  animation: clxSubstackLine2 55s ease-in-out infinite alternate;
+}
+.clx-substack-bg-line--3 {
+  animation: clxSubstackLine3 50s ease-in-out infinite alternate;
+}
+
+@keyframes clxSubstackLine1 {
+  0%   { transform: translate(0%, 0%) rotate(0deg); }
+  50%  { transform: translate(1.5%, -0.8%) rotate(0.06deg); }
+  100% { transform: translate(-1%, 1.2%) rotate(-0.05deg); }
+}
+@keyframes clxSubstackLine2 {
+  0%   { transform: translate(0%, 0%) rotate(0deg); }
+  50%  { transform: translate(-1.2%, 1.5%) rotate(-0.08deg); }
+  100% { transform: translate(0.8%, -0.8%) rotate(0.05deg); }
+}
+@keyframes clxSubstackLine3 {
+  0%   { transform: translate(0%, 0%) rotate(0deg); }
+  50%  { transform: translate(0.8%, -1.2%) rotate(0.05deg); }
+  100% { transform: translate(-0.8%, 0.8%) rotate(-0.04deg); }
+}
+
+/* --- Slowly moving abstract shapes — paper-like forms --- */
+.clx-substack-bg-shapes {
+  position: absolute;
+  inset: 0;
+}
+
+.clx-substack-bg-shape {
+  position: absolute;
+  border-radius: 2px;
+  opacity: 0;
+}
+
+.clx-substack-bg-shape--1 {
+  width: 280px;
+  height: 180px;
+  top: 12%;
+  left: 8%;
+  border: 1px solid var(--color-primary);
+  opacity: 0.04;
+  animation: clxSubstackShape1 45s ease-in-out infinite alternate;
+}
+
+.clx-substack-bg-shape--2 {
+  width: 200px;
+  height: 260px;
+  top: 45%;
+  right: 12%;
+  border: 1px solid var(--color-accent);
+  opacity: 0.03;
+  animation: clxSubstackShape2 50s ease-in-out infinite alternate;
+}
+
+.clx-substack-bg-shape--3 {
+  width: 160px;
+  height: 140px;
+  bottom: 15%;
+  left: 35%;
+  border: 1px solid var(--color-secondary);
+  opacity: 0.035;
+  animation: clxSubstackShape3 40s ease-in-out infinite alternate;
+}
+
+@keyframes clxSubstackShape1 {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0.04; }
+  50%  { transform: translate(3%, -2%) rotate(1.5deg); opacity: 0.06; }
+  100% { transform: translate(-2%, 3%) rotate(-1deg); opacity: 0.03; }
+}
+@keyframes clxSubstackShape2 {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0.03; }
+  50%  { transform: translate(-2.5%, 2%) rotate(-2deg); opacity: 0.05; }
+  100% { transform: translate(2%, -1.5%) rotate(1.5deg); opacity: 0.025; }
+}
+@keyframes clxSubstackShape3 {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0.035; }
+  50%  { transform: translate(2%, -3%) rotate(1deg); opacity: 0.05; }
+  100% { transform: translate(-1.5%, 2%) rotate(-0.5deg); opacity: 0.03; }
+}
+
+/* --- Soft radial washes --- */
+.clx-substack-bg-wash {
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(ellipse 65% 45% at 22% 25%, rgba(23, 79, 74, 0.03) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 35% at 75% 60%, rgba(184, 138, 69, 0.022) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 30% at 45% 80%, rgba(113, 135, 126, 0.018) 0%, transparent 70%);
+  animation: clxSubstackWashDrift 55s ease-in-out infinite alternate;
+}
+
+@keyframes clxSubstackWashDrift {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(1.5%, -1%) scale(1.02); }
+  100% { transform: translate(-1%, 0.8%) scale(0.98); }
+}
+
+/* --- Slowly drifting dots — knowledge flow --- */
+.clx-substack-bg-dots {
+  position: absolute;
+  inset: 0;
+}
+
+.clx-substack-bg-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  opacity: 0;
+}
+
+.clx-substack-bg-dot:nth-child(1) {
+  top: 14%; left: 18%;
+  animation: clxSubstackDotPulse 15s ease-in-out infinite;
+  animation-delay: 0s;
+}
+.clx-substack-bg-dot:nth-child(2) {
+  top: 30%; right: 22%;
+  background: var(--color-accent);
+  animation: clxSubstackDotPulse 17s ease-in-out infinite;
+  animation-delay: -3s;
+}
+.clx-substack-bg-dot:nth-child(3) {
+  bottom: 32%; left: 28%;
+  animation: clxSubstackDotPulse 19s ease-in-out infinite;
+  animation-delay: -7s;
+}
+.clx-substack-bg-dot:nth-child(4) {
+  top: 52%; right: 14%;
+  background: var(--color-secondary);
+  animation: clxSubstackDotPulse 16s ease-in-out infinite;
+  animation-delay: -10s;
+}
+.clx-substack-bg-dot:nth-child(5) {
+  bottom: 20%; left: 52%;
+  animation: clxSubstackDotPulse 18s ease-in-out infinite;
+  animation-delay: -13s;
+}
+.clx-substack-bg-dot:nth-child(6) {
+  top: 42%; left: 62%;
+  background: var(--color-accent);
+  animation: clxSubstackDotPulse 14s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+@keyframes clxSubstackDotPulse {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50%      { opacity: 0.1; transform: scale(1); }
+}
+
+/* --- Knowledge-flow curves --- */
+.clx-substack-bg-links {
+  position: absolute;
+  inset: 0;
+  animation: clxSubstackLinksFade 45s ease-in-out infinite alternate;
+}
+
+.clx-substack-bg-links svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes clxSubstackLinksFade {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .clx-substack-bg-line--1 { opacity: 0.8; }
+  .clx-substack-bg-line--2 { opacity: 0.7; }
+}
+@media (max-width: 640px) {
+  .clx-substack-bg { opacity: 0.4; }
+  .clx-substack-bg-dots { display: none; }
+  .clx-substack-bg-shapes { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .clx-substack-bg-line,
+  .clx-substack-bg-shape,
+  .clx-substack-bg-wash,
+  .clx-substack-bg-dot,
+  .clx-substack-bg-links {
+    animation: none !important;
+  }
+  .clx-substack-bg-dot { opacity: 0.05; }
+}
+
+/* ==========================================================================
+   39.1 SUBSTACK PAGE — Hero, About cards, Page-specific layout
+   ========================================================================== */
+
+/* --- Substack hero --- */
+.clx-substack-hero {
+  display: flex;
+  align-items: flex-end;
+  min-height: 38vh;
+}
+
+.clx-substack-hero-copy {
+  max-width: 680px;
+}
+
+.clx-substack-hero .clx-eyebrow { margin-bottom: var(--space-4); }
+
+.clx-substack-hero .clx-h1 {
+  font-size: var(--type-h1);
+  margin-bottom: var(--space-5);
+}
+
+/* --- About grid --- */
+.clx-substack-about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  margin-top: var(--space-7);
+}
+
+.clx-substack-about-card {
+  border-top: 2px solid var(--color-border-strong);
+  padding-top: var(--space-5);
+}
+
+.clx-substack-about-card h3 {
+  font-size: var(--type-h4);
+  margin-bottom: var(--space-3);
+  color: var(--color-primary);
+}
+
+.clx-substack-about-card p {
+  font-size: var(--type-small);
+  color: var(--color-muted);
+  line-height: 1.65;
+  max-width: 32ch;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .clx-substack-about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: 640px) {
+  .clx-substack-hero {
+    min-height: 28vh;
   }
 }

@@ -1,7 +1,7 @@
 'use strict';
 
 /*
- * CLIxED — Substack passthrough endpoint (insights.html "From Substack" section).
+ * CLIxED — Substack passthrough endpoint (substack.html + insights.html).
  * Deployment: any Node 18+ serverless runtime that exposes `module.exports`
  * (same pattern as api/lead.js — Vercel: /api/substack.js -> /api/substack;
  * Netlify: api/substack.js).
@@ -11,21 +11,26 @@
  * fetches the publication server-side and returns a small, sanitised
  * payload. No API keys or secrets are used — the posts API is public.
  *
- * TEST CONFIGURATION: PUBLICATION below is a real live Substack used to
- * verify the pipeline. Replace it with the real CLIxED Substack URL when
- * available (keep `SOURCE` = '<handle>.substack.com').
+ * The feed is cached in-memory for 5 minutes so repeated page loads
+ * do not hammer the Substack API. The cache key includes the limit
+ * parameter so different request sizes are cached separately.
  *
  * Security: only whitelisted string fields are returned, HTML is stripped,
  * lengths are capped and URLs are restricted to http(s). Full article body
  * is NEVER copied into CLIxED — cards link out to the original post.
+ *
+ * Environment variables:
+ *   SUBSTACK_PUBLICATION_URL — e.g. https://test7334.substack.com
+ *   (defaults to test publication for development)
  */
 
-const PUBLICATION = 'https://oneusefulthing.substack.com';
-const SOURCE = 'oneusefulthing.substack.com';
+const PUBLICATION = (process.env.SUBSTACK_PUBLICATION_URL || 'https://test7334.substack.com').replace(/\/+$/, '');
 const LIMIT_MAX = 6;
 const CAP = { title: 200, excerpt: 300, url: 2048, image: 2048, date: 10 };
+const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
 
 const hits = new Map(); // per-instance basic rate limit (IP -> [timestamps])
+const cache = new Map(); // cache key -> { data, ts }
 
 function clean(v, cap) {
   if (typeof v !== 'string') return '';
@@ -52,7 +57,7 @@ function pick(item) {
   if (!url) return null;
   return {
     title: clean(item.title, CAP.title),
-    excerpt: clean(item.subtitle, CAP.excerpt),
+    excerpt: clean(item.subtitle || item.description || '', CAP.excerpt),
     date: postDate.replace(/^(\d{4}-\d{2}-\d{2}).*$/, '$1').slice(0, CAP.date),
     url: url,
     image: safeUrl(item.cover_image, CAP.image)
@@ -80,20 +85,38 @@ module.exports = (req, res) => {
   if (!Number.isFinite(limit) || limit < 1) limit = 4;
   limit = Math.min(limit, LIMIT_MAX);
 
+  // Check cache
+  const cacheKey = 'limit=' + limit;
+  const cached = cache.get(cacheKey);
+  if (cached && (now - cached.ts) < CACHE_TTL_MS) {
+    json(res, 200, cached.data);
+    return;
+  }
+
   const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
   const timer = controller ? setTimeout(() => controller.abort(), 10000) : null;
 
-  fetch(SOURCE + '/api/v1/posts?limit=' + limit + '&sort=new', {
+  fetch(PUBLICATION + '/api/v1/posts?limit=' + limit + '&sort=new', {
     headers: { Accept: 'application/json', 'User-Agent': 'CLIxED-site/1.0' }
   }).then((r) => {
     if (!r.ok) throw new Error('substack http ' + r.status);
     return r.json();
-  }).then((posts) => {
-    if (!Array.isArray(posts)) throw new Error('unexpected payload');
+  }).then((raw) => {
+    const posts = Array.isArray(raw)
+      ? raw
+      : raw && Array.isArray(raw.value) ? raw.value : null;
+    if (!posts) throw new Error('unexpected payload');
     const items = posts.map(pick).filter(Boolean).slice(0, limit);
-    json(res, 200, { ok: true, publication: PUBLICATION, items: items });
+    const result = { ok: true, publication: PUBLICATION, items: items };
+    cache.set(cacheKey, { data: result, ts: Date.now() });
+    json(res, 200, result);
   }).catch(() => {
-    json(res, 502, { ok: false, error: 'Substack feed unavailable', publication: PUBLICATION });
+    // On error, serve stale cache if available (stale-while-revalidate pattern)
+    if (cached) {
+      json(res, 200, cached.data);
+    } else {
+      json(res, 502, { ok: false, error: 'Substack feed unavailable', publication: PUBLICATION });
+    }
   }).finally(() => {
     if (timer) clearTimeout(timer);
   });

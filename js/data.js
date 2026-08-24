@@ -13,17 +13,20 @@
 
   /* ============================================================
      CLIxED — Substack integration config (single source of truth)
-     TEST CONFIGURATION: the publication below is a real, live
-     Substack used to verify the integration pipeline end-to-end.
-     Replace `publication` with the real CLIxED Substack URL when
-     it becomes available — nothing else on this page needs to change.
-     Content is fetched through api/substack.js (same-origin
-     serverless passthrough, same pattern as api/lead.js) because
-     Substack's feed/API does not send CORS headers to browsers.
+     ============================================================
+
+     HOW TO UPDATE YOUR SUBSTACK URL:
+     If you change your Substack publication, update ONLY the
+     "publication" value below. The GitHub Actions workflow
+     automatically fetches RSS and writes data/posts.json.
+
+     The client-side code only reads data/posts.json — no
+     proxy calls or CORS workarounds needed.
      ============================================================ */
   window.SUBSTACK_CONFIG = {
-    publication: 'https://oneusefulthing.substack.com',
-    endpoint: '/api/substack?limit=4',
+    /* Your Substack publication URL — change this if you move publications */
+    publication: 'https://test7334.substack.com',
+
     label: 'CLIxED on Substack'
   };
 })();
