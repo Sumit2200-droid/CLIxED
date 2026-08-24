@@ -17,13 +17,18 @@ PLACEHOLDER_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
 
 
 def fetch_json(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "CLIxED-GitHub-Actions/1.0"})
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Accept": "application/json"
+    })
     with urllib.request.urlopen(req, timeout=30) as resp:
         return json.loads(resp.read().decode("utf-8"))
 
-
 def fetch_xml(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "CLIxED-GitHub-Actions/1.0"})
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Accept": "application/xml, text/xml, */*"
+    })
     with urllib.request.urlopen(req, timeout=30) as resp:
         return resp.read().decode("utf-8")
 
@@ -170,9 +175,7 @@ def main():
             print(f"RSS also failed: {e}")
 
     if posts is None:
-        print("ERROR: Both API and RSS failed. Writing empty posts.json.")
-        with open(OUTPUT, "w", encoding="utf-8") as f:
-            json.dump([], f)
+        print("ERROR: Both API and RSS failed. Leaving existing posts.json untouched.")
         sys.exit(1)
 
     feed_count = len(posts)
