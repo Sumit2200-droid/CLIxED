@@ -600,8 +600,6 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
   .clx-nav-more summary { display: block; font-size: 1.05rem; padding: var(--space-3) var(--space-4); }
   .clx-nav-dropdown { position: static; transform: none; opacity: 1; pointer-events: auto; box-shadow: none; border: 0; padding: 0 0 0 var(--space-4); }
   .clx-nav-toggle { display: block; }
-  /* Keep CTA visible in header on mobile */
-  .clx-header-inner > .clx-btn { font-size: 0.8rem; padding: var(--space-2) var(--space-4); white-space: nowrap; }
   .clx-header-inner { gap: var(--space-3); }
   /* Hide brand tag on small screens to save space */
   .clx-brand-tag { display: none; }
