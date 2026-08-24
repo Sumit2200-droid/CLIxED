@@ -554,7 +554,7 @@
     meta.appendChild(sep);
     var authorSpan = document.createElement('span');
     authorSpan.className = 'clx-substack-post-author';
-    authorSpan.textContent = 'CLI\x47ed Editorial';
+    authorSpan.textContent = 'CLIxED Editorial';
     meta.appendChild(authorSpan);
     body.appendChild(meta);
 
