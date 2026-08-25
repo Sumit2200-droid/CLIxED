@@ -329,6 +329,15 @@
         return;
       }
 
+      var captcha = form.querySelector('textarea[name="h-captcha-response"]');
+      if (captcha && !captcha.value) {
+        if (errorMsg) {
+          errorMsg.textContent = 'Please complete the captcha before sending your enquiry.';
+          errorMsg.classList.add('show');
+        }
+        return;
+      }
+
       var cfg = window.LEAD_CONFIG || { endpoint: '' };
 
       var payload = {};
