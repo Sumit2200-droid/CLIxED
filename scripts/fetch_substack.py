@@ -109,8 +109,23 @@ def try_api():
 
 def try_rss():
     """Fetch posts from RSS feed. Returns list of post dicts or None on failure."""
-    print(f"Trying RSS fallback via proxy: {PROXY_FEED_URL}")
-    xml_data = fetch_xml(PROXY_FEED_URL)
+    proxies = [
+        "https://api.allorigins.win/raw?url=" + FEED_URL,
+        "https://corsproxy.io/?url=" + FEED_URL,
+    ]
+    xml_data = None
+    last_error = None
+    for proxy_url in proxies:
+        try:
+            print(f"Trying RSS via: {proxy_url}")
+            xml_data = fetch_xml(proxy_url)
+            break
+        except Exception as e:
+            print(f"  This proxy failed: {e}")
+            last_error = e
+    if xml_data is None:
+        raise last_error
+
     root = ET.fromstring(xml_data)
     channel = root.find("channel")
     if channel is None:
