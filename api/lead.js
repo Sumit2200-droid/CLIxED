@@ -86,7 +86,7 @@ module.exports = (req, res) => {
   const errors = {};
   if (!name) errors.name = 'Name is required';
   if (!email || !validEmail(email)) errors.email = 'A valid email address is required';
-  if (!phone || !validPhone(phone)) errors.phone = 'A valid phone number is required';
+  if (phone && !validPhone(phone)) errors.phone = 'A valid phone number is required';
   if (!message || message.length < 10) errors.message = 'Message must be at least 10 characters';
   if (Object.keys(errors).length) { json(res, 400, { ok: false, errors }); return; }
 

@@ -267,7 +267,7 @@
 
   /* ---- Forms: validation, spam protection, routing ---- */
   function fieldError(field, message) {
-    var wrap = field.closest ? field.closest('.form-field') : null;
+    var wrap = field.closest ? field.closest('.form-field, .clx-field') : null;
     if (!wrap) return;
     wrap.classList.add('has-error');
     var err = wrap.querySelector('.field-error');
@@ -282,7 +282,7 @@
   }
 
   function clearFieldError(field) {
-    var wrap = field.closest ? field.closest('.form-field') : null;
+    var wrap = field.closest ? field.closest('.form-field, .clx-field') : null;
     if (!wrap) return;
     wrap.classList.remove('has-error');
     field.removeAttribute('aria-invalid');
@@ -299,8 +299,6 @@
     if (field.required && !value) { fieldError(field, label + ' is required.'); return false; }
     if (type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) { fieldError(field, 'Enter a valid email address.'); return false; }
     if (type === 'tel' && !/^\+?[0-9][0-9\s().-]{6,17}$/.test(value.replace(/\s+/g, ' '))) { fieldError(field, 'Enter a valid phone number.'); return false; }
-    if (field.tagName === 'TEXTAREA' && value.length < 10) { fieldError(field, 'Please add a few more details (at least 10 characters).'); return false; }
-    if (value.length > 2000) { fieldError(field, 'Please keep your message under 2000 characters.'); return false; }
     return true;
   }
 
@@ -309,7 +307,6 @@
     var original = btn ? btn.innerHTML : '';
     var successMsg = document.getElementById(form.dataset.form);
     var errorMsg = form.querySelector('[data-error]');
-    var lastSubmitAt = 0;
 
     form.querySelectorAll('input, select, textarea').forEach(function (f) {
       f.addEventListener('input', function () { clearFieldError(f); });
@@ -325,24 +322,18 @@
         if (!validateField(f)) { ok = false; if (!firstBad) firstBad = f; }
       });
       if (!ok) {
-        var ew = firstBad.closest ? firstBad.closest('.form-field') : null;
+        var ew = firstBad.closest ? firstBad.closest('.form-field, .clx-field') : null;
         var target = ew || firstBad;
         target.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth', block: 'center' });
         if (firstBad.focus) firstBad.focus();
         return;
       }
 
-      var honeypot = form.querySelector('input[name="website"]');
-      if (honeypot && (honeypot.value || '').length > 0) return;
-
-      var now = Date.now();
-      var cfg = window.LEAD_CONFIG || { endpoint: '', minWaitMs: 8000 };
-      if (now - lastSubmitAt < (cfg.minWaitMs || 8000)) return;
-      lastSubmitAt = now;
+      var cfg = window.LEAD_CONFIG || { endpoint: '' };
 
       var payload = {};
       form.querySelectorAll('input, select, textarea').forEach(function (f) {
-        if (f.name && f.name !== 'website') payload[f.name] = (f.value || '').trim();
+        if (f.name && f.name !== 'website' && f.name !== 'g-recaptcha-response') payload[f.name] = (f.value || '').trim();
       });
 
       var show = function (el) {
@@ -373,9 +364,14 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       }).then(function (r) {
-        if (!r.ok) throw new Error('http ' + r.status);
-        finish(true);
-      }).catch(function () {
+        return r.json().catch(function () { return {}; }).then(function (result) {
+          if (!r.ok || result.success === false || result.ok === false) {
+            throw new Error(result.message || result.error || ('http ' + r.status));
+          }
+          finish(true);
+        });
+      }).catch(function (err) {
+        if (errorMsg && err.message) errorMsg.textContent = err.message;
         finish(false);
       });
     });

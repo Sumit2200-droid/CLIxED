@@ -6,9 +6,7 @@
      The endpoint is served by api/lead.js (serverless function).
      ============================================================ */
   window.LEAD_CONFIG = {
-    endpoint: 'https://api.web3forms.com/submit',
-    minWaitMs: 8000,
-    maxHoneypotChars: 100
+    endpoint: 'https://api.web3forms.com/submit'
   };
 
   /* ============================================================
