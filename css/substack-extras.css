@@ -36,7 +36,9 @@
 .clx-substack-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10, 12, 14, 0.72);
+  background: rgba(10, 12, 14, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +46,7 @@
   z-index: 1000;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.22s ease;
+  transition: opacity 0.28s cubic-bezier(0.32, 0, 0.2, 1);
 }
 .clx-substack-modal-overlay.is-open {
   opacity: 1;
@@ -56,15 +58,15 @@ body.clx-modal-open {
 
 .clx-substack-modal {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 14px;
   width: min(920px, 100%);
   height: min(85vh, 900px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-  transform: translateY(12px) scale(0.98);
-  transition: transform 0.22s ease;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  transform: translateY(16px) scale(0.97);
+  transition: transform 0.28s cubic-bezier(0.32, 0, 0.2, 1);
 }
 .clx-substack-modal-overlay.is-open .clx-substack-modal {
   transform: translateY(0) scale(1);
@@ -74,32 +76,37 @@ body.clx-modal-open {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.25rem;
   border-bottom: 1px solid #eee;
   flex: none;
+  background: #faf9f7;
 }
 .clx-substack-modal-opennew {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   text-decoration: none;
-  color: inherit;
-  opacity: 0.75;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.15s;
 }
 .clx-substack-modal-opennew:hover {
-  opacity: 1;
+  color: #174F4A;
   text-decoration: underline;
 }
 .clx-substack-modal-close {
   background: none;
-  border: none;
+  border: 1px solid transparent;
   font-size: 1.1rem;
   line-height: 1;
   cursor: pointer;
   padding: 0.4rem 0.6rem;
-  border-radius: 6px;
-  color: inherit;
+  border-radius: 8px;
+  color: #666;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 .clx-substack-modal-close:hover {
-  background: #f2f2f2;
+  background: #f0eeeb;
+  color: #1a1a1a;
+  border-color: #e0deda;
 }
 
 .clx-substack-modal-framewrap {
@@ -133,7 +140,12 @@ body.clx-modal-open {
 }
 
 
-/* ---- In-site article reader content ---- */
+/* ==========================================================================
+   IN-SITE ARTICLE READER — Substack post content rendered inside modal
+   Professional long-form reading experience with responsive typography.
+   ========================================================================== */
+
+/* ---- Reader toolbar title ---- */
 .clx-substack-reader-title {
   font-weight: 600;
   font-size: 0.95rem;
@@ -142,43 +154,295 @@ body.clx-modal-open {
   text-overflow: ellipsis;
   white-space: nowrap;
   padding-right: 1rem;
+  color: #1a1a1a;
 }
 
+/* ---- Reader body — scrollable content area ---- */
 .clx-substack-reader-body {
-  padding: 2rem;
+  padding: 2.5rem 3rem 3rem;
   overflow-y: auto;
   flex: 1;
   min-height: 0;
-  line-height: 1.7;
-  font-size: 1.05rem;
+  line-height: 1.78;
+  font-size: 1.0625rem;
+  color: #1a1a1a;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
+/* Scrollbar styling */
+.clx-substack-reader-body::-webkit-scrollbar { width: 6px; }
+.clx-substack-reader-body::-webkit-scrollbar-track { background: transparent; }
+.clx-substack-reader-body::-webkit-scrollbar-thumb { background: #d4d0cb; border-radius: 3px; }
+.clx-substack-reader-body::-webkit-scrollbar-thumb:hover { background: #b8b3ac; }
+
+/* ---- Paragraphs ---- */
+.clx-substack-reader-body p {
+  margin: 0 0 1.25em;
+  letter-spacing: -0.003em;
+}
+
+/* ---- Headings ---- */
+.clx-substack-reader-body h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 2.2em 0 0.6em;
+  letter-spacing: -0.02em;
+  color: #0f0f0f;
+}
+.clx-substack-reader-body h2 {
+  font-size: clamp(1.35rem, 2.5vw, 1.7rem);
+  font-weight: 650;
+  line-height: 1.28;
+  margin: 2em 0 0.55em;
+  letter-spacing: -0.015em;
+  color: #0f0f0f;
+}
+.clx-substack-reader-body h3 {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 1.8em 0 0.5em;
+  letter-spacing: -0.01em;
+  color: #1a1a1a;
+}
+.clx-substack-reader-body h4,
+.clx-substack-reader-body h5,
+.clx-substack-reader-body h6 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 1.6em 0 0.45em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #555;
+}
+
+/* ---- Links ---- */
+.clx-substack-reader-body a {
+  color: #174F4A;
+  text-decoration: underline;
+  text-decoration-color: rgba(23, 79, 74, 0.3);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s, color 0.15s;
+}
+.clx-substack-reader-body a:hover {
+  text-decoration-color: #174F4A;
+  color: #0e3530;
+}
+
+/* ---- Images ---- */
 .clx-substack-reader-body img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-  margin: 1rem 0;
+  margin: 1.5em 0;
+  display: block;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+.clx-substack-reader-body figure {
+  margin: 1.75em 0;
+}
+.clx-substack-reader-body figure img {
+  margin-bottom: 0.5em;
+}
+.clx-substack-reader-body figcaption {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: #777;
+  text-align: center;
+  padding: 0 1rem;
 }
 
-.clx-substack-reader-body p {
-  margin: 0 0 1.1em;
-}
-
-.clx-substack-reader-body h1,
-.clx-substack-reader-body h2,
-.clx-substack-reader-body h3 {
-  margin: 1.6em 0 0.6em;
-  line-height: 1.3;
-}
-
-.clx-substack-reader-body a {
-  color: inherit;
-  text-decoration: underline;
-}
-
+/* ---- Blockquotes ---- */
 .clx-substack-reader-body blockquote {
-  border-left: 3px solid #ccc;
-  margin: 1.2em 0;
-  padding: 0.2em 0 0.2em 1.2em;
-  color: #555;
+  border-left: 3px solid #174F4A;
+  margin: 1.5em 0;
+  padding: 0.35em 0 0.35em 1.4em;
+  color: #444;
+  font-style: italic;
+  background: rgba(23, 79, 74, 0.03);
+  border-radius: 0 6px 6px 0;
+  padding-right: 1em;
+}
+.clx-substack-reader-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Lists ---- */
+.clx-substack-reader-body ul,
+.clx-substack-reader-body ol {
+  margin: 0 0 1.25em;
+  padding-left: 1.6em;
+}
+.clx-substack-reader-body li {
+  margin-bottom: 0.45em;
+  padding-left: 0.3em;
+}
+.clx-substack-reader-body li:last-child {
+  margin-bottom: 0;
+}
+.clx-substack-reader-body ul {
+  list-style-type: disc;
+}
+.clx-substack-reader-body ol {
+  list-style-type: decimal;
+}
+
+/* ---- Code ---- */
+.clx-substack-reader-body code {
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  font-size: 0.88em;
+  background: #f4f2ee;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  color: #174F4A;
+}
+.clx-substack-reader-body pre {
+  margin: 1.5em 0;
+  padding: 1.25em 1.5em;
+  background: #1a1a1a;
+  color: #e8e6e3;
+  border-radius: 8px;
+  overflow-x: auto;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+.clx-substack-reader-body pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ---- Tables ---- */
+.clx-substack-reader-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.95rem;
+}
+.clx-substack-reader-body th,
+.clx-substack-reader-body td {
+  padding: 0.65em 1em;
+  text-align: left;
+  border-bottom: 1px solid #e8e6e3;
+}
+.clx-substack-reader-body th {
+  font-weight: 600;
+  color: #0f0f0f;
+  background: #faf9f7;
+}
+.clx-substack-reader-body tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---- Horizontal rule ---- */
+.clx-substack-reader-body hr {
+  border: none;
+  border-top: 1px solid #e8e6e3;
+  margin: 2.5em 0;
+}
+
+/* ---- Bold / italic / emphasis ---- */
+.clx-substack-reader-body strong {
+  font-weight: 650;
+  color: #0f0f0f;
+}
+.clx-substack-reader-body em {
+  font-style: italic;
+}
+
+/* ---- Substack-specific: oembed / tweet / iframe ---- */
+.clx-substack-reader-body .instagram-media,
+.clx-substack-reader-body .twitter-tweet,
+.clx-substack-reader-body iframe {
+  max-width: 100%;
+  margin: 1.5em auto;
+  display: block;
+}
+
+/* ==========================================================================
+   RESPONSIVE — Reader modal + body
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .clx-substack-reader-body {
+    padding: 2rem 2rem 2.5rem;
+    font-size: 1.025rem;
+    line-height: 1.72;
+  }
+  .clx-substack-reader-body h1 {
+    font-size: clamp(1.5rem, 4vw, 1.9rem);
+  }
+  .clx-substack-reader-body h2 {
+    font-size: clamp(1.2rem, 3vw, 1.45rem);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .clx-substack-modal {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    border-radius: 0;
+  }
+  .clx-substack-modal-overlay {
+    padding: 0;
+  }
+  .clx-substack-reader-body {
+    padding: 1.5rem 1.25rem 2rem;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .clx-substack-reader-body h1 {
+    font-size: 1.45rem;
+    margin-top: 1.8em;
+  }
+  .clx-substack-reader-body h2 {
+    font-size: 1.2rem;
+    margin-top: 1.6em;
+  }
+  .clx-substack-reader-body h3 {
+    font-size: 1.05rem;
+  }
+  .clx-substack-reader-body img {
+    border-radius: 6px;
+    margin: 1.25em 0;
+  }
+  .clx-substack-reader-body blockquote {
+    margin: 1.25em 0;
+    padding-left: 1em;
+  }
+  .clx-substack-reader-body pre {
+    padding: 1em 1.25em;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    margin: 1.25em 0;
+  }
+  .clx-substack-reader-body table {
+    font-size: 0.88rem;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .clx-substack-reader-body th,
+  .clx-substack-reader-body td {
+    padding: 0.5em 0.75em;
+    white-space: nowrap;
+  }
+}
+
+/* Large screens — constrain reading width for comfort */
+@media (min-width: 1200px) {
+  .clx-substack-reader-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 3.5rem 3.5rem;
+  }
 }
