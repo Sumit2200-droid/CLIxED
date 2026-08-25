@@ -13,6 +13,7 @@ PUB_URL = "https://test7334.substack.com"
 API_URL = PUB_URL + "/api/v1/archive?sort=new&limit=50"
 FEED_URL = PUB_URL + "/feed"
 PROXY_FEED_URL = "https://api.allorigins.win/raw?url=" + FEED_URL
+CONTENT_TAG = "{http://purl.org/rss/1.0/modules/content/}encoded"
 OUTPUT = "data/posts.json"
 PLACEHOLDER_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%23E8E4DF'/%3E%3Crect x='200' y='140' width='200' height='120' rx='8' fill='%23D4CFC8'/%3E%3Cpath d='M260 200h80M260 220h60' stroke='%23B8AFA5' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E"
 
@@ -39,7 +40,19 @@ def strip_html(text):
     return re.sub(r"\s+", " ", text).strip()
 
 
-def truncate(text, limit=150):
+
+def sanitize_content(html):
+    """Light sanitization: strip script/style/iframe tags and on*= handlers."""
+    if not html:
+        return ""
+    html = re.sub(r"(?is)<script.*?</script>", "", html)
+    html = re.sub(r"(?is)<style.*?</style>", "", html)
+    html = re.sub(r"(?is)<iframe.*?</iframe>", "", html)
+    html = re.sub(r'(?i)\son\w+\s*=\s*"[^"]*"', "", html)
+    html = re.sub(r"(?i)\son\w+\s*=\s*'[^']*'", "", html)
+    return html.strip()
+
+def truncate(text, limit=280):
     if len(text) > limit:
         return text[:limit].rstrip() + "\u2026"
     return text
@@ -78,12 +91,15 @@ def try_api():
             if not thumbnail or not thumbnail.startswith("https://"):
                 thumbnail = PLACEHOLDER_IMG
 
+            content = sanitize_content(item.get("body_html") or "")
+
             posts.append({
                 "title": title,
                 "link": link,
                 "pubDate": pub_date,
                 "description": description,
                 "thumbnail": thumbnail,
+                "content": content,
             })
         except Exception as e:
             print(f"  SKIP (API item error): {item.get('title', '?')} — {e}")
@@ -131,8 +147,14 @@ def try_rss():
                 url = enc.get("url", "")
                 if url.startswith("https://"):
                     thumbnail = url
+
+            content = ""
+            content_el = item.find(CONTENT_TAG)
+            if content_el is not None and content_el.text:
+                content = sanitize_content(content_el.text)
+
             if not thumbnail:
-                for tag in ["{http://purl.org/rss/1.0/modules/content/}encoded", "description"]:
+                for tag in [CONTENT_TAG, "description"]:
                     el = item.find(tag)
                     if el is not None and el.text:
                         m = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', el.text)
@@ -148,6 +170,7 @@ def try_rss():
                 "pubDate": pub_date,
                 "description": description,
                 "thumbnail": thumbnail,
+                "content": content,
             })
         except Exception as e:
             print(f"  SKIP (RSS item error): {item.findtext('title', '?')} — {e}")
@@ -159,22 +182,22 @@ def main():
     posts = None
     source = ""
 
-    # Try API first — it's always current
+    # Try RSS first — it includes full post content for the in-site reader
     try:
-        posts = try_api()
+        posts = try_rss()
         if posts is not None:
-            source = "API"
+            source = "RSS"
     except Exception as e:
-        print(f"API failed: {e}")
+        print(f"RSS failed: {e}")
 
-    # Fallback to RSS if API failed
+    # Fallback to API if RSS failed
     if posts is None:
         try:
-            posts = try_rss()
+            posts = try_api()
             if posts is not None:
-                source = "RSS"
+                source = "API"
         except Exception as e:
-            print(f"RSS also failed: {e}")
+            print(f"API also failed: {e}")
 
     if posts is None:
         print("ERROR: Both API and RSS failed. Leaving existing posts.json untouched.")
@@ -189,6 +212,8 @@ def main():
     print(f"Source: {source}")
     print(f"Fetched {feed_count} items from Substack")
     print(f"Wrote {len(posts)} items to {OUTPUT}")
+    with_content = sum(1 for p in posts if p.get("content"))
+    print(f"{with_content} of {len(posts)} posts have full content for in-site reading")
     if feed_count != len(posts):
         print(f"WARNING: count mismatch ({feed_count} fetched vs {len(posts)} written)")
     else:

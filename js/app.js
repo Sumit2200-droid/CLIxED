@@ -495,8 +495,127 @@
   }
 
   /* ---- Substack: load posts from static JSON ---- */
+    var substackModal = null;
+  var substackModalFocusReturn = null;
+
+  function buildSubstackModal() {
+    if (substackModal) return substackModal;
+
+    var overlay = document.createElement('div');
+    overlay.className = 'clx-substack-modal-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+
+    var panel = document.createElement('div');
+    panel.className = 'clx-substack-modal';
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-modal', 'true');
+    panel.setAttribute('aria-label', 'Substack post');
+
+    var toolbar = document.createElement('div');
+    toolbar.className = 'clx-substack-modal-toolbar';
+
+    var openTab = document.createElement('a');
+    openTab.className = 'clx-substack-modal-opennew';
+    openTab.target = '_blank';
+    openTab.rel = 'noopener noreferrer';
+    openTab.textContent = 'Open in new tab \u2197';
+    toolbar.appendChild(openTab);
+
+    var closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'clx-substack-modal-close';
+    closeBtn.setAttribute('aria-label', 'Close');
+    closeBtn.textContent = '\u2715';
+    toolbar.appendChild(closeBtn);
+
+    panel.appendChild(toolbar);
+
+    var frameWrap = document.createElement('div');
+    frameWrap.className = 'clx-substack-modal-framewrap';
+
+    var loading = document.createElement('div');
+    loading.className = 'clx-substack-modal-loading';
+    loading.textContent = 'Loading\u2026';
+    frameWrap.appendChild(loading);
+
+    var iframe = document.createElement('iframe');
+    iframe.className = 'clx-substack-modal-iframe';
+    iframe.setAttribute('title', 'Substack post');
+    iframe.hidden = true;
+    frameWrap.appendChild(iframe);
+
+    panel.appendChild(frameWrap);
+    overlay.appendChild(panel);
+    document.body.appendChild(overlay);
+
+    function close() {
+      overlay.classList.remove('is-open');
+      document.body.classList.remove('clx-modal-open');
+      setTimeout(function () {
+        iframe.src = 'about:blank';
+        iframe.hidden = true;
+        loading.hidden = false;
+        loading.textContent = 'Loading\u2026';
+      }, 200);
+      if (substackModalFocusReturn && substackModalFocusReturn.focus) {
+        substackModalFocusReturn.focus();
+      }
+    }
+
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) close();
+    });
+    closeBtn.addEventListener('click', close);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
+    });
+
+    substackModal = { overlay: overlay, iframe: iframe, loading: loading, openTab: openTab, close: close };
+    return substackModal;
+  }
+
+  function openSubstackPost(url, triggerEl) {
+    var modal = buildSubstackModal();
+    substackModalFocusReturn = triggerEl || null;
+    modal.openTab.href = url;
+    modal.loading.hidden = false;
+    modal.loading.textContent = 'Loading\u2026';
+    modal.iframe.hidden = true;
+    modal.overlay.classList.add('is-open');
+    document.body.classList.add('clx-modal-open');
+    modal.overlay.setAttribute('aria-hidden', 'false');
+
+    var loaded = false;
+    var fallbackTimer = setTimeout(function () {
+      if (loaded) return;
+      modal.loading.textContent = 'This post can\u2019t be displayed here \u2014 opening on Substack instead\u2026';
+      setTimeout(function () {
+        modal.close();
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }, 900);
+    }, 2800);
+
+    modal.iframe.onload = function () {
+      loaded = true;
+      clearTimeout(fallbackTimer);
+      modal.loading.hidden = true;
+      modal.iframe.hidden = false;
+    };
+    modal.iframe.onerror = function () {
+      clearTimeout(fallbackTimer);
+      modal.loading.textContent = 'This post can\u2019t be displayed here \u2014 opening on Substack instead\u2026';
+      setTimeout(function () {
+        modal.close();
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }, 900);
+    };
+
+    modal.iframe.src = url;
+  }
   var substackEl = document.getElementById('clxSubstack');
   if (substackEl) initSubstack(substackEl);
+
 
   function substackDate(iso) {
     if (!iso) return '';
@@ -504,13 +623,98 @@
     if (isNaN(t.getTime())) return '';
     return t.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
   }
+  function readingTime(text) {
+    if (!text) return '';
+    var words = text.trim().split(/\s+/).length;
+    var mins = Math.max(1, Math.round(words / 200));
+    return mins + ' min read';
+  }
 
   var SUBSTACK_PLACEHOLDER = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" fill="none"><rect width="600" height="400" fill="%23E8E4DF"/><rect x="200" y="140" width="200" height="120" rx="8" fill="%23D4CFC8"/><path d="M260 200h80M260 220h60" stroke="%23B8AFA5" stroke-width="3" stroke-linecap="round"/></svg>');
 
-  function postCard(item) {
+
+    var substackReaderModal = null;
+  var substackReaderFocusReturn = null;
+
+  function buildSubstackReader() {
+    if (substackReaderModal) return substackReaderModal;
+
+    var overlay = document.createElement('div');
+    overlay.className = 'clx-substack-modal-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+
+    var panel = document.createElement('div');
+    panel.className = 'clx-substack-modal clx-substack-reader';
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-modal', 'true');
+    panel.setAttribute('aria-label', 'Substack post');
+
+    var toolbar = document.createElement('div');
+    toolbar.className = 'clx-substack-modal-toolbar';
+
+    var titleEl = document.createElement('span');
+    titleEl.className = 'clx-substack-reader-title';
+    toolbar.appendChild(titleEl);
+
+    var openTab = document.createElement('a');
+    openTab.className = 'clx-substack-modal-opennew';
+    openTab.target = '_blank';
+    openTab.rel = 'noopener noreferrer';
+    openTab.textContent = 'Open on Substack \u2197';
+    toolbar.appendChild(openTab);
+
+    var closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'clx-substack-modal-close';
+    closeBtn.setAttribute('aria-label', 'Close');
+    closeBtn.textContent = '\u2715';
+    toolbar.appendChild(closeBtn);
+
+    panel.appendChild(toolbar);
+
+    var body = document.createElement('div');
+    body.className = 'clx-substack-reader-body';
+    panel.appendChild(body);
+
+    overlay.appendChild(panel);
+    document.body.appendChild(overlay);
+
+    function close() {
+      overlay.classList.remove('is-open');
+      document.body.classList.remove('clx-modal-open');
+      if (substackReaderFocusReturn && substackReaderFocusReturn.focus) {
+        substackReaderFocusReturn.focus();
+      }
+    }
+
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) close();
+    });
+    closeBtn.addEventListener('click', close);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
+    });
+
+    substackReaderModal = { overlay: overlay, body: body, titleEl: titleEl, openTab: openTab, close: close };
+    return substackReaderModal;
+  }
+
+  function openSubstackReader(item) {
+    var modal = buildSubstackReader();
+    substackReaderFocusReturn = document.activeElement;
+    modal.titleEl.textContent = item.title || '';
+    modal.openTab.href = item.link;
+    modal.body.innerHTML = item.content;
+    modal.overlay.classList.add('is-open');
+    document.body.classList.add('clx-modal-open');
+    modal.overlay.setAttribute('aria-hidden', 'false');
+    modal.body.scrollTop = 0;
+  }
+  
+  function postCard(item, isFeatured) {
     var hasImage = item.thumbnail && /^https:/.test(item.thumbnail);
     var card = document.createElement('article');
-    card.className = 'clx-substack-post';
+    card.className = isFeatured ? 'clx-substack-post clx-substack-post--featured' : 'clx-substack-post';
 
     var imgWrap = document.createElement('div');
     imgWrap.className = 'clx-substack-post-img-wrap';
@@ -556,6 +760,18 @@
     authorSpan.className = 'clx-substack-post-author';
     authorSpan.textContent = 'CLIxED Editorial';
     meta.appendChild(authorSpan);
+
+    var rt = readingTime(item.description);
+    if (rt) {
+      var sep2 = document.createElement('span');
+      sep2.className = 'clx-substack-post-sep';
+      sep2.textContent = '\u00B7';
+      meta.appendChild(sep2);
+      var rtSpan = document.createElement('span');
+      rtSpan.className = 'clx-substack-post-readtime';
+      rtSpan.textContent = rt;
+      meta.appendChild(rtSpan);
+    }
     body.appendChild(meta);
 
     var link = document.createElement('a');
@@ -563,12 +779,18 @@
     link.href = item.link;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
-    link.textContent = 'Read on Substack ';
+    link.textContent = item.content ? 'Read here ' : 'Read on Substack ';
     var arrow = document.createElement('span');
     arrow.className = 'clx-arrow';
     arrow.setAttribute('aria-hidden', 'true');
     arrow.textContent = '\u2192';
     link.appendChild(arrow);
+    if (item.content) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        openSubstackReader(item);
+      });
+    }
     body.appendChild(link);
 
     card.appendChild(body);
@@ -651,12 +873,22 @@
       })
       .then(function (posts) {
         if (!Array.isArray(posts) || !posts.length) { renderEmpty(); return; }
-        var grid = document.createElement('div');
-        grid.className = 'clx-substack-posts';
-        posts.forEach(function (item) { grid.appendChild(postCard(item)); });
-        replaceWith(grid);
+        var wrap = document.createElement('div');
+        wrap.className = 'clx-substack-posts-wrap';
+
+        var featured = postCard(posts[0], true);
+        wrap.appendChild(featured);
+
+        if (posts.length > 1) {
+          var grid = document.createElement('div');
+          grid.className = 'clx-substack-posts';
+          posts.slice(1).forEach(function (item) { grid.appendChild(postCard(item, false)); });
+          wrap.appendChild(grid);
+        }
+
+        replaceWith(wrap);
       })
-      .catch(function () { renderError(); })
+      .catch(function (err) { console.error('SUBSTACK DEBUG:', err); renderError(); })
       .finally(function () { el.setAttribute('aria-busy', 'false'); });
   }
 
