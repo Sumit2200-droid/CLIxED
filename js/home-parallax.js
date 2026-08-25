@@ -63,7 +63,7 @@
     mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
   }
 
-  function animate() {
+  function animateFrame() {
     // Get hero's current position relative to viewport
     var heroRect = hero.getBoundingClientRect();
     var heroTop = heroRect.top;
@@ -164,8 +164,31 @@
     window.addEventListener('mousemove', onMouseMove, { passive: true });
   }
 
-  // Start animation loop
-  requestAnimationFrame(animate);
+  // Only run the animation loop while the hero is actually visible —
+  // stops wasted work (and layout thrashing) once you've scrolled past it.
+  var heroVisible = true;
+  var rafId = null;
+
+  function loop() {
+    animate();
+    if (heroVisible) rafId = requestAnimationFrame(loop);
+  }
+
+  function animate() {
+    animateFrame();
+  }
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      heroVisible = entries[0].isIntersecting;
+      if (heroVisible && rafId === null) {
+        rafId = requestAnimationFrame(loop);
+      }
+    }, { threshold: 0 }).observe(hero);
+  }
+
+  // Start animation loop (first run, or if IntersectionObserver unsupported)
+  rafId = requestAnimationFrame(loop);
 
   // Cleanup on page unload
   window.addEventListener('beforeunload', function () {

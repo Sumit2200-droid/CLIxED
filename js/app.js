@@ -27,6 +27,26 @@
     document.body.appendChild(navBackdrop);
   }
 
+  /* Build mobile panel furniture once: close button + heading */
+  var navPanelBuilt = false;
+  function buildMobileNav() {
+    if (navPanelBuilt || !mainNav || window.innerWidth > 1024) return;
+    navPanelBuilt = true;
+
+    var heading = document.createElement('div');
+    heading.className = 'clx-nav-panel-head';
+    heading.innerHTML = '<span class="clx-nav-panel-title">Menu</span>';
+
+    var closeBtn = document.createElement('button');
+    closeBtn.className = 'clx-nav-close';
+    closeBtn.setAttribute('aria-label', 'Close menu');
+    closeBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="4" x2="16" y2="16"/><line x1="16" y1="4" x2="4" y2="16"/></svg>';
+    closeBtn.addEventListener('click', closeMenu);
+    heading.appendChild(closeBtn);
+
+    mainNav.insertBefore(heading, mainNav.firstChild);
+  }
+
   function closeMenu() {
     mainNav.classList.add('closing');
     navBackdrop.classList.remove('is-visible');
@@ -40,6 +60,7 @@
   }
 
   function openMenu() {
+    buildMobileNav();
     mainNav.classList.remove('closing');
     mainNav.classList.add('is-open', 'open');
     navBackdrop.classList.add('is-visible');
