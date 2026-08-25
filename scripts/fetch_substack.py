@@ -5,6 +5,7 @@ import json
 import re
 import sys
 import urllib.request
+import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
@@ -111,18 +112,26 @@ def try_rss():
     """Fetch posts from RSS feed. Returns list of post dicts or None on failure."""
     proxies = [
         "https://api.allorigins.win/raw?url=" + FEED_URL,
+        "https://api.codetabs.com/v1/proxy?quest=" + FEED_URL,
         "https://corsproxy.io/?url=" + FEED_URL,
     ]
     xml_data = None
     last_error = None
+
     for proxy_url in proxies:
-        try:
-            print(f"Trying RSS via: {proxy_url}")
-            xml_data = fetch_xml(proxy_url)
+        for attempt in range(1, 3):  # try each proxy up to 2 times
+            try:
+                print(f"Trying RSS via: {proxy_url} (attempt {attempt})")
+                xml_data = fetch_xml(proxy_url)
+                break
+            except Exception as e:
+                print(f"  Failed: {e}")
+                last_error = e
+                if attempt < 2:
+                    time.sleep(4)
+        if xml_data is not None:
             break
-        except Exception as e:
-            print(f"  This proxy failed: {e}")
-            last_error = e
+
     if xml_data is None:
         raise last_error
 
