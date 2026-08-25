@@ -111,9 +111,10 @@ def try_api():
 def try_rss():
     """Fetch posts from RSS feed. Returns list of post dicts or None on failure."""
     proxies = [
+        FEED_URL,
+        "https://r.jina.ai/" + FEED_URL,
         "https://api.allorigins.win/raw?url=" + FEED_URL,
         "https://api.codetabs.com/v1/proxy?quest=" + FEED_URL,
-        "https://corsproxy.io/?url=" + FEED_URL,
     ]
     xml_data = None
     last_error = None
