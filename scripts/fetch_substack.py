@@ -207,24 +207,19 @@ def main():
     source = ""
 
     # Try RSS first — it includes full post content for the in-site reader
+        # Only use RSS — it's the only source with full post content.
+    # No API fallback, since API never has content and would cause
+    # posts to lose their "Read here" reader.
     try:
         posts = try_rss()
         if posts is not None:
             source = "RSS"
     except Exception as e:
-        print(f"RSS failed: {e}")
-
-    # Fallback to API if RSS failed
-    if posts is None:
-        try:
-            posts = try_api()
-            if posts is not None:
-                source = "API"
-        except Exception as e:
-            print(f"API also failed: {e}")
+        print(f"RSS failed after all proxy retries: {e}")
+        posts = None
 
     if posts is None:
-        print("ERROR: Both API and RSS failed. Leaving existing posts.json untouched.")
+        print("ERROR: RSS failed. Leaving existing posts.json untouched (keeps last good content).")
         sys.exit(1)
 
     feed_count = len(posts)
