@@ -535,7 +535,7 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
 
 .clx-brand { text-decoration: none; display: flex; flex-direction: column; gap: 2px; }
 .clx-brand-mark { display: block; height: 52px; width: auto; object-fit: contain; opacity: 0.85; }
-.clx-brand-mark.clx-brand-mark--footer { height: 44px; opacity: 0.8; }
+.clx-brand-mark.clx-brand-mark--footer { height: 68px; opacity: 0.8; }
 .clx-brand-tag { font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); }
 
 .clx-nav { margin-left: auto; display: flex; align-items: center; gap: var(--space-6); }
