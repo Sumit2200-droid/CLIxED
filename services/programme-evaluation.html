@@ -53,41 +53,6 @@
 
     <!-- --- Background animation: Evidence Flow --- -->
     <div class="clx-eval-bg" aria-hidden="true">
-      <!-- Layer 1: Slow analytical grid -->
-      <div class="clx-eval-layer clx-eval-layer--grid">
-        <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-          <!-- Horizontal measurement lines -->
-          <line class="clx-eval-hline" x1="0" y1="120" x2="1200" y2="120" stroke="#174F4A" stroke-width="0.5" opacity="0.15"/>
-          <line class="clx-eval-hline" x1="0" y1="240" x2="1200" y2="240" stroke="#71877E" stroke-width="0.4" opacity="0.12"/>
-          <line class="clx-eval-hline" x1="0" y1="360" x2="1200" y2="360" stroke="#174F4A" stroke-width="0.5" opacity="0.1"/>
-          <line class="clx-eval-hline" x1="0" y1="480" x2="1200" y2="480" stroke="#B88A45" stroke-width="0.4" opacity="0.08"/>
-          <line class="clx-eval-hline" x1="0" y1="600" x2="1200" y2="600" stroke="#174F4A" stroke-width="0.4" opacity="0.1"/>
-          <!-- Vertical analysis markers -->
-          <line class="clx-eval-vline" x1="200" y1="0" x2="200" y2="800" stroke="#174F4A" stroke-width="0.3" opacity="0.08"/>
-          <line class="clx-eval-vline" x1="400" y1="0" x2="400" y2="800" stroke="#71877E" stroke-width="0.3" opacity="0.06"/>
-          <line class="clx-eval-vline" x1="600" y1="0" x2="600" y2="800" stroke="#B88A45" stroke-width="0.3" opacity="0.05"/>
-          <line class="clx-eval-vline" x1="800" y1="0" x2="800" y2="800" stroke="#174F4A" stroke-width="0.3" opacity="0.06"/>
-          <line class="clx-eval-vline" x1="1000" y1="0" x2="1000" y2="800" stroke="#71877E" stroke-width="0.3" opacity="0.05"/>
-        </svg>
-      </div>
-
-      <!-- Layer 2: Evidence paths flowing left to right -->
-      <div class="clx-eval-layer clx-eval-layer--paths">
-        <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-          <!-- Question to Evidence path -->
-          <path class="clx-eval-path clx-eval-path--1" d="M-100,400 C200,400 300,300 500,300 C700,300 800,400 1000,400 C1100,400 1200,350 1300,350" fill="none" stroke="#174F4A" stroke-width="1.5" stroke-linecap="round"/>
-          <!-- Evidence to Analysis path -->
-          <path class="clx-eval-path clx-eval-path--2" d="M-100,450 C150,450 250,380 450,380 C650,380 750,450 950,450 C1050,450 1150,400 1300,400" fill="none" stroke="#B88A45" stroke-width="1" stroke-linecap="round" stroke-dasharray="8 4"/>
-          <!-- Analysis to Insight path -->
-          <path class="clx-eval-path clx-eval-path--3" d="M-100,500 C100,500 200,440 400,440 C600,440 700,500 900,500 C1000,500 1100,460 1300,460" fill="none" stroke="#71877E" stroke-width="0.8" stroke-linecap="round"/>
-          <!-- Data points along paths -->
-          <circle class="clx-eval-dot" cx="200" cy="400" r="4" fill="#174F4A" opacity="0"/>
-          <circle class="clx-eval-dot" cx="500" cy="300" r="5" fill="#B88A45" opacity="0"/>
-          <circle class="clx-eval-dot" cx="800" cy="400" r="4" fill="#174F4A" opacity="0"/>
-          <circle class="clx-eval-dot" cx="1100" cy="350" r="3" fill="#71877E" opacity="0"/>
-        </svg>
-      </div>
-
       <!-- Layer 3: Analysis rings and measurement markers -->
       <div class="clx-eval-layer clx-eval-layer--analysis">
         <!-- Question ring -->
@@ -144,38 +109,6 @@
         <div class="clx-eval-bar clx-eval-bar--3"></div>
         <div class="clx-eval-bar clx-eval-bar--4"></div>
         <div class="clx-eval-bar clx-eval-bar--5"></div>
-      </div>
-
-      <!-- Layer 5: Converging evidence nodes -->
-      <div class="clx-eval-layer clx-eval-layer--nodes">
-        <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-          <!-- Converging lines to center -->
-          <line class="clx-eval-converge" x1="100" y1="200" x2="600" y2="400" stroke="#174F4A" stroke-width="0.5" opacity="0.1"/>
-          <line class="clx-eval-converge" x1="1100" y1="200" x2="600" y2="400" stroke="#174F4A" stroke-width="0.5" opacity="0.1"/>
-          <line class="clx-eval-converge" x1="100" y1="600" x2="600" y2="400" stroke="#B88A45" stroke-width="0.4" opacity="0.08"/>
-          <line class="clx-eval-converge" x1="1100" y1="600" x2="600" y2="400" stroke="#B88A45" stroke-width="0.4" opacity="0.08"/>
-          <line class="clx-eval-converge" x1="600" y1="100" x2="600" y2="400" stroke="#71877E" stroke-width="0.4" opacity="0.08"/>
-          <line class="clx-eval-converge" x1="600" y1="700" x2="600" y2="400" stroke="#71877E" stroke-width="0.4" opacity="0.08"/>
-          <!-- Evidence source nodes -->
-          <circle class="clx-eval-source" cx="100" cy="200" r="5" fill="#174F4A" opacity="0.2"/>
-          <circle class="clx-eval-source" cx="1100" cy="200" r="5" fill="#174F4A" opacity="0.2"/>
-          <circle class="clx-eval-source" cx="100" cy="600" r="4" fill="#B88A45" opacity="0.15"/>
-          <circle class="clx-eval-source" cx="1100" cy="600" r="4" fill="#B88A45" opacity="0.15"/>
-          <circle class="clx-eval-source" cx="600" cy="100" r="4" fill="#71877E" opacity="0.15"/>
-          <circle class="clx-eval-source" cx="600" cy="700" r="4" fill="#71877E" opacity="0.15"/>
-          <!-- Central insight point -->
-          <circle class="clx-eval-center" cx="600" cy="400" r="12" fill="none" stroke="#B88A45" stroke-width="1.5" opacity="0.3"/>
-          <circle class="clx-eval-center" cx="600" cy="400" r="6" fill="#B88A45" opacity="0.4"/>
-        </svg>
-      </div>
-
-      <!-- Layer 6: Gentle evidence waves -->
-      <div class="clx-eval-layer clx-eval-layer--waves">
-        <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-          <path class="clx-eval-wave" d="M0,400 Q300,350 600,400 T1200,400" fill="none" stroke="#174F4A" stroke-width="0.8" opacity="0.12"/>
-          <path class="clx-eval-wave" d="M0,420 Q300,370 600,420 T1200,420" fill="none" stroke="#B88A45" stroke-width="0.6" opacity="0.08"/>
-          <path class="clx-eval-wave" d="M0,440 Q300,390 600,440 T1200,440" fill="none" stroke="#71877E" stroke-width="0.5" opacity="0.06"/>
-        </svg>
       </div>
 
       <!-- Ambient wash -->

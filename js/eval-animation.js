@@ -122,51 +122,7 @@
     // Initialize mouse interaction
     initMouseInteraction();
 
-    // Add dynamic data point generation
-    function createDynamicDot() {
-      if (prefersReduced()) return;
-      
-      var svg = evalBg.querySelector('.clx-eval-layer--paths svg');
-      if (!svg) return;
 
-      var dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      var startX = Math.random() * 200;
-      var y = 350 + Math.random() * 100;
-      
-      dot.setAttribute('cx', startX);
-      dot.setAttribute('cy', y);
-      dot.setAttribute('r', 2 + Math.random() * 3);
-      dot.setAttribute('fill', Math.random() > 0.5 ? '#174F4A' : '#B88A45');
-      dot.style.opacity = '0';
-      dot.style.transition = 'opacity 2s ease-in-out';
-      
-      svg.appendChild(dot);
-
-      // Animate across
-      var duration = 15000 + Math.random() * 10000;
-      var startTime = performance.now();
-      
-      function animateDot(currentTime) {
-        var elapsed = currentTime - startTime;
-        var progress = elapsed / duration;
-        
-        if (progress < 1) {
-          var x = startX + progress * 1000;
-          var yOff = Math.sin(progress * Math.PI * 2) * 30;
-          dot.setAttribute('cx', x);
-          dot.setAttribute('cy', y + yOff);
-          dot.style.opacity = Math.sin(progress * Math.PI) * 0.4;
-          requestAnimationFrame(animateDot);
-        } else {
-          dot.remove();
-        }
-      }
-
-      requestAnimationFrame(animateDot);
-    }
-
-    // Create dots periodically
-    setInterval(createDynamicDot, 3000);
   }
 
   // Initialize when DOM is ready
