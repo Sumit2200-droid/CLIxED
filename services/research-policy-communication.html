@@ -53,47 +53,6 @@
 
     <!-- --- Background animation: Knowledge Flow --- -->
     <div class="clx-rpc-bg" aria-hidden="true">
-      <!-- Layer 1: Editorial grid — slow horizontal/vertical movement (background) -->
-      <div class="clx-rpc-layer clx-rpc-layer--grid">
-        <svg viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice">
-          <!-- Horizontal editorial lines -->
-          <line class="clx-rpc-hline clx-rpc-hline--1" x1="0" y1="120" x2="1400" y2="120" stroke="#174F4A" stroke-width="0.5" opacity="0.12"/>
-          <line class="clx-rpc-hline clx-rpc-hline--2" x1="0" y1="240" x2="1400" y2="240" stroke="#B88A45" stroke-width="0.4" opacity="0.09"/>
-          <line class="clx-rpc-hline clx-rpc-hline--3" x1="0" y1="360" x2="1400" y2="360" stroke="#174F4A" stroke-width="0.4" opacity="0.07"/>
-          <line class="clx-rpc-hline clx-rpc-hline--4" x1="0" y1="480" x2="1400" y2="480" stroke="#71877E" stroke-width="0.3" opacity="0.06"/>
-          <line class="clx-rpc-hline clx-rpc-hline--5" x1="0" y1="600" x2="1400" y2="600" stroke="#174F4A" stroke-width="0.4" opacity="0.08"/>
-          <line class="clx-rpc-hline clx-rpc-hline--6" x1="0" y1="720" x2="1400" y2="720" stroke="#B88A45" stroke-width="0.3" opacity="0.06"/>
-          <!-- Vertical editorial lines -->
-          <line class="clx-rpc-vline clx-rpc-vline--1" x1="200" y1="0" x2="200" y2="900" stroke="#174F4A" stroke-width="0.3" opacity="0.06"/>
-          <line class="clx-rpc-vline clx-rpc-vline--2" x1="400" y1="0" x2="400" y2="900" stroke="#71877E" stroke-width="0.2" opacity="0.05"/>
-          <line class="clx-rpc-vline clx-rpc-vline--3" x1="600" y1="0" x2="600" y2="900" stroke="#B88A45" stroke-width="0.3" opacity="0.06"/>
-          <line class="clx-rpc-vline clx-rpc-vline--4" x1="800" y1="0" x2="800" y2="900" stroke="#174F4A" stroke-width="0.2" opacity="0.05"/>
-          <line class="clx-rpc-vline clx-rpc-vline--5" x1="1000" y1="0" x2="1000" y2="900" stroke="#71877E" stroke-width="0.3" opacity="0.06"/>
-          <line class="clx-rpc-vline clx-rpc-vline--6" x1="1200" y1="0" x2="1200" y2="900" stroke="#174F4A" stroke-width="0.2" opacity="0.04"/>
-        </svg>
-      </div>
-
-      <!-- Layer 2: Information paths — flowing editorial curves (midground) -->
-      <div class="clx-rpc-layer clx-rpc-layer--paths">
-        <svg viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice">
-          <!-- Research ? Evidence path -->
-          <path class="clx-rpc-path clx-rpc-path--1" d="M80,150 C200,150 250,200 400,220 C550,240 600,280 750,300 C900,320 1000,350 1200,380" fill="none" stroke="#174F4A" stroke-width="1" stroke-linecap="round" stroke-dasharray="10 6"/>
-          <!-- Evidence ? Policy path -->
-          <path class="clx-rpc-path clx-rpc-path--2" d="M100,300 C220,310 300,350 450,380 C600,410 700,420 850,440 C1000,460 1100,480 1300,510" fill="none" stroke="#B88A45" stroke-width="0.8" stroke-linecap="round" stroke-dasharray="8 5"/>
-          <!-- Policy ? Communication path -->
-          <path class="clx-rpc-path clx-rpc-path--3" d="M120,480 C250,490 350,520 500,540 C650,560 750,570 900,590 C1050,610 1150,630 1350,660" fill="none" stroke="#71877E" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="6 4"/>
-          <!-- Knowledge points along paths -->
-          <circle class="clx-rpc-node" cx="80" cy="150" r="5" fill="#174F4A" opacity="0.2"/>
-          <circle class="clx-rpc-node" cx="400" cy="220" r="6" fill="#174F4A" opacity="0.22"/>
-          <circle class="clx-rpc-node" cx="750" cy="300" r="5" fill="#B88A45" opacity="0.2"/>
-          <circle class="clx-rpc-node" cx="1200" cy="380" r="5" fill="#71877E" opacity="0.18"/>
-          <circle class="clx-rpc-node" cx="450" cy="380" r="5" fill="#B88A45" opacity="0.2"/>
-          <circle class="clx-rpc-node" cx="850" cy="440" r="6" fill="#174F4A" opacity="0.22"/>
-          <circle class="clx-rpc-node" cx="500" cy="540" r="4" fill="#71877E" opacity="0.18"/>
-          <circle class="clx-rpc-node" cx="900" cy="590" r="5" fill="#174F4A" opacity="0.2"/>
-        </svg>
-      </div>
-
       <!-- Layer 3: Knowledge rings — concentric evidence circles (foreground) -->
       <div class="clx-rpc-layer clx-rpc-layer--rings">
         <div class="clx-rpc-ring clx-rpc-ring--1">
