@@ -40,8 +40,8 @@
       if (rect.top < windowHeight && rect.bottom > 0) {
         var scrollPercent = scrollY / windowHeight;
 
-        // Grid: slowest (0.01×), Shapes: medium (0.025×), Connections: faster (0.015×)
-        var speeds = [0.01, 0.025, 0.015, 0];
+        // Shapes: slowest (0.01×), Connections: medium (0.015×), Stages: fastest (0×)
+        var speeds = [0.025, 0.015, 0];
         layers.forEach(function(layer, i) {
           var speed = speeds[i] || 0;
           var yOffset = scrollPercent * speed * 100;

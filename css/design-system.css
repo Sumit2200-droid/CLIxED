@@ -534,8 +534,8 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
 .clx-header-inner { display: flex; align-items: center; gap: var(--space-6); padding-block: var(--space-4); }
 
 .clx-brand { text-decoration: none; display: flex; flex-direction: column; gap: 2px; }
-.clx-brand-mark { display: block; height: 52px; width: auto; object-fit: contain; opacity: 0.85; }
-.clx-brand-mark.clx-brand-mark--footer { height: 68px; opacity: 0.8; }
+.clx-brand-mark { display: block; height: 50px; width: auto; object-fit: contain; opacity: 0.85; }
+.clx-brand-mark.clx-brand-mark--footer { height: 80px; opacity: 0.8; }
 .clx-brand-tag { font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); }
 
 .clx-nav { margin-left: auto; display: flex; align-items: center; gap: var(--space-6); }
@@ -2848,7 +2848,74 @@ html.js .clx-scroll-progress {
 }
 
 /* ==========================================================================
-   30. TEAM PAGE (v2.6) — people, expertise, three visual layers
+    29B. IPAD MINI RESPONSIVE (768px – 1024px)
+    --------------------------------------------------------------------------
+    Optimised for iPad Mini (768 × 1024 portrait, 1024 × 768 landscape).
+    Fills the gap between the existing 1024px and 640px breakpoints with
+    tablet-appropriate typography, spacing, and grid adjustments.
+    ========================================================================== */
+
+/* --- Portrait iPad Mini (768px) --- */
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Typography scale-down for tablet */
+  .clx-h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
+  .clx-h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+  .clx-h3 { font-size: clamp(1.3rem, 2.2vw, 1.8rem); }
+
+  /* Hero section — balanced for tablet */
+  .clx-hero { padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+  .clx-hero-copy .clx-body-lg { max-width: 100% !important; }
+
+  /* Section rhythm — tighter than desktop, looser than mobile */
+  .clx-section { padding-block: clamp(3rem, 5vw, 4.5rem); }
+  .clx-section--lg { padding-block: clamp(4rem, 7vw, 6rem); }
+  .clx-section--tight { padding-block: clamp(2.5rem, 4vw, 3.5rem); }
+
+  /* Grid columns — two-column where appropriate */
+  .clx-grid-12 .clx-col-4 { grid-column: span 4; }
+  .clx-grid-12 .clx-col-8 { grid-column: span 8; }
+
+  /* Hero grid stays two-column on tablet landscape */
+  .clx-hero-grid { gap: clamp(1.5rem, 3vw, 3rem); }
+
+  /* CTA final — proper tablet spacing */
+  .clx-cta-final { padding: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 3vw, 3rem); }
+  .clx-cta-final-title { font-size: clamp(1.6rem, 3.5vw, 2.6rem); }
+
+  /* Footer — 2-column on tablet */
+  .clx-footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-6); padding: var(--space-7) 0 var(--space-5); }
+  .clx-footer-brand { grid-column: 1 / -1; }
+
+  /* Areas list — single column on smaller tablets */
+  .clx-areas { grid-template-columns: 1fr; }
+
+  /* Work tags — better wrapping */
+  .clx-work-tags { gap: var(--space-2); }
+  .clx-work-tags span { font-size: var(--type-meta); padding: 3px 10px; }
+
+  /* Service grid — keep 2 columns but tighter */
+  .clx-service-grid { gap: var(--space-3); }
+
+  /* Team grid — 2 columns */
+  .clx-team-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* Container width */
+  .clx-container { padding-inline: clamp(1.25rem, 3vw, 2rem); }
+}
+
+/* --- Portrait iPad Mini (768px) — specific tweaks --- */
+@media (min-width: 767px) and (max-width: 820px) {
+  .clx-hero-grid { grid-template-columns: 1fr; }
+  .clx-hero-figure { max-width: 480px; margin-inline: auto; }
+  .clx-hero-copy { text-align: center; }
+  .clx-hero-copy .clx-h1 { max-width: none; }
+  .clx-hero-cta { justify-content: center; }
+
+  .clx-footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ==========================================================================
+    30. TEAM PAGE (v2.6) — people, expertise, three visual layers
    ---------------------------------------------------------------------------
    Page-scoped to team.html via `.clx-body--team`; the homepage preview
    (`.clx-team-preview`) is generic. The three layers are a visual way of
@@ -5315,6 +5382,30 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
    =========================================================================== */
 
 @media (max-width: 768px) {
+  .clx-body--home .clx-body-lg,
+  .clx-body--about .clx-body-lg,
+  .clx-body--what-we-do .clx-body-lg { margin: auto; }
+  .clx-body--what-we-do .clx-section { text-align: center; }
+  .clx-body--what-we-do .clx-col-4,
+  .clx-body--what-we-do .clx-col-8 { grid-column: span 12; text-align: center; }
+  .clx-body--what-we-do #partners .clx-grid-12 { justify-items: center; text-align: center; }
+  .clx-body--what-we-do #partners .clx-h2 { margin-inline: auto; }
+  .clx-body--what-we-do .clx-partner-groups { grid-template-columns: 1fr; text-align: left; gap: var(--space-5); }
+  .clx-body--what-we-do .clx-partner-group h3 { justify-content: flex-start; }
+  .clx-body--what-we-do .clx-dir-row { grid-template-columns: 1fr; text-align: center; justify-items: center; padding-block: var(--space-4); }
+  .clx-body--what-we-do .clx-dir-num { display: block; font-size: 1.6rem; }
+  .clx-body--what-we-do .clx-dir-title { font-size: 1.3rem; }
+  .clx-body--what-we-do .clx-dir-desc { max-width: 100%; font-size: 0.95rem; }
+  .clx-body--what-we-do .clx-dir-go { display: flex; justify-content: center; grid-column: 1; margin-top: var(--space-3); font-size: 0.85rem; }
+  .clx-body--about .clx-container { max-width: 100%; margin: auto; }
+  .clx-body--about .clx-col-4,
+  .clx-body--about .clx-col-8 { grid-column: span 12; text-align: center; }
+  .clx-hero-copy { text-align: center; }
+  .clx-hero-copy .clx-h1 { max-width: none; }
+  .clx-hero-cta { justify-content: center; }
+  .clx-who-grid { grid-template-columns: 1fr; }
+  .clx-who-grid .clx-stack { text-align: center; }
+  .clx-who-grid .clx-markers { justify-content: center; }
   .clx-parallax-el--deep-circle-1 { width: 280px; height: 280px; opacity: 0.04; }
   .clx-parallax-el--deep-circle-2 { width: 240px; height: 240px; opacity: 0.035; }
   .clx-parallax-el--deep-wave { opacity: 0.05; }
@@ -5564,27 +5655,6 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
   height: 100%;
 }
 
-/* --- Layer 1: Blueprint grid (slowest parallax) --- */
-.clx-design-layer--grid {
-  opacity: 1;
-}
-
-.clx-design-hline,
-.clx-design-vline {
-  animation: clxDesignGridPulse 20s ease-in-out infinite alternate;
-}
-
-.clx-design-hline:nth-child(odd),
-.clx-design-vline:nth-child(even) {
-  animation-delay: -8s;
-}
-
-@keyframes clxDesignGridPulse {
-  0% { opacity: inherit; }
-  50% { opacity: 0.03; }
-  100% { opacity: inherit; }
-}
-
 /* --- Layer 2: Design shapes (medium-slow parallax) --- */
 .clx-design-layer--shapes {
   overflow: visible;
@@ -5717,21 +5787,12 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
 }
 
 /* --- Scroll parallax offset per layer --- */
-.clx-design-bg.is-visible .clx-design-layer--grid {
-  animation: clxDesignLayerGrid 0.3s ease-out forwards;
-}
-
 .clx-design-bg.is-visible .clx-design-layer--shapes {
   animation: clxDesignLayerShapes 0.4s ease-out 0.1s forwards;
 }
 
 .clx-design-bg.is-visible .clx-design-layer--connections {
   animation: clxDesignLayerConn 0.5s ease-out 0.2s forwards;
-}
-
-@keyframes clxDesignLayerGrid {
-  from { transform: translateY(20px); }
-  to { transform: translateY(0); }
 }
 
 @keyframes clxDesignLayerShapes {
@@ -5746,15 +5807,12 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
 
 /* --- Reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
-  .clx-design-layer--grid,
   .clx-design-layer--shapes,
   .clx-design-layer--connections {
     animation: none !important;
     transform: none !important;
   }
 
-  .clx-design-hline,
-  .clx-design-vline,
   .clx-design-path,
   .clx-design-node,
   .clx-design-stage {

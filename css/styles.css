@@ -1121,6 +1121,31 @@ h1, h2, h3, h4 {
   .hero-glow { bottom: -30px; height: 90px; }
   .uni-trust li { font-size: 0.82rem; }
 }
+
+/* ============ IPAD MINI RESPONSIVE (768px portrait) ============ */
+
+@media (min-width: 641px) and (max-width: 820px) {
+  .container { width: min(1160px, 100% - 40px); }
+
+  .hero { padding: 52px 0 68px; }
+  .hero h1 { font-size: clamp(2rem, 5.5vw, 2.8rem); }
+  .hero-lead { font-size: 1rem; }
+
+  .services, .destinations, .contact { padding: 80px 0; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .dest-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; padding: 60px 0 48px; }
+
+  .stories { padding: 80px 0; }
+  .stories-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+  .dest-wrap { gap: 44px; }
+  .intakes-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+  .contact-inner { gap: 48px; }
+  .contact-form { padding: 30px; }
+}
 /* ============ DESTINATION GLOBE + LIST ============ */
 
 .dest-wrap {
