@@ -891,20 +891,10 @@
       })
       .then(function (posts) {
         if (!Array.isArray(posts) || !posts.length) { renderEmpty(); return; }
-        var wrap = document.createElement('div');
-        wrap.className = 'clx-substack-posts-wrap';
-
-        var featured = postCard(posts[0], true);
-        wrap.appendChild(featured);
-
-        if (posts.length > 1) {
-          var grid = document.createElement('div');
-          grid.className = 'clx-substack-posts';
-          posts.slice(1).forEach(function (item) { grid.appendChild(postCard(item, false)); });
-          wrap.appendChild(grid);
-        }
-
-        replaceWith(wrap);
+        var grid = document.createElement('div');
+        grid.className = 'clx-substack-posts';
+        posts.forEach(function (item) { grid.appendChild(postCard(item, false)); });
+        replaceWith(grid);
       })
       .catch(function (err) { console.error('SUBSTACK DEBUG:', err); renderError(); })
       .finally(function () { el.setAttribute('aria-busy', 'false'); });
