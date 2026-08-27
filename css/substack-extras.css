@@ -735,3 +735,36 @@ body.clx-modal-open {
   position: fixed;
   width: 100%;
 }
+
+
+/* ---- Reader modal: force the post image to the top, text below ---- */
+.clx-substack-reader-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Substack wraps images in this container class — push it to the very top */
+.clx-substack-reader-body .captioned-image-container {
+  order: -1;
+  margin: 0 0 1.5rem;
+}
+
+/* If a post has an image with no wrapper (rare), catch that too */
+.clx-substack-reader-body > img:first-of-type {
+  order: -1;
+  margin: 0 0 1.5rem;
+}
+
+/* Style the image itself nicely as a hero */
+.clx-substack-reader-body .captioned-image-container img,
+.clx-substack-reader-body > img:first-of-type {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Hide Substack's leftover interactive overlay buttons (expand/restack icons)
+   since they don't function without Substack's own JS */
+.clx-substack-reader-body .image-link-expand {
+  display: none;
+}
