@@ -682,13 +682,6 @@
     titleEl.className = 'clx-substack-reader-title';
     toolbar.appendChild(titleEl);
 
-    var openTab = document.createElement('a');
-    openTab.className = 'clx-substack-modal-opennew';
-    openTab.target = '_blank';
-    openTab.rel = 'noopener noreferrer';
-    openTab.textContent = 'Open on Substack \u2197';
-    toolbar.appendChild(openTab);
-
     var closeBtn = document.createElement('button');
     closeBtn.type = 'button';
     closeBtn.className = 'clx-substack-modal-close';
@@ -721,7 +714,7 @@
       if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
     });
 
-    substackReaderModal = { overlay: overlay, body: body, titleEl: titleEl, openTab: openTab, close: close };
+    substackReaderModal = { overlay: overlay, body: body, titleEl: titleEl, close: close };
     return substackReaderModal;
   }
 
@@ -729,7 +722,6 @@
     var modal = buildSubstackReader();
     substackReaderFocusReturn = document.activeElement;
     modal.titleEl.textContent = item.title || '';
-    modal.openTab.href = item.link;
     modal.body.innerHTML = item.content;
     modal.overlay.classList.add('is-open');
     document.body.classList.add('clx-modal-open');

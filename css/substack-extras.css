@@ -33,12 +33,21 @@
   white-space: nowrap;
 }
 
+/* ==========================================================================
+   MODAL — Premium overlay + panel shell
+   Shared by iframe modal and reader modal.
+   ========================================================================== */
+
+/* ---- Overlay ---- */
 .clx-substack-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10, 12, 14, 0.65);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(23, 79, 74, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(184, 138, 69, 0.05) 0%, transparent 50%),
+    rgba(8, 10, 12, 0.72);
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,7 +55,7 @@
   z-index: 1000;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.28s cubic-bezier(0.32, 0, 0.2, 1);
+  transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .clx-substack-modal-overlay.is-open {
   opacity: 1;
@@ -56,59 +65,97 @@ body.clx-modal-open {
   overflow: hidden;
 }
 
+/* ---- Panel (shared base) ---- */
 .clx-substack-modal {
   background: #fff;
-  border-radius: 14px;
+  border-radius: 16px;
   width: min(920px, 100%);
   height: min(85vh, 900px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.04);
-  transform: translateY(16px) scale(0.97);
-  transition: transform 0.28s cubic-bezier(0.32, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.03),
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 24px 48px rgba(0, 0, 0, 0.12),
+    0 48px 96px rgba(0, 0, 0, 0.16);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 .clx-substack-modal-overlay.is-open .clx-substack-modal {
   transform: translateY(0) scale(1);
 }
 
+/* ---- Toolbar ---- */
 .clx-substack-modal-toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.85rem 1.25rem;
-  border-bottom: 1px solid #eee;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   flex: none;
-  background: #faf9f7;
+  background: linear-gradient(to bottom, #fdfcfa, #f8f6f2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  min-height: 52px;
 }
+
+/* ---- "Open on Substack" link ---- */
 .clx-substack-modal-opennew {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   text-decoration: none;
-  color: #555;
+  color: #174F4A;
   font-weight: 500;
-  transition: color 0.15s;
+  letter-spacing: 0.01em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
 }
 .clx-substack-modal-opennew:hover {
-  color: #174F4A;
-  text-decoration: underline;
+  background: rgba(23, 79, 74, 0.08);
+  color: #0e3530;
 }
+.clx-substack-modal-opennew::after {
+  content: ' \2197';
+  font-size: 0.9em;
+  opacity: 0.6;
+}
+
+/* ---- Close button ---- */
 .clx-substack-modal-close {
   background: none;
   border: 1px solid transparent;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1;
   cursor: pointer;
-  padding: 0.4rem 0.6rem;
-  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
   color: #666;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
 }
 .clx-substack-modal-close:hover {
-  background: #f0eeeb;
+  background: rgba(0, 0, 0, 0.05);
   color: #1a1a1a;
-  border-color: #e0deda;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+.clx-substack-modal-close:active {
+  transform: scale(0.92);
+}
+.clx-substack-modal-close:focus-visible {
+  outline: 2px solid #174F4A;
+  outline-offset: 2px;
 }
 
+/* ---- Iframe frame wrapper ---- */
 .clx-substack-modal-framewrap {
   position: relative;
   flex: 1;
@@ -118,12 +165,27 @@ body.clx-modal-open {
   position: absolute;
   inset: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #888;
-  font-size: 0.95rem;
+  color: #999;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
   text-align: center;
   padding: 2rem;
+  gap: 1rem;
+}
+.clx-substack-modal-loading::before {
+  content: '';
+  width: 28px;
+  height: 28px;
+  border: 2.5px solid rgba(23, 79, 74, 0.12);
+  border-top-color: #174F4A;
+  border-radius: 50%;
+  animation: clx-spin 0.8s linear infinite;
+}
+@keyframes clx-spin {
+  to { transform: rotate(360deg); }
 }
 .clx-substack-modal-iframe {
   width: 100%;
@@ -132,93 +194,114 @@ body.clx-modal-open {
   display: block;
 }
 
+/* ---- Reduced motion ---- */
 @media (prefers-reduced-motion: reduce) {
   .clx-substack-modal-overlay,
   .clx-substack-modal {
     transition: none;
+  }
+  .clx-substack-modal-loading::before {
+    animation: none;
   }
 }
 
 
 /* ==========================================================================
    IN-SITE ARTICLE READER — Substack post content rendered inside modal
-   Professional long-form reading experience with responsive typography.
+   Premium long-form reading experience with refined typography.
    ========================================================================== */
 
 /* ---- Reader toolbar title ---- */
 .clx-substack-reader-title {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding-right: 1rem;
+  padding-right: 1.25rem;
   color: #1a1a1a;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
 }
 
 /* ---- Reader body — scrollable content area ---- */
 .clx-substack-reader-body {
-  padding: 2.5rem 3rem 3rem;
+  padding: 2.75rem 3.25rem 3.5rem;
   overflow-y: auto;
   flex: 1;
   min-height: 0;
-  line-height: 1.78;
+  line-height: 1.8;
   font-size: 1.0625rem;
-  color: #1a1a1a;
+  color: #1c1c1c;
   background: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
 
-/* Scrollbar styling */
-.clx-substack-reader-body::-webkit-scrollbar { width: 6px; }
+/* Premium thin scrollbar */
+.clx-substack-reader-body::-webkit-scrollbar { width: 5px; }
 .clx-substack-reader-body::-webkit-scrollbar-track { background: transparent; }
-.clx-substack-reader-body::-webkit-scrollbar-thumb { background: #d4d0cb; border-radius: 3px; }
-.clx-substack-reader-body::-webkit-scrollbar-thumb:hover { background: #b8b3ac; }
+.clx-substack-reader-body::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.clx-substack-reader-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.22);
+}
+.clx-substack-reader-body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
+}
 
 /* ---- Paragraphs ---- */
 .clx-substack-reader-body p {
-  margin: 0 0 1.25em;
+  margin: 0 0 1.35em;
   letter-spacing: -0.003em;
+  color: #2a2a2a;
+ 
 }
 
 /* ---- Headings ---- */
 .clx-substack-reader-body h1 {
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-size: clamp(1.85rem, 3.5vw, 2.5rem);
   font-weight: 700;
-  line-height: 1.2;
-  margin: 2.2em 0 0.6em;
-  letter-spacing: -0.02em;
+  line-height: 1.18;
+  margin: 0 0 0.6em;
+  padding-bottom: 0.5em;
+  letter-spacing: -0.025em;
   color: #0f0f0f;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 .clx-substack-reader-body h2 {
-  font-size: clamp(1.35rem, 2.5vw, 1.7rem);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
   font-weight: 650;
-  line-height: 1.28;
-  margin: 2em 0 0.55em;
-  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin: 2.2em 0 0.55em;
+  letter-spacing: -0.018em;
   color: #0f0f0f;
 }
 .clx-substack-reader-body h3 {
-  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
   font-weight: 600;
-  line-height: 1.35;
-  margin: 1.8em 0 0.5em;
+  line-height: 1.32;
+  margin: 1.9em 0 0.5em;
   letter-spacing: -0.01em;
   color: #1a1a1a;
 }
 .clx-substack-reader-body h4,
 .clx-substack-reader-body h5,
 .clx-substack-reader-body h6 {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.4;
-  margin: 1.6em 0 0.45em;
+  margin: 1.7em 0 0.45em;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #555;
+  letter-spacing: 0.06em;
+  color: #174F4A;
 }
 
 /* ---- Links ---- */
@@ -226,8 +309,9 @@ body.clx-modal-open {
   color: #174F4A;
   text-decoration: underline;
   text-decoration-color: rgba(23, 79, 74, 0.3);
-  text-underline-offset: 2px;
-  transition: text-decoration-color 0.15s, color 0.15s;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 0.2s, color 0.2s;
 }
 .clx-substack-reader-body a:hover {
   text-decoration-color: #174F4A;
@@ -238,35 +322,39 @@ body.clx-modal-open {
 .clx-substack-reader-body img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  margin: 1.5em 0;
+  border-radius: 10px;
+  margin: 1.75em 0;
   display: block;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 4px 16px rgba(0, 0, 0, 0.06);
 }
 .clx-substack-reader-body figure {
-  margin: 1.75em 0;
+  margin: 2em 0;
 }
 .clx-substack-reader-body figure img {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.6em;
 }
 .clx-substack-reader-body figcaption {
-  font-size: 0.875rem;
-  line-height: 1.55;
-  color: #777;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #888;
   text-align: center;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
+  font-style: italic;
+  letter-spacing: 0.01em;
 }
 
 /* ---- Blockquotes ---- */
 .clx-substack-reader-body blockquote {
   border-left: 3px solid #174F4A;
-  margin: 1.5em 0;
-  padding: 0.35em 0 0.35em 1.4em;
+  margin: 1.75em 0;
+  padding: 0.5em 0 0.5em 1.5em;
   color: #444;
   font-style: italic;
-  background: rgba(23, 79, 74, 0.03);
-  border-radius: 0 6px 6px 0;
-  padding-right: 1em;
+  background: linear-gradient(135deg, rgba(23, 79, 74, 0.03), rgba(23, 79, 74, 0.01));
+  border-radius: 0 8px 8px 0;
+  padding-right: 1.25em;
 }
 .clx-substack-reader-body blockquote p:last-child {
   margin-bottom: 0;
@@ -275,12 +363,13 @@ body.clx-modal-open {
 /* ---- Lists ---- */
 .clx-substack-reader-body ul,
 .clx-substack-reader-body ol {
-  margin: 0 0 1.25em;
-  padding-left: 1.6em;
+  margin: 0 0 1.35em;
+  padding-left: 1.7em;
 }
 .clx-substack-reader-body li {
-  margin-bottom: 0.45em;
+  margin-bottom: 0.5em;
   padding-left: 0.3em;
+  color: #2a2a2a;
 }
 .clx-substack-reader-body li:last-child {
   margin-bottom: 0;
@@ -295,65 +384,83 @@ body.clx-modal-open {
 /* ---- Code ---- */
 .clx-substack-reader-body code {
   font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
-  font-size: 0.88em;
-  background: #f4f2ee;
-  padding: 0.15em 0.4em;
-  border-radius: 4px;
+  font-size: 0.86em;
+  background: rgba(23, 79, 74, 0.06);
+  padding: 0.18em 0.45em;
+  border-radius: 5px;
   color: #174F4A;
+  font-weight: 500;
 }
 .clx-substack-reader-body pre {
-  margin: 1.5em 0;
-  padding: 1.25em 1.5em;
-  background: #1a1a1a;
+  margin: 1.75em 0;
+  padding: 1.5em 1.75em;
+  background: #111;
   color: #e8e6e3;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow-x: auto;
-  line-height: 1.6;
-  font-size: 0.9rem;
+  line-height: 1.65;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 .clx-substack-reader-body pre code {
   background: none;
   padding: 0;
   color: inherit;
   font-size: inherit;
+  font-weight: inherit;
 }
 
 /* ---- Tables ---- */
 .clx-substack-reader-body table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5em 0;
-  font-size: 0.95rem;
+  margin: 1.75em 0;
+  font-size: 0.9375rem;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 .clx-substack-reader-body th,
 .clx-substack-reader-body td {
-  padding: 0.65em 1em;
+  padding: 0.75em 1.1em;
   text-align: left;
-  border-bottom: 1px solid #e8e6e3;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 .clx-substack-reader-body th {
   font-weight: 600;
   color: #0f0f0f;
   background: #faf9f7;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 .clx-substack-reader-body tr:last-child td {
   border-bottom: none;
+}
+.clx-substack-reader-body tr:hover td {
+  background: rgba(23, 79, 74, 0.02);
 }
 
 /* ---- Horizontal rule ---- */
 .clx-substack-reader-body hr {
   border: none;
-  border-top: 1px solid #e8e6e3;
-  margin: 2.5em 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.1), transparent);
+  margin: 3em 0;
 }
 
 /* ---- Bold / italic / emphasis ---- */
-.clx-substack-reader-body strong {
-  font-weight: 650;
-  color: #0f0f0f;
-}
 .clx-substack-reader-body em {
   font-style: italic;
+}
+
+/* ---- Selection ---- */
+.clx-substack-reader-body ::selection {
+  background: rgba(23, 79, 74, 0.15);
+  color: inherit;
 }
 
 /* ---- Substack-specific: oembed / tweet / iframe ---- */
@@ -361,88 +468,270 @@ body.clx-modal-open {
 .clx-substack-reader-body .twitter-tweet,
 .clx-substack-reader-body iframe {
   max-width: 100%;
-  margin: 1.5em auto;
+  margin: 1.75em auto;
   display: block;
+  border-radius: 10px;
+}
+
+/* ---- Hide Substack action buttons (like, share, restack) ---- */
+.clx-substack-reader-body .pencraft,
+.clx-substack-reader-body .pc-display-flex.pc-gap-8.pc-reset,
+.clx-substack-reader-body .button-group,
+.clx-substack-reader-body [class*="pencraft"] {
+  display: none !important;
 }
 
 /* ==========================================================================
-   RESPONSIVE — Reader modal + body
+   RESPONSIVE — Reader modal (.clx-substack-modal.clx-substack-reader)
+   Premium reading experience across all device sizes.
    ========================================================================== */
 
-/* Tablet */
-@media (max-width: 768px) {
+/* ---- Base reader sizing (desktop) ---- */
+.clx-substack-modal.clx-substack-reader {
+  width: min(920px, 94vw);
+  height: min(88vh, 940px);
+}
+
+/* ---- Large desktop — generous reading column ---- */
+@media (min-width: 1200px) {
   .clx-substack-reader-body {
-    padding: 2rem 2rem 2.5rem;
-    font-size: 1.025rem;
-    line-height: 1.72;
-  }
-  .clx-substack-reader-body h1 {
-    font-size: clamp(1.5rem, 4vw, 1.9rem);
-  }
-  .clx-substack-reader-body h2 {
-    font-size: clamp(1.2rem, 3vw, 1.45rem);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3.5rem 4.5rem 4.5rem;
   }
 }
 
-/* Mobile */
+/* ---- Tablet landscape / small desktop (901px–1199px) ---- */
+@media (max-width: 1199px) and (min-width: 901px) {
+  .clx-substack-modal-overlay {
+    padding: 1.5rem;
+  }
+  .clx-substack-modal.clx-substack-reader {
+    width: min(92vw, 840px);
+    height: min(86vh, 880px);
+  }
+  .clx-substack-reader-body {
+    padding: 2.75rem 3.25rem 3.25rem;
+    font-size: 1.0625rem;
+  }
+}
+
+/* ---- iPad / Tablet portrait (768px–900px) ---- */
+@media (max-width: 900px) {
+  .clx-substack-modal-overlay {
+    padding: 1.25rem;
+  }
+  .clx-substack-modal.clx-substack-reader {
+    width: min(94vw, 760px);
+    height: min(86vh, 860px);
+    border-radius: 16px;
+  }
+  .clx-substack-modal-toolbar {
+    padding: 0.9rem 1.25rem;
+  }
+  .clx-substack-reader-title {
+    font-size: 0.9375rem;
+  }
+  .clx-substack-reader-body {
+    padding: 2.25rem 2.75rem 2.75rem;
+    font-size: 1.05rem;
+    line-height: 1.76;
+  }
+  .clx-substack-reader-body h1 {
+    font-size: clamp(1.65rem, 4vw, 2.1rem);
+  }
+  .clx-substack-reader-body h2 {
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+  }
+  .clx-substack-reader-body h3 {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  }
+}
+
+/* ---- iPad mini / small tablets (641px–767px) ---- */
+@media (max-width: 767px) and (min-width: 641px) {
+  .clx-substack-modal-overlay {
+    padding: 1rem;
+  }
+  .clx-substack-modal.clx-substack-reader {
+    width: min(96vw, 700px);
+    height: min(84vh, 820px);
+    border-radius: 14px;
+  }
+  .clx-substack-modal-toolbar {
+    padding: 0.85rem 1.1rem;
+  }
+  .clx-substack-reader-title {
+    font-size: 0.9rem;
+  }
+  .clx-substack-modal-opennew {
+    font-size: 0.8125rem;
+  }
+  .clx-substack-reader-body {
+    padding: 2rem 2.25rem 2.5rem;
+    font-size: 1.025rem;
+    line-height: 1.74;
+  }
+  .clx-substack-reader-body h1 {
+    font-size: clamp(1.5rem, 3.8vw, 1.9rem);
+  }
+  .clx-substack-reader-body h2 {
+    font-size: clamp(1.2rem, 2.8vw, 1.45rem);
+  }
+  .clx-substack-reader-body h3 {
+    font-size: 1.12rem;
+  }
+}
+
+/* ---- Phone (max 640px) — full-screen immersive ---- */
 @media (max-width: 640px) {
-  .clx-substack-modal {
+  .clx-substack-modal-overlay {
+    padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .clx-substack-modal.clx-substack-reader {
     width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    max-width: none;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+  .clx-substack-modal-toolbar {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    background: linear-gradient(to bottom, #fdfcfa, #f8f6f2);
+  }
+  .clx-substack-reader-title {
+    font-size: 0.875rem;
+    padding-right: 0.75rem;
+  }
+  .clx-substack-modal-opennew {
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  .clx-substack-modal-close {
+    width: 38px;
+    height: 38px;
+  }
+  .clx-substack-reader-body {
+    padding: 1.5rem 1.25rem 3.5rem;
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+  .clx-substack-reader-body h1 {
+    font-size: 1.5rem;
+    padding-bottom: 0.4em;
+  }
+  .clx-substack-reader-body h2 {
+    font-size: 1.25rem;
+    margin-top: 1.8em;
+  }
+  .clx-substack-reader-body h3 {
+    font-size: 1.1rem;
+  }
+  .clx-substack-reader-body img {
+    border-radius: 10px;
+    margin: 1.5em 0;
+  }
+  .clx-substack-reader-body figure {
+    margin: 1.6em 0;
+  }
+  .clx-substack-reader-body blockquote {
+    margin: 1.5em 0;
+    padding: 0.4em 0 0.4em 1.1em;
+    padding-right: 0.8em;
+  }
+  .clx-substack-reader-body pre {
+    padding: 1.2em 1.25em;
+    font-size: 0.875rem;
+    border-radius: 10px;
+    margin: 1.5em 0;
+  }
+  .clx-substack-reader-body table {
+    font-size: 0.88rem;
+    border-radius: 8px;
+  }
+  .clx-substack-reader-body th,
+  .clx-substack-reader-body td {
+    padding: 0.55em 0.8em;
+    white-space: nowrap;
+  }
+}
+
+/* ---- Very small phones (<= 380px) ---- */
+@media (max-width: 380px) {
+  .clx-substack-modal-toolbar {
+    padding: 0.65rem 0.8rem;
+    min-height: 46px;
+  }
+  .clx-substack-reader-title {
+    display: none;
+  }
+  .clx-substack-modal-opennew {
+    font-size: 0.78rem;
+  }
+  .clx-substack-modal-close {
+    width: 34px;
+    height: 34px;
+    font-size: 0.95rem;
+  }
+  .clx-substack-reader-body {
+    padding: 1.25rem 1rem 3rem;
+    font-size: 0.975rem;
+    line-height: 1.65;
+  }
+  .clx-substack-reader-body h1 {
+    font-size: 1.35rem;
+  }
+  .clx-substack-reader-body h2 {
+    font-size: 1.15rem;
+  }
+  .clx-substack-reader-body h3 {
+    font-size: 1.02rem;
+  }
+  .clx-substack-reader-body pre {
+    font-size: 0.82rem;
+    padding: 0.95rem 1em;
+  }
+}
+
+/* ---- Landscape phone ---- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .clx-substack-modal.clx-substack-reader {
     height: 100vh;
     height: 100dvh;
     border-radius: 0;
   }
   .clx-substack-modal-overlay {
     padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
   }
   .clx-substack-reader-body {
-    padding: 1.5rem 1.25rem 2rem;
-    font-size: 1rem;
-    line-height: 1.7;
-  }
-  .clx-substack-reader-body h1 {
-    font-size: 1.45rem;
-    margin-top: 1.8em;
-  }
-  .clx-substack-reader-body h2 {
-    font-size: 1.2rem;
-    margin-top: 1.6em;
-  }
-  .clx-substack-reader-body h3 {
-    font-size: 1.05rem;
-  }
-  .clx-substack-reader-body img {
-    border-radius: 6px;
-    margin: 1.25em 0;
-  }
-  .clx-substack-reader-body blockquote {
-    margin: 1.25em 0;
-    padding-left: 1em;
-  }
-  .clx-substack-reader-body pre {
-    padding: 1em 1.25em;
-    font-size: 0.85rem;
-    border-radius: 6px;
-    margin: 1.25em 0;
-  }
-  .clx-substack-reader-body table {
-    font-size: 0.88rem;
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .clx-substack-reader-body th,
-  .clx-substack-reader-body td {
-    padding: 0.5em 0.75em;
-    white-space: nowrap;
+    padding: 1rem 1.5rem 1.5rem;
   }
 }
 
-/* Large screens — constrain reading width for comfort */
-@media (min-width: 1200px) {
-  .clx-substack-reader-body {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 3rem 3.5rem 3.5rem;
+/* ---- Iframe modal also goes full-screen on mobile ---- */
+@media (max-width: 640px) {
+  .clx-substack-modal {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
   }
+}
+
+/* Prevent background page from scrolling while modal is open (all sizes) */
+body.clx-modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }

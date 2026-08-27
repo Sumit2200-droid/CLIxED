@@ -43,7 +43,8 @@ def strip_html(text):
 
 
 def sanitize_content(html):
-    """Light sanitization: strip script/style/iframe tags and on*= handlers."""
+    """Light sanitization: strip script/style/iframe tags, on*= handlers,
+    and empty leftover paragraphs/captions (e.g. stray '.' under images)."""
     if not html:
         return ""
     html = re.sub(r"(?is)<script.*?</script>", "", html)
@@ -51,6 +52,8 @@ def sanitize_content(html):
     html = re.sub(r"(?is)<iframe.*?</iframe>", "", html)
     html = re.sub(r'(?i)\son\w+\s*=\s*"[^"]*"', "", html)
     html = re.sub(r"(?i)\son\w+\s*=\s*'[^']*'", "", html)
+    html = re.sub(r"(?is)<figcaption[^>]*>\s*(&nbsp;|\.|\s)*\s*</figcaption>", "", html)
+    html = re.sub(r"(?is)<p[^>]*>\s*(&nbsp;|\.|\s)*\s*</p>", "", html)
     return html.strip()
 
 def truncate(text, limit=280):
