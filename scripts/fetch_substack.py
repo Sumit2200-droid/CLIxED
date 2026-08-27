@@ -53,7 +53,7 @@ def sanitize_content(html):
     html = re.sub(r'(?i)\son\w+\s*=\s*"[^"]*"', "", html)
     html = re.sub(r"(?i)\son\w+\s*=\s*'[^']*'", "", html)
     html = re.sub(r"(?is)<figcaption[^>]*>\s*(&nbsp;|\.|\s)*\s*</figcaption>", "", html)
-    html = re.sub(r"(?is)<p[^>]*>\s*(&nbsp;|\.|\s)*\s*</p>", "", html)
+    html = re.sub(r"(?is)<p[^>]*>\s*(<strong>|<em>|<b>|<i>)?\s*(&nbsp;|\.|\s)*\s*(</strong>|</em>|</b>|</i>)?\s*</p>", "", html)
     return html.strip()
 
 def truncate(text, limit=280):
