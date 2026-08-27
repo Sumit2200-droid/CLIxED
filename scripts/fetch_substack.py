@@ -24,7 +24,7 @@ def fetch_json(url):
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
         "Accept": "application/json"
     })
-    with urllib.request.urlopen(req, timeout=30) as resp:
+    with urllib.request.urlopen(req, timeout=45) as resp:
         return json.loads(resp.read().decode("utf-8"))
 
 def fetch_xml(url):
@@ -32,7 +32,7 @@ def fetch_xml(url):
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
         "Accept": "application/xml, text/xml, */*"
     })
-    with urllib.request.urlopen(req, timeout=30) as resp:
+    with urllib.request.urlopen(req, timeout=45) as resp:
         return resp.read().decode("utf-8")
 
 
@@ -123,7 +123,7 @@ def try_rss():
     last_error = None
 
     for proxy_url in proxies:
-        for attempt in range(1, 3):  # try each proxy up to 2 times
+        for attempt in range(1, 4):  # try each proxy up to 3 times
             try:
                 print(f"Trying RSS via: {proxy_url} (attempt {attempt})")
                 xml_data = fetch_xml(proxy_url)
@@ -131,8 +131,8 @@ def try_rss():
             except Exception as e:
                 print(f"  Failed: {e}")
                 last_error = e
-                if attempt < 2:
-                    time.sleep(4)
+                if attempt < 3:
+                    time.sleep(6)
         if xml_data is not None:
             break
 
@@ -223,7 +223,11 @@ def main():
         posts = None
 
     if posts is None:
-        print("ERROR: RSS failed. Leaving existing posts.json untouched (keeps last good content).")
+        import os
+        if os.path.exists(OUTPUT) and os.path.getsize(OUTPUT) > 10:
+            print("RSS failed but existing posts.json is intact. Keeping last good data.")
+            sys.exit(0)
+        print("ERROR: RSS failed and no existing posts.json found.")
         sys.exit(1)
 
     feed_count = len(posts)
