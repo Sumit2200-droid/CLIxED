@@ -113,11 +113,13 @@ def try_api():
 
 def try_rss():
     """Fetch posts from RSS feed. Returns list of post dicts or None on failure."""
+    cache_buster = str(int(time.time()))
+    fresh_feed_url = FEED_URL + "?_cb=" + cache_buster
     proxies = [
-        FEED_URL,
-        "https://r.jina.ai/" + FEED_URL,
-        "https://api.allorigins.win/raw?url=" + FEED_URL,
-        "https://api.codetabs.com/v1/proxy?quest=" + FEED_URL,
+        fresh_feed_url,
+        "https://r.jina.ai/" + fresh_feed_url,
+        "https://api.allorigins.win/raw?url=" + fresh_feed_url,
+        "https://api.codetabs.com/v1/proxy?quest=" + fresh_feed_url,
     ]
     xml_data = None
     last_error = None
