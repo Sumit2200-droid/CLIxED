@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Fetch Substack posts via API (primary) or RSS (fallback) and write to data/posts.json."""
-
+import os
 import json
 import re
 import sys
@@ -73,29 +73,90 @@ def parse_api_date(date_str):
 
 
 def try_api():
-    """Fetch posts from Substack API. Returns list of post dicts or None on failure."""
-    proxy_api_url = "https://api.allorigins.win/raw?url=" + API_URL
-    print(f"Trying API via proxy: {proxy_api_url}")
-    data = fetch_json(proxy_api_url)
+    """Fetch posts from Substack API with full post content."""
+    print(f"Trying Substack API: {API_URL}")
+
+    data = fetch_json(API_URL)
+
     if not isinstance(data, list):
         print("API returned non-list response")
         return None
 
+    if not data:
+        print("API returned empty post list")
+        return None
+
+    print(f"API returned {len(data)} archive items.")
+
     posts = []
+
     for item in data:
         try:
+            post_id = item.get("id")
             title = (item.get("title") or "").strip()
             link = (item.get("canonical_url") or "").strip()
-            if not title or not link:
-                continue
 
-            pub_date = parse_api_date(item.get("post_date", ""))
-            description = truncate(strip_html(item.get("description") or item.get("truncated_body_text") or ""))
-            thumbnail = item.get("cover_image") or ""
+            if not post_id or not title or not link:
+                print("  SKIP: API item missing id, title, or link")
+                return None
+
+            detail_url = f"{PUB_URL}/api/v1/posts/by-id/{post_id}"
+
+            print(f"  Fetching full content for post {post_id}")
+
+            detail = fetch_json(detail_url)
+
+            if not isinstance(detail, dict):
+                print(f"  Invalid detail response for: {title}")
+                return None
+
+            post_detail = detail.get("post")
+
+            if not isinstance(post_detail, dict):
+                print(f"  Missing post object for: {title}")
+                return None
+
+            content = sanitize_content(
+                post_detail.get("body_html") or ""
+            )
+
+            if not content:
+                print(f"  Missing full content for: {title}")
+                return None
+
+            title = (
+                post_detail.get("title")
+                or title
+            ).strip()
+
+            link = (
+                post_detail.get("canonical_url")
+                or link
+            ).strip()
+
+            pub_date = parse_api_date(
+                post_detail.get("post_date")
+                or item.get("post_date")
+                or ""
+            )
+
+            description = truncate(
+                strip_html(
+                    post_detail.get("description")
+                    or item.get("description")
+                    or item.get("truncated_body_text")
+                    or ""
+                )
+            )
+
+            thumbnail = (
+                post_detail.get("cover_image")
+                or item.get("cover_image")
+                or ""
+            )
+
             if not thumbnail or not thumbnail.startswith("https://"):
                 thumbnail = PLACEHOLDER_IMG
-
-            content = sanitize_content(item.get("body_html") or "")
 
             posts.append({
                 "title": title,
@@ -105,8 +166,25 @@ def try_api():
                 "thumbnail": thumbnail,
                 "content": content,
             })
+
         except Exception as e:
-            print(f"  SKIP (API item error): {item.get('title', '?')} — {e}")
+            print(
+                f"  SKIP (API item error): "
+                f"{item.get('title', '?')} — {e}"
+            )
+            return None
+
+    if len(posts) != len(data):
+        print(
+            f"API validation failed: "
+            f"{len(posts)} of {len(data)} posts processed"
+        )
+        return None
+
+    print(
+        f"API validation passed: "
+        f"{len(posts)} posts with full content"
+    )
 
     return posts
 
@@ -209,44 +287,152 @@ def try_rss():
 
 
 def main():
+    existing_posts = []
+
+    if os.path.exists(OUTPUT) and os.path.getsize(OUTPUT) > 10:
+        try:
+            with open(OUTPUT, "r", encoding="utf-8") as f:
+                existing_data = json.load(f)
+
+            if isinstance(existing_data, list):
+                existing_posts = existing_data
+
+        except Exception as e:
+            print(f"WARNING: Could not read existing posts.json: {e}")
+
     posts = None
     source = ""
 
-    # Try RSS first — it includes full post content for the in-site reader
-        # Only use RSS — it's the only source with full post content.
-    # No API fallback, since API never has content and would cause
-    # posts to lose their "Read here" reader.
+    # ============================================================
+    # PRIMARY SOURCE: SUBSTACK API
+    # ============================================================
+
     try:
-        posts = try_rss()
+        posts = try_api()
+
         if posts is not None:
-            source = "RSS"
+            source = "API"
+
     except Exception as e:
-        print(f"RSS failed after all proxy retries: {e}")
+        print(f"Substack API failed: {e}")
         posts = None
 
+    # ============================================================
+    # FALLBACK SOURCE: RSS
+    # ============================================================
+
     if posts is None:
-        import os
-        if os.path.exists(OUTPUT) and os.path.getsize(OUTPUT) > 10:
-            print("RSS failed but existing posts.json is intact. Keeping last good data.")
+        try:
+            posts = try_rss()
+
+            if posts is not None:
+                source = "RSS"
+
+        except Exception as e:
+            print(f"RSS failed after all proxy retries: {e}")
+            posts = None
+
+    # ============================================================
+    # FAILURE PROTECTION
+    # ============================================================
+
+    if posts is None:
+        if existing_posts:
+            print(
+                "All sources failed. "
+                "Existing posts.json is intact. "
+                "Keeping last good data."
+            )
             sys.exit(0)
-        print("ERROR: RSS failed and no existing posts.json found.")
+
+        print(
+            "ERROR: All Substack sources failed and "
+            "no existing posts.json was found."
+        )
         sys.exit(1)
 
-    feed_count = len(posts)
-    posts.sort(key=lambda p: p["pubDate"], reverse=True)
+    # ============================================================
+    # WRITE SUCCESSFUL RESULT
+    # ============================================================
+
+    # The API has been fully validated before returning.
+    # Therefore the API result is authoritative:
+    # - New posts are added.
+    # - Edited posts are updated.
+    # - Deleted posts disappear from the website.
+    #
+    # RSS is only a fallback. If RSS is used, we do not remove
+    # existing posts because a proxy/RSS response could be incomplete.
+
+    if source == "API":
+        posts.sort(
+            key=lambda p: p["pubDate"],
+            reverse=True,
+        )
+
+        final_posts = posts
+
+        print("API synchronization accepted.")
+        print("Deletion sync: ENABLED")
+
+    else:
+        existing_by_link = {
+            p.get("link"): p
+            for p in existing_posts
+            if p.get("link")
+        }
+
+        for post in posts:
+            link = post.get("link")
+
+            if link:
+                existing_by_link[link] = post
+
+        final_posts = list(existing_by_link.values())
+
+        final_posts.sort(
+            key=lambda p: p["pubDate"],
+            reverse=True,
+        )
+
+        print("RSS fallback synchronization accepted.")
+        print("Deletion sync: DISABLED")
+
+    # ============================================================
+    # WRITE DATA
+    # ============================================================
 
     with open(OUTPUT, "w", encoding="utf-8") as f:
-        json.dump(posts, f, ensure_ascii=False, indent=2)
+        json.dump(
+            final_posts,
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
 
+    feed_count = len(posts)
+    stored_count = len(final_posts)
+
+    with_content = sum(
+        1
+        for p in final_posts
+        if p.get("content")
+    )
+
+    print()
+    print("========================================")
     print(f"Source: {source}")
-    print(f"Fetched {feed_count} items from Substack")
-    print(f"Wrote {len(posts)} items to {OUTPUT}")
-    with_content = sum(1 for p in posts if p.get("content"))
-    print(f"{with_content} of {len(posts)} posts have full content for in-site reading")
-    if feed_count != len(posts):
-        print(f"WARNING: count mismatch ({feed_count} fetched vs {len(posts)} written)")
+    print(f"Fetched: {feed_count}")
+    print(f"Total stored: {stored_count}")
+    print(f"Full content: {with_content}/{stored_count}")
+
+    if source == "API":
+        print("Deletion sync: ENABLED")
     else:
-        print("All items included. No posts excluded.")
+        print("Deletion sync: DISABLED (RSS fallback)")
+
+    print("Existing data protected on failure.")
+    print("========================================")
 
 
 if __name__ == "__main__":
