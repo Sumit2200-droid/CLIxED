@@ -9,7 +9,7 @@ import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
-
+JINA_PREFIX = "https://r.jina.ai/"
 PUB_URL = "https://test7334.substack.com"
 API_URL = PUB_URL + "/api/v1/archive?sort=new&limit=50"
 FEED_URL = PUB_URL + "/feed"
@@ -26,6 +26,31 @@ def fetch_json(url):
     })
     with urllib.request.urlopen(req, timeout=45) as resp:
         return json.loads(resp.read().decode("utf-8"))
+
+
+def fetch_jina_json(url):
+    """Fetch JSON through Jina Reader and extract the Markdown Content payload."""
+    jina_url = JINA_PREFIX + url
+
+    req = urllib.request.Request(
+        jina_url,
+        headers={
+            "User-Agent": "Mozilla/5.0",
+            "Accept": "text/plain, */*",
+        },
+    )
+
+    with urllib.request.urlopen(req, timeout=45) as resp:
+        raw = resp.read().decode("utf-8")
+
+    marker = "Markdown Content:"
+
+    if marker not in raw:
+        raise ValueError("Jina response did not contain Markdown Content")
+
+    payload = raw.split(marker, 1)[1].strip()
+
+    return json.loads(payload)
 
 def fetch_xml(url):
     req = urllib.request.Request(url, headers={
@@ -76,7 +101,12 @@ def try_api():
     """Fetch posts from Substack API with full post content."""
     print(f"Trying Substack API: {API_URL}")
 
-    data = fetch_json(API_URL)
+    try:
+        data = fetch_json(API_URL)
+    except Exception as direct_error:
+        print(f"Direct Substack API failed: {direct_error}")
+        print("Trying Substack API via Jina...")
+        data = fetch_jina_json(API_URL)
 
     if not isinstance(data, list):
         print("API returned non-list response")
@@ -104,7 +134,12 @@ def try_api():
 
             print(f"  Fetching full content for post {post_id}")
 
-            detail = fetch_json(detail_url)
+            try:
+              detail = fetch_json(detail_url)
+            except Exception as direct_error:
+                   print(f"  Direct post API failed: {direct_error}")
+                   print("  Trying post API via Jina...")
+                   detail = fetch_jina_json(detail_url)
 
             if not isinstance(detail, dict):
                 print(f"  Invalid detail response for: {title}")
