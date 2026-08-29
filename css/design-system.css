@@ -3058,7 +3058,7 @@ html.js .clx-scroll-progress {
 .clx-team-card:hover::after { opacity: 1; }
 
 .clx-team-slot {
-  position: relative; aspect-ratio: 4 / 5; overflow: hidden;
+  position: relative; aspect-ratio: 1 / 1; overflow: hidden;
   display: grid; place-items: center; text-align: center;
   background: var(--color-primary-dark); color: var(--color-bg);
   isolation: isolate;
@@ -3083,7 +3083,25 @@ html.js .clx-scroll-progress {
   font-size: var(--type-label); letter-spacing: 0.18em; text-transform: uppercase;
   color: rgba(247, 245, 239, 0.66);
 }
+.clx-team-photo {
+  position: relative; aspect-ratio: 1 / 1; overflow: hidden;
+  display: grid; place-items: center; text-align: center;
+  background: var(--color-primary-dark);
+}
+.clx-team-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  filter: grayscale(0.1) contrast(1.02);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+.clx-team-card:hover .clx-team-photo img {
+  filter: grayscale(0) contrast(1.05);
+  transform: scale(1.02);
+}
 .clx-team-card-body { padding: var(--space-5) var(--space-5) var(--space-6); display: grid; gap: var(--space-2); }
+.clx-team-name { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.1rem, 1.4vw, 1.3rem); line-height: 1.2; margin: 0; color: var(--color-text); }
+.clx-team-title { font-size: var(--type-small); color: var(--color-accent); line-height: 1.5; margin: 0; }
+.clx-team-prev-title { font-size: var(--type-small); color: var(--color-muted); line-height: 1.5; margin: 0; font-style: italic; }
 .clx-team-role { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.35rem, 1.7vw, 1.6rem); line-height: 1.15; margin: 0; }
 .clx-team-status {
   font-size: var(--type-label); letter-spacing: 0.16em; text-transform: uppercase;
@@ -3095,6 +3113,29 @@ html.js .clx-scroll-progress {
   50% { opacity: 1; transform: scale(1.3); }
 }
 .clx-team-note { font-size: var(--type-small); color: var(--color-muted); line-height: 1.6; }
+.clx-team-card--linked {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.clx-team-card--linked:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-3px);
+}
+.clx-team-view-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--type-small);
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-top: var(--space-3);
+  transition: gap 0.3s ease;
+}
+.clx-team-card--linked:hover .clx-team-view-profile {
+  gap: var(--space-3);
+}
 
 /* --- 30.6 Contributing experts explanation ----------------------------- */
 .clx-team-experts-note {

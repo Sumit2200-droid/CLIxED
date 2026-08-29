@@ -4,8 +4,8 @@
   <script>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Educational Consulting — CLIxED | Research, Consulting, Design &amp; Evaluation</title>
-  <meta name="description" content="CLIxED's educational consulting supports education systems, institutions and organisations — strategy, planning and implementation from a single school or programme to state- and national-scale initiatives.">
+  <title>Anil Mammen — Chief Executive Officer — CLIxED</title>
+  <meta name="description" content="Anil Mammen, Chief Executive Officer of CLIxED Foundation. Former Professor of Practice, CETE, TISS Mumbai.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,10 +13,117 @@
   <link rel="stylesheet" href="../css/clixed.css">
   <link rel="stylesheet" href="../css/design-system.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23174F4A'/%3E%3Cpath d='M6 10l10-4 10 4-10 4z' fill='%23B88A45'/%3E%3Cpath d='M8 12v8c0 1.8 3.6 2.8 8 2.8S24 21.8 24 12' stroke='%23B88A45' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    .clx-profile-hero {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-8);
+      align-items: start;
+      padding: var(--space-8) 0;
+    }
+    @media (max-width: 768px) {
+      .clx-profile-hero {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+    }
+    .clx-profile-photo {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border-radius: 2px;
+      background: var(--color-primary-dark);
+    }
+    .clx-profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .clx-profile-info {
+      display: grid;
+      gap: var(--space-4);
+    }
+    .clx-profile-role {
+      font-family: var(--font-display);
+      font-size: var(--type-label);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin: 0;
+    }
+    .clx-profile-name {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 0;
+      color: var(--color-text);
+    }
+    .clx-profile-title {
+      font-size: var(--type-body);
+      color: var(--color-accent);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .clx-profile-prev-title {
+      font-size: var(--type-small);
+      color: var(--color-muted);
+      line-height: 1.5;
+      margin: 0;
+      font-style: italic;
+    }
+    .clx-profile-bio {
+      display: grid;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    .clx-profile-bio p {
+      font-size: var(--type-body);
+      line-height: 1.7;
+      color: var(--color-text);
+      margin: 0;
+    }
+    .clx-profile-highlights {
+      display: grid;
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+      padding-top: var(--space-6);
+      border-top: var(--border-thin);
+    }
+    .clx-profile-highlight {
+      display: grid;
+      gap: var(--space-2);
+    }
+    .clx-profile-highlight-title {
+      font-family: var(--font-display);
+      font-size: var(--type-body);
+      font-weight: 600;
+      color: var(--color-text);
+      margin: 0;
+    }
+    .clx-profile-highlight-text {
+      font-size: var(--type-small);
+      color: var(--color-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .clx-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--type-small);
+      color: var(--color-muted);
+      text-decoration: none;
+      margin-bottom: var(--space-6);
+      transition: color 0.3s ease;
+    }
+    .clx-back-link:hover {
+      color: var(--color-accent);
+    }
+  </style>
 </head>
-<body class="clx-body clx-body--edu-consulting">
-
-
+<body class="clx-body clx-body--team-profile">
 
   <!-- ============ SCROLL PROGRESS ============ -->
   <div id="clxScrollProgress" class="clx-scroll-progress" aria-hidden="true">
@@ -30,7 +137,6 @@
     <div class="clx-container clx-header-inner">
       <a href="../index.html" class="clx-brand" aria-label="CLIxED — home">
         <img src="../images/CLIxEd.png" alt="CLIxED" class="clx-brand-mark">
-
       </a>
       <nav id="mainNav" class="clx-nav" aria-label="Primary">
         <a class="clx-nav-link" href="../index.html">Home</a>
@@ -52,93 +158,42 @@
 
   <main id="main" class="clx-page-enter">
 
-    <!-- --- Background animation: Strategic Pathways --- -->
-    <div class="clx-svc-bg clx-svc-bg--consulting" aria-hidden="true">
-      <div class="clx-svc-path clx-svc-path--1">
-        <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
-          <path d="M0,450 C200,420 350,380 500,360 C650,340 750,350 900,380 C1050,410 1200,450 1400,430 C1500,420 1550,400 1600,390"
-                fill="none" stroke="#174F4A" stroke-width="1" opacity="0.4"/>
-          <path d="M0,520 C180,500 320,460 480,440 C640,420 780,430 920,460 C1060,490 1200,520 1400,500 C1500,490 1550,470 1600,460"
-                fill="none" stroke="#71877E" stroke-width="0.7" opacity="0.25"/>
-        </svg>
-      </div>
-      <div class="clx-svc-path clx-svc-path--2">
-        <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
-          <path d="M0,380 C200,360 400,340 600,350 C800,360 1000,390 1200,380 C1400,370 1500,350 1600,340"
-                fill="none" stroke="#B88A45" stroke-width="0.7" opacity="0.18"/>
-          <path d="M0,600 C250,580 450,540 650,520 C850,500 1050,510 1250,530 C1450,550 1550,530 1600,520"
-                fill="none" stroke="#174F4A" stroke-width="0.6" opacity="0.12"/>
-        </svg>
-      </div>
-      <div class="clx-svc-wash"></div>
-    </div>
-
-    <!-- ============ HERO ============ -->
-    <section class="clx-section clx-section--lg clx-hero" aria-label="Educational Consulting">
-      <div class="clx-nodes" aria-hidden="true"></div>
+    <!-- ============ PROFILE ============ -->
+    <section class="clx-section" aria-label="Profile">
       <div class="clx-container">
-        <div class="clx-hero-grid">
-          <div class="clx-hero-copy">
-            <p class="clx-eyebrow clx-reveal">What We Do / 01</p>
-            <h1 class="clx-h1 clx-reveal" data-delay="1">Educational <span class="clx-text-accent">Consulting.</span></h1>
-            <p class="clx-body-lg clx-reveal" data-delay="2" style="max-width:48ch">We partner with schools, educational networks, government departments, NGOs and consulting organisations to design, implement, and scale educational programmes and initiatives.</p>
-            <p class="clx-hero-cta clx-reveal" data-delay="3">
-              <a class="clx-btn clx-btn--primary" href="../contact.html">Start a Conversation <span class="clx-arrow" aria-hidden="true">→</span></a>
-              <a class="clx-link clx-link--arrow" href="../what-we-do.html#areas">All services <span class="clx-arrow" aria-hidden="true">→</span></a>
-            </p>
+        <a href="../team.html" class="clx-back-link">
+          <span class="clx-arrow" aria-hidden="true">←</span> Back to Team
+        </a>
+
+        <div class="clx-profile-hero">
+          <div class="clx-profile-photo clx-reveal">
+            <img src="../images/Mammen_Anil_.jpg" alt="Anil Mammen - Chief Executive Officer" width="600" height="800" loading="high">
           </div>
-          <!-- IMAGE: Pexels #7395898 (free license) — see IMAGE_SOURCES.md -->
-          <figure class="clx-hero-figure clx-reveal" data-delay="2">
-            <div class="clx-hero-frame clx-mask-reveal">
-              <img src="../images/wwd-research-discussion.jpg" alt="A focused advisory discussion in a classroom with notes on a whiteboard" width="1400" height="1050" fetchpriority="high">
-              <svg class="clx-hero-frame-nodes" viewBox="0 0 96 96" aria-hidden="true">
-                <path d="M12 84 L84 12"/>
-                <path d="M12 84 L30 84 M84 12 L84 30"/>
-                <circle cx="12" cy="84" r="3"/>
-                <circle cx="84" cy="12" r="3"/>
-                <circle cx="84" cy="30" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="30" cy="84" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
-              </svg>
+          <div class="clx-profile-info">
+            <p class="clx-profile-role clx-reveal">Chief Executive Officer</p>
+            <h1 class="clx-profile-name clx-reveal" data-delay="1">Anil Mammen</h1>
+            <p class="clx-profile-title clx-reveal" data-delay="2">Former Professor of Practice, Centre of Excellence in Teacher Education (CETE), School of Education, TISS Mumbai; Visiting Faculty, TISS Mumbai & IIM Indore</p>
+
+            <div class="clx-profile-bio clx-reveal" data-delay="3">
+              <p>With over twenty-five years of hands-on experience in educational technology and learning design, Anil Mammen has helped shape curriculum innovation across the school, university, and corporate sectors. A former Professor of Practice at the Centre of Excellence in Teacher Education (CETE), School of Education, TISS Mumbai, he helped students navigate learning sciences, design thinking, and educational technology. He continues to be associated with TISS Mumbai as Visiting Faculty.</p>
+              <p>Mr. Mammen was the lead author of UNESCO's 2025 Report on Digital Transformation in Higher Education in South Asia and has collaborated on large-scale systemic initiatives with the World Bank-supported Chhattisgarh Accelerated Learning for Knowledge Economy (CHALK) project and a large-scale OER curation project for the Telangana SCERT. He has also served as visiting faculty at IIM Indore, teaching learning and development.</p>
+              <p>Previously, he spent more than a decade as a key member of the leadership team at Tata ClassEdge, where he served as Chief of Learning Design &amp; Social Impact. He earlier held leadership roles at Tata Interactive Systems, overseeing large instructional design teams on global e-learning projects. Mr. Mammen also served as an advisor to the award-winning MIT-TISS Connected Learning Initiative (CLIx).</p>
             </div>
-            <figcaption class="clx-hero-caption">Consulting — evidence in the room</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
 
-    <!-- ============ WHAT WE DO ============ -->
-    <section class="clx-section" aria-label="What we do">
-      <div class="clx-container">
-        <div class="clx-grid-12">
-          <div class="clx-col-4">
-            <p class="clx-eyebrow clx-reveal">What We Do</p>
-          </div>
-          <div class="clx-col-8">
-            <h2 class="clx-h2 clx-reveal">Consulting work we undertake.</h2>
-          </div>
-        </div>
-
-        <ol class="clx-areas clx-reveal" data-delay="2">
-          <li>Institutional assessment and strategy development for government school systems</li>
-          <li>How to design and pilot curriculum and pedagogical interventions</li>
-          <li>Roadmap for educational technology programme design, implementation support, and integration with existing systems</li>
-          <li>Professional development and institutional change strategies</li>
-          <li>Programme/product design consulting for social enterprises, educational publishing houses or EdTech organisations</li>
-          <li>Feasibility studies and implementation planning for educational initiatives</li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ============ WHO WE SERVE ============ -->
-    <section class="clx-section clx-section--tight" aria-label="Who we serve">
-      <div class="clx-container">
-        <div class="clx-grid-12">
-          <div class="clx-col-4">
-            <p class="clx-eyebrow clx-reveal">Who We Serve</p>
-          </div>
-          <div class="clx-col-8">
-            <h2 class="clx-h2 clx-reveal">Who we serve.</h2>
-            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:58ch">Government and non-governmental organisations, school networks, EdTech companies, international development organisations, and consulting firms seeking educational expertise.</p>
+            <div class="clx-profile-highlights clx-reveal" data-delay="4">
+              <div class="clx-profile-highlight">
+                <h3 class="clx-profile-highlight-title">Key Reports</h3>
+                <p class="clx-profile-highlight-text">Lead author of UNESCO's 2025 Report on Digital Transformation in Higher Education in South Asia</p>
+              </div>
+              <div class="clx-profile-highlight">
+                <h3 class="clx-profile-highlight-title">Major Projects</h3>
+                <p class="clx-profile-highlight-text">World Bank-supported CHALK project (Chhattisgarh), OER curation for Telangana SCERT, CLIx advisor</p>
+              </div>
+              <div class="clx-profile-highlight">
+                <h3 class="clx-profile-highlight-title">Previous Roles</h3>
+                <p class="clx-profile-highlight-text">Chief of Learning Design & Social Impact at Tata ClassEdge; leadership roles at Tata Interactive Systems; Visiting Faculty at IIM Indore</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -228,7 +283,7 @@
         </nav>
       </div>
       <div class="clx-footer-legal">
-        <p>© <span id="year">2026</span> CLIxED Foundation. All rights reserved.</p>
+        <p>&copy; <span id="year">2026</span> CLIxED Foundation. All rights reserved.</p>
         <p>Registered: A4 Casa Lavelle Block 4, 12/5-5 Lavelle Road, MG Road, Bangalore North, Bangalore — 560001</p>
       </div>
     </div>
