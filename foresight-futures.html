@@ -35,14 +35,15 @@
       <nav id="mainNav" class="clx-nav" aria-label="Primary">
         <a class="clx-nav-link" href="index.html">Home</a>
         <a class="clx-nav-link" href="about.html">About</a>
-        <a class="clx-nav-link" href="team.html">Team</a>
-        <a class="clx-nav-link" href="panel-of-experts.html">Panel of Experts</a>
-        <a class="clx-nav-link" href="what-we-do.html">What We Do</a>
-        <a class="clx-nav-link" href="podcast.html">Podcast</a>
+        <details class="clx-nav-more">
+          <summary class="clx-nav-link">Team</summary>
+          <div class="clx-nav-dropdown">
+            <a class="clx-nav-link" href="team.html">Leadership</a>
+            <a class="clx-nav-link" href="panel-of-experts.html">Panel of Experts</a>
+          </div>
+        </details>
         <a class="clx-nav-link" href="insights.html">Insights</a>
-        <a class="clx-nav-link" href="blog.html">Blog</a>
-        <a class="clx-nav-link" href="substack.html">Substack</a>
-        <a class="clx-nav-link" href="partners.html">Partners</a>
+        <a class="clx-nav-link" href="partners.html">Who We Partner With</a>
       </nav>
       <button id="navToggle" class="clx-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
         <span></span><span></span>
@@ -81,15 +82,15 @@
           <div class="clx-hero-copy">
             <p class="clx-eyebrow clx-reveal">Strategic Focus</p>
             <h1 class="clx-h1 clx-reveal" data-delay="1">Foresight &amp; <span class="clx-text-accent">Futures Thinking.</span></h1>
-            <p class="clx-body-lg clx-reveal" data-delay="2" style="max-width:46ch">CLIxED is building distinctive capability in Foresight &amp; Futures Thinking to help educational systems anticipate change and build resilience.</p>
-            <p class="clx-meta clx-reveal" data-delay="3" style="margin-top:var(--space-7)">Anticipate — Explore — Decide — Build resilience</p>
+            <p class="clx-body-lg clx-reveal" data-delay="2" style="max-width:46ch">CLIxED is building distinctive capability in Foresight &amp; Futures Thinking to help education systems anticipate change, imagine multiple possible futures, and build resilience. We don't predict the future. We help you prepare for it.</p>
+            <p class="clx-meta clx-reveal" data-delay="3" style="margin-top:var(--space-7)">ANTICIPATE — EXPLORE — DECIDE — BUILD RESILIENCE</p>
             <p class="clx-hero-cta clx-reveal" data-delay="3">
               <a class="clx-link clx-link--arrow" href="#why">Why it matters <span class="clx-arrow" aria-hidden="true">→</span></a>
             </p>
           </div>
           <figure class="clx-hero-figure clx-reveal" data-delay="2">
             <div class="clx-hero-frame clx-mask-reveal">
-              <img src="images/fieldwork-rural-classroom-india.jpg" alt="Educational session in a rural Indian classroom — the context education systems must plan for" width="1600" height="1200" fetchpriority="high">
+              <img src="images/collaborative-learning-session.jpg" alt="Group of educators collaborating in a survey session — the kind of collective thinking needed to anticipate multiple futures" width="1600" height="1200" fetchpriority="high">
               <svg class="clx-hero-frame-nodes" viewBox="0 0 96 96" aria-hidden="true">
                 <path d="M12 84 L84 12"/>
                 <path d="M12 84 L30 84 M84 12 L84 30"/>
@@ -113,8 +114,8 @@
             <p class="clx-eyebrow clx-reveal">Why Foresight Matters</p>
           </div>
           <div class="clx-col-8">
-            <h2 class="clx-h2 clx-reveal">Education systems are navigating rapid change.</h2>
-            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:58ch">Technology, demographics and policy are shifting faster than ever. Foresight helps stakeholders think beyond immediate challenges and consider how education systems may need to respond to different possible futures.</p>
+            <h2 class="clx-h2 clx-reveal">Education systems are navigating uncertainties.</h2>
+            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:58ch">Technology is evolving faster than schools can adapt. Demographics are shifting. Policy environments are unpredictable. Most education systems plan for a single assumed future and struggle when reality diverges. Foresight helps stakeholders think beyond immediate challenges and prepare strategically for possible futures at a high level before committing to a single path.</p>
           </div>
         </div>
       </div>
@@ -128,7 +129,7 @@
             <p class="clx-eyebrow clx-reveal">Anticipating Change</p>
           </div>
           <div class="clx-col-8">
-            <h2 class="clx-h2 clx-reveal">Three areas of change.</h2>
+            <h2 class="clx-h2 clx-reveal">Three forces reshaping education.</h2>
           </div>
         </div>
 
@@ -136,17 +137,17 @@
           <article class="clx-service-area">
             <span class="clx-service-area-num" aria-hidden="true">01</span>
             <h3>Technological Change</h3>
-            <p>Rapid developments in technology can reshape how education is designed and delivered.</p>
+            <p>Rapid advances in AI, digital platforms, and educational tools are reshaping how learning is designed and delivered.</p>
           </article>
           <article class="clx-service-area">
             <span class="clx-service-area-num" aria-hidden="true">02</span>
             <h3>Demographic Change</h3>
-            <p>Demographic shifts can influence learners, institutions and education systems.</p>
+            <p>Shifts in population, migration, and learner profiles are shaping institutions and education systems.</p>
           </article>
-          <article class="clx-service-area">
+          <article class="clx-service-area" style="grid-column: 1 / -1; text-align: center; max-width: 600px; margin: 0 auto;">
             <span class="clx-service-area-num" aria-hidden="true">03</span>
             <h3>Policy Change</h3>
-            <p>Changes in policy environments can affect educational practice and systems.</p>
+            <p>Policy changes directly affect educational practice, funding, and institutional priorities.</p>
           </article>
         </div>
       </div>
@@ -161,7 +162,7 @@
           </div>
           <div class="clx-col-8">
             <h2 class="clx-statement clx-reveal">No single assumed future. <span class="clx-text-accent">Multiple possible futures.</span></h2>
-            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:58ch; margin-top:var(--space-7)">Education systems should not plan around only one assumed future. Foresight &amp; Futures Thinking helps stakeholders consider different possible futures and prepare for uncertainty — strategically, at a high level, before committing to a single path.</p>
+            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:58ch; margin-top:var(--space-7)">Education systems should not plan around a single vision of the future. Foresight helps stakeholders consider multiple possible futures, anticipate how the education system might need to respond to shifts in technology, teacher capacity, policy mandates, or economic constraints. This prepares you for uncertainty and builds institutional resilience.</p>
           </div>
         </div>
       </div>
@@ -176,6 +177,7 @@
           </div>
           <div class="clx-col-8">
             <h2 class="clx-h2 clx-reveal">Prepared systems are resilient systems.</h2>
+            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:58ch">When you anticipate change, explore possibilities, and make informed decisions before crises arise, your education system is ready to respond, not just react. Foresight helps you:</p>
             <div class="clx-format clx-reveal" data-delay="2" role="note">
               <strong>Anticipate change</strong>
               <span class="clx-arrow" aria-hidden="true">→</span>
@@ -198,8 +200,16 @@
             <p class="clx-eyebrow clx-reveal">Our Emerging Capability</p>
           </div>
           <div class="clx-col-8">
-            <h2 class="clx-h2 clx-reveal">A developing capability, built on research.</h2>
-            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:58ch">CLIxED is positioning itself to guide education stakeholders through multiple possible futures — by applying foresight methodologies to educational systems. This is an emerging strategic capability: we are building it deliberately, grounded in the same research strength and evidence-led practice as the rest of our work.</p>
+            <h2 class="clx-h2 clx-reveal">A developing capability, built on research and practice.</h2>
+            <p class="clx-body-lg clx-reveal" data-delay="1" style="max-width:58ch">CLIxED is positioning itself to guide education stakeholders through multiple possible futures by applying foresight methodologies to educational systems. We offer:</p>
+            <ul class="clx-reveal" data-delay="2" style="max-width:58ch; margin-top:var(--space-4); padding-left:var(--space-5); display:grid; gap:var(--space-3)">
+              <li>Foresight studies for government agencies and policy bodies</li>
+              <li>Scenario development workshops for organisational leaders and institutional planning</li>
+              <li>Futures literacy training for educators and administrators</li>
+              <li>Integration of foresight thinking into curriculum and learning design</li>
+              <li>Strategic foresight consulting in technology adoption, teacher development, and systemic change</li>
+            </ul>
+            <p class="clx-body-lg clx-reveal" data-delay="3" style="max-width:58ch; margin-top:var(--space-6)">This is an emerging strategic capability: we are deliberately building it, grounded in the same research strength and evidence-led practice as the rest of our work.</p>
           </div>
         </div>
       </div>
@@ -215,6 +225,13 @@
           <p class="clx-cta-final-sub">If your organisation is interested in understanding future changes in education, connect with CLIxED.</p>
           <a class="clx-btn clx-btn--accent" href="contact.html">Start a Conversation <span class="clx-arrow" aria-hidden="true">→</span></a>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ BACK TO HOME ============ -->
+    <section class="clx-section clx-section--tight" aria-label="Back to home">
+      <div class="clx-container" style="text-align:center">
+        <p class="clx-reveal"><a class="clx-link clx-link--arrow" href="index.html">Back to Home Page <span class="clx-arrow" aria-hidden="true">→</span></a></p>
       </div>
     </section>
 

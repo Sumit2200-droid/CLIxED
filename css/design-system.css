@@ -129,7 +129,7 @@
 .clx-h3 { font-family: var(--font-display); font-size: var(--type-h3); line-height: var(--leading-snug); font-weight: 700; }
 .clx-h4 { font-family: var(--font-display); font-size: var(--type-h4); font-weight: 700; line-height: var(--leading-snug); }
 
-.clx-body-lg { font-size: var(--type-body-lg); line-height: var(--leading-loose); color: var(--color-muted); }
+.clx-body-lg { font-size: var(--type-body-lg); line-height: var(--leading-loose); color: var(--color-muted); font-weight: 500; }
 .clx-meta { font-size: var(--type-meta); letter-spacing: var(--tracking-wide); color: var(--color-muted); text-transform: uppercase; }
 
 /* Skip link / focus */
@@ -565,7 +565,7 @@ html.js .clx-mask-reveal.is-visible { animation: clx-media-reveal 700ms var(--t-
 .clx-institutional { scroll-behavior: smooth; }
 .clx-text-accent { color: var(--color-accent); }
 .clx-text-primary { color: var(--color-primary); }
-.clx-muted { color: var(--color-muted); }
+.clx-muted { color: var(--color-muted); font-weight: 500; }
 .clx-rule { border: 0; border-top: var(--rule); margin: var(--space-8) 0; }
 .clx-rule--strong { border-top: var(--border-strong); }
 .clx-hairline-accent { border: 0; border-top: 2px solid var(--color-accent); width: 64px; margin: var(--space-6) 0; }
@@ -584,7 +584,7 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
 .clx-header-inner { display: flex; align-items: center; gap: var(--space-6); padding-block: var(--space-4); }
 
 .clx-brand { text-decoration: none; display: flex; flex-direction: column; gap: 2px; }
-.clx-brand-mark { display: block; height: 50px; width: auto; object-fit: contain; opacity: 0.85; }
+.clx-brand-mark { display: block; height: 60px; width: auto; object-fit: contain; opacity: 0.85; }
 .clx-brand-mark.clx-brand-mark--footer { height: 80px; opacity: 0.8; }
 .clx-brand-tag { font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); }
 
@@ -749,10 +749,6 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
   .clx-nav.is-open .clx-nav-link:nth-child(3) { animation-delay: 0.10s; }
   .clx-nav.is-open .clx-nav-link:nth-child(4) { animation-delay: 0.13s; }
   .clx-nav.is-open .clx-nav-link:nth-child(5) { animation-delay: 0.16s; }
-  .clx-nav.is-open .clx-nav-link:nth-child(6) { animation-delay: 0.19s; }
-  .clx-nav.is-open .clx-nav-link:nth-child(7) { animation-delay: 0.22s; }
-  .clx-nav.is-open .clx-nav-link:nth-child(8) { animation-delay: 0.25s; }
-  .clx-nav.is-open .clx-nav-link:nth-child(9) { animation-delay: 0.28s; }
 }
 @keyframes clx-nav-slide-in {
   from { opacity: 0; transform: translateX(12px); }
@@ -3691,12 +3687,18 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
 }
 
 /* --- 32.2 Category list ----------------------------------------- */
-.clx-part-list { border-top: 2px solid var(--color-text); margin-top: var(--space-8); }
+.clx-part-list { border-top: 2px solid var(--color-text); margin-top: var(--space-8); display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
+.clx-part-list .clx-part-row:nth-child(5),
+.clx-part-list .clx-part-row:nth-child(6),
+.clx-part-list .clx-part-row:nth-child(7) { grid-column: span 1; }
+.clx-part-list .clx-part-row:nth-child(5) { grid-column: 1 / 2; }
+.clx-part-list .clx-part-row:nth-child(6) { grid-column: 2 / 3; }
+.clx-part-list .clx-part-row:nth-child(7) { grid-column: 1 / -1; max-width: calc(66.666% - var(--space-6)); }
 .clx-part-row {
   position: relative;
   display: grid; grid-template-columns: 64px minmax(0, 1.35fr) minmax(0, 1fr) 32px;
   gap: var(--space-5) var(--space-6); align-items: start;
-  padding: var(--space-6) 0;
+  padding: var(--space-6) var(--space-6) var(--space-6) 0;
   border-bottom: var(--border-thin);
   transition: background var(--t-base);
   scroll-margin-top: 96px;
@@ -3742,6 +3744,10 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
 @media (max-width: 1024px) {
   .clx-part-hero { grid-template-columns: minmax(0, 1fr); gap: var(--space-7); }
   .clx-part-note { max-width: 480px; }
+  .clx-part-list { grid-template-columns: 1fr; }
+  .clx-part-list .clx-part-row:nth-child(5),
+  .clx-part-list .clx-part-row:nth-child(6),
+  .clx-part-list .clx-part-row:nth-child(7) { grid-column: 1 / -1; max-width: none; }
 }
 @media (max-width: 720px) {
   .clx-part-row { grid-template-columns: 40px minmax(0, 1fr) 24px; gap: var(--space-3) var(--space-4); }
