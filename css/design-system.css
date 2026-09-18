@@ -20,15 +20,15 @@
   /* --- Color system --- */
   --color-bg: #F7F5EF;          /* warm ivory / research paper */
   --color-surface: #FFFFFF;     /* cards, raised panels */
-  --color-text: #17201D;        /* deep ink charcoal */
-  --color-muted: #5C6662;       /* secondary text (WCAG AA on ivory) */
-  --color-primary: #174F4A;     /* deep institutional teal */
-  --color-primary-dark: #0F3A36;
-  --color-secondary: #71877E;   /* muted sage */
+  --color-text: #050806;        /* deep ink charcoal */
+  --color-muted: #111A16;       /* secondary text (WCAG AA on ivory) */
+  --color-primary: #0B3A35;     /* deep institutional teal */
+  --color-primary-dark: #062A26;
+  --color-secondary: #3F5049;   /* muted sage */
   --color-accent: #B88A45;      /* warm ochre / academic gold — use sparingly */
   --color-border: #E5E1D7;      /* soft stone */
   --color-border-strong: #C9C4B8;
-  --color-ink-soft: #26302C;
+  --color-ink-soft: #111A16;
   --color-black: #000000;
   --color-white: #FFFFFF;
   --color-focus: #174F4A;
@@ -114,7 +114,7 @@
   color: var(--color-text);
   background-color: var(--color-bg);
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: auto;
 }
 
 .clx-display {

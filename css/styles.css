@@ -4,18 +4,18 @@
    ========================================================================== */
 
 :root {
-  --blue-900: #0A2E5C;
-  --blue-800: #0E3A72;
-  --blue-700: #11477F;
-  --blue-600: #1755A6;
+  --blue-900: #062449;
+  --blue-800: #092D5A;
+  --blue-700: #0C396A;
+  --blue-600: #123F86;
   --blue-500: #2B6BC0;
   --blue-400: #5B93D4;
   --blue-100: #E8F0FB;
   --blue-50: #F5F9FE;
   --accent: #F5A623;
   --accent-dark: #D98F12;
-  --ink: #1C2B44;
-  --slate: #5B6B84;
+  --ink: #122239;
+  --slate: #46566E;
   --line: #E2E9F3;
   --white: #FFFFFF;
   --sans: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;

@@ -6,9 +6,9 @@
 
 :root {
   --blue-900: #081A38;
-  --blue-800: #0D2A50;
-  --blue-700: #123B6A;
-  --blue-600: #1B4690;
+  --blue-800: #092342;
+  --blue-700: #0D3158;
+  --blue-600: #123A78;
   --blue-500: #2E5DA8;
   --blue-400: #7C93B8;
   --blue-100: #E5EBF5;
@@ -16,8 +16,8 @@
   --accent: #C6A25C;
   --accent-dark: #A5854B;
   --accent-soft: #F4ECDD;
-  --ink: #23272F;
-  --slate: #5D6570;
+  --ink: #111820;
+  --slate: #394656;
   --line: #E6E7EB;
   --line-strong: #D5D8DE;
   --white: #FFFFFF;
