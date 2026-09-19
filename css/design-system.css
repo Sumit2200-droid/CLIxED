@@ -115,6 +115,7 @@
   background-color: var(--color-bg);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: auto;
+  font-weight: 500;
 }
 
 .clx-display {
@@ -129,8 +130,8 @@
 .clx-h3 { font-family: var(--font-display); font-size: var(--type-h3); line-height: var(--leading-snug); font-weight: 700; }
 .clx-h4 { font-family: var(--font-display); font-size: var(--type-h4); font-weight: 700; line-height: var(--leading-snug); }
 
-.clx-body-lg { font-size: var(--type-body-lg); line-height: var(--leading-loose); color: var(--color-muted); font-weight: 500; }
-.clx-meta { font-size: var(--type-meta); letter-spacing: var(--tracking-wide); color: var(--color-muted); text-transform: uppercase; }
+.clx-body-lg { font-size: var(--type-body-lg); line-height: var(--leading-loose); color: var(--color-muted); font-weight: 600; }
+.clx-meta { font-size: var(--type-meta); letter-spacing: var(--tracking-wide); color: var(--color-muted); text-transform: uppercase; font-weight: 500; }
 
 /* Skip link / focus */
 .clx-skip {
@@ -329,7 +330,7 @@
   font-family: var(--font-display); font-size: var(--type-h4);
   color: var(--color-text); display: block; margin-bottom: var(--space-2);
 }
-.clx-stage-desc { font-size: var(--type-small); color: var(--color-muted); line-height: 1.5; }
+.clx-stage-desc { font-size: var(--type-small); color: var(--color-muted); line-height: 1.5; font-weight: 500; }
 .clx-stage::after {
   content: ""; position: absolute; top: -3px; left: 0; width: 7px; height: 7px;
   border-radius: 50%; background: var(--color-primary);
@@ -565,7 +566,7 @@ html.js .clx-mask-reveal.is-visible { animation: clx-media-reveal 700ms var(--t-
 .clx-institutional { scroll-behavior: smooth; }
 .clx-text-accent { color: var(--color-accent); }
 .clx-text-primary { color: var(--color-primary); }
-.clx-muted { color: var(--color-muted); font-weight: 500; }
+.clx-muted { color: var(--color-muted); font-weight: 600; }
 .clx-rule { border: 0; border-top: var(--rule); margin: var(--space-8) 0; }
 .clx-rule--strong { border-top: var(--border-strong); }
 .clx-hairline-accent { border: 0; border-top: 2px solid var(--color-accent); width: 64px; margin: var(--space-6) 0; }
@@ -809,6 +810,50 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
   .clx-hero-figure { max-width: 100%; }
   .clx-hero-cta { flex-direction: column; width: 100%; }
   .clx-hero-cta .clx-btn { width: 100%; justify-content: center; }
+}
+
+/* --- 19.1b About page hero ------------------------------------------------- */
+.clx-hero--about .clx-hero-about-split {
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem); align-items: start;
+}
+.clx-hero--about .clx-h1 { max-width: none; font-size: clamp(2.25rem, 3.8vw, 3.75rem); }
+.clx-hero--about .clx-hero-cta { margin-top: var(--space-7); }
+.clx-hero-about-figure { width: 100%; margin: 0; }
+.clx-hero-about-figure .clx-hero-frame { aspect-ratio: 4 / 3; }
+@media (max-width: 1024px) {
+  .clx-hero--about .clx-hero-about-split { grid-template-columns: 1fr; text-align: center; }
+  .clx-hero--about .clx-hero-cta { justify-content: center; }
+  .clx-hero-about-figure { max-width: 560px; margin-inline: auto; }
+  .clx-hero--about .clx-h1 { max-width: none; }
+}
+@media (max-width: 640px) {
+  .clx-hero-about-figure { max-width: 100%; }
+}
+
+.clx-about-principles {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5); margin-top: var(--space-8);
+  text-align: left;
+  border-top: 2px solid var(--color-text); padding-top: var(--space-6);
+}
+.clx-about-principle {
+  position: relative; padding-top: var(--space-4);
+}
+.clx-about-principle-num {
+  display: block; font-family: var(--font-display);
+  font-size: var(--type-meta); letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--color-accent); margin-bottom: var(--space-2);
+}
+.clx-about-principle p {
+  font-size: var(--type-small); line-height: 1.55; color: var(--color-muted);
+  margin: 0; font-weight: 500;
+}
+@media (max-width: 768px) {
+  .clx-about-principles { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .clx-about-principles { grid-template-columns: 1fr; }
 }
 
 /* --- 19.2 Editorial media frame (shared) -------------------------------- */
@@ -1127,7 +1172,7 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
 .clx-report-verify-label { font-size: var(--type-label); letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--color-text); }
 .clx-report-verify-label::after { content: ""; display: block; width: 34px; height: 1px; background: var(--color-accent); margin-top: var(--space-3); }
 .clx-report-verify-status { font-family: var(--font-display); font-style: italic; font-size: clamp(1.15rem, 1.8vw, 1.4rem); line-height: 1.35; }
-.clx-report-verify-note { grid-column: 2; font-size: var(--type-small); color: var(--color-muted); max-width: 56ch; }
+.clx-report-verify-note { grid-column: 2; font-size: var(--type-small); color: var(--color-muted); max-width: 56ch; font-weight: 500; }
 @media (max-width: 640px) {
   .clx-report-head { flex-direction: column; align-items: flex-start; padding: var(--space-3) var(--space-4); }
   .clx-report-prize { grid-template-columns: 1fr; padding: var(--space-5) var(--space-4); gap: var(--space-3); }
@@ -1223,7 +1268,7 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
   display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); flex-wrap: wrap;
 }
 .clx-fn-sub strong { font-size: var(--type-label); letter-spacing: 0.18em; text-transform: uppercase; }
-.clx-fn-sub span { font-size: var(--type-small); color: var(--color-muted); font-style: italic; }
+.clx-fn-sub span { font-size: var(--type-small); color: var(--color-muted); font-style: italic; font-weight: 500; }
 
 /* --- 19.12 Final CTA -------------------------------------------------------- */
 .clx-cta-final {
@@ -1418,7 +1463,7 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
   font-family: var(--font-display); font-size: clamp(1.25rem, 1.6vw, 1.5rem);
   font-weight: 400; line-height: 1.2;
 }
-.clx-service-area p { color: var(--color-muted); font-size: var(--type-small); line-height: 1.6; }
+.clx-service-area p { color: var(--color-muted); font-size: var(--type-small); line-height: 1.6; font-weight: 500; }
 @media (max-width: 720px) {
   .clx-service-areas { grid-template-columns: minmax(0, 1fr); }
 }
@@ -1493,7 +1538,7 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
   content: counter(item, decimal-leading-zero); counter-increment: item;
   font-family: var(--font-display); font-style: italic; color: var(--color-accent); font-size: var(--type-meta);
 }
-.clx-design-panel p { color: var(--color-muted); font-size: var(--type-small); }
+.clx-design-panel p { color: var(--color-muted); font-size: var(--type-small); font-weight: 500; }
 
 /* --- 20.5 Programme evaluation: evidence / measurement system --- */
 .clx-evidence { border: 1px solid var(--color-border-strong); background: var(--color-surface); padding: var(--space-6); }
@@ -1816,7 +1861,7 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
   border-bottom: var(--rule); align-items: baseline;
 }
 .clx-credential-term { font-size: var(--type-small); letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--color-text); }
-.clx-credential-detail { font-size: var(--type-small); color: var(--color-muted); line-height: 1.6; }
+.clx-credential-detail { font-size: var(--type-small); color: var(--color-muted); line-height: 1.6; font-weight: 500; }
 .clx-credential-detail strong { color: var(--color-text); font-weight: 600; }
 .clx-credential-note { margin-top: var(--space-6); }
 @media (max-width: 640px) {
@@ -3154,7 +3199,7 @@ html.js .clx-scroll-progress {
 .clx-team-card-body { padding: var(--space-5) var(--space-5) var(--space-6); display: grid; gap: var(--space-2); }
 .clx-team-name { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.1rem, 1.4vw, 1.3rem); line-height: 1.2; margin: 0; color: var(--color-text); }
 .clx-team-title { font-size: var(--type-small); color: var(--color-accent); line-height: 1.5; margin: 0; }
-.clx-team-prev-title { font-size: var(--type-small); color: var(--color-muted); line-height: 1.5; margin: 0; font-style: italic; }
+.clx-team-prev-title { font-size: var(--type-small); color: var(--color-muted); line-height: 1.5; margin: 0; font-style: italic; font-weight: 500; }
 .clx-team-role { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.35rem, 1.7vw, 1.6rem); line-height: 1.15; margin: 0; }
 .clx-team-status {
   font-size: var(--type-label); letter-spacing: 0.16em; text-transform: uppercase;
@@ -3165,7 +3210,7 @@ html.js .clx-scroll-progress {
   0%, 100% { opacity: 0.6; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.3); }
 }
-.clx-team-note { font-size: var(--type-small); color: var(--color-muted); line-height: 1.6; }
+.clx-team-note { font-size: var(--type-small); color: var(--color-muted); line-height: 1.6; font-weight: 500; }
 .clx-team-card--linked {
   text-decoration: none;
   color: inherit;
@@ -3365,7 +3410,7 @@ html.js .clx-scroll-progress {
   font-family: var(--font-display); font-weight: 400;
   font-size: clamp(1.35rem, 1.9vw, 1.7rem); line-height: 1.15; margin: 0;
 }
-.clx-lib-desc { font-size: var(--type-small); color: var(--color-muted); line-height: 1.65; margin: 0; }
+.clx-lib-desc { font-size: var(--type-small); color: var(--color-muted); line-height: 1.65; margin: 0; font-weight: 500; }
 .clx-lib-status {
   margin-top: auto; padding-top: var(--space-3);
   font-size: var(--type-label); letter-spacing: 0.16em; text-transform: uppercase;
@@ -3398,7 +3443,7 @@ html.js .clx-scroll-progress {
   font-family: var(--font-display); font-weight: 400;
   font-size: clamp(1.3rem, 1.8vw, 1.6rem); line-height: 1.2; margin: var(--space-3) 0 0;
 }
-.clx-lib-empty-note { margin: var(--space-3) 0 0; font-size: var(--type-small); color: var(--color-muted); max-width: 58ch; }
+.clx-lib-empty-note { margin: var(--space-3) 0 0; font-size: var(--type-small); color: var(--color-muted); max-width: 58ch; font-weight: 500; }
 
 /* --- 31.7 Responsive + reduced motion ---------------------------------- */
 @media (max-width: 1024px) {
@@ -3494,7 +3539,7 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
   font-family: var(--font-display); font-weight: 400;
   font-size: clamp(1.6rem, 2.8vw, 2.3rem); line-height: 1.12; margin: 0;
 }
-.clx-substack-feature-desc { margin: 0; font-size: var(--type-small); color: var(--color-muted); line-height: 1.65; }
+.clx-substack-feature-desc { margin: 0; font-size: var(--type-small); color: var(--color-muted); line-height: 1.65; font-weight: 500; }
 .clx-substack-feature .clx-lib-more { margin-top: var(--space-4); }
 
 /* Remaining posts — compact grid */
@@ -3559,7 +3604,7 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
   font-family: var(--font-display); font-weight: 400;
   font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.2; margin: 0;
 }
-.clx-substack-empty-note { margin: 0; font-size: var(--type-small); color: var(--color-muted); line-height: 1.65; }
+.clx-substack-empty-note { margin: 0; font-size: var(--type-small); color: var(--color-muted); line-height: 1.65; font-weight: 500; }
 .clx-substack-fallback .clx-btn { justify-self: start; margin-top: var(--space-1); }
 .clx-substack-embed {
   margin-top: var(--space-6); border: var(--border-thin);
@@ -3991,7 +4036,7 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
   font-family: var(--font-display); font-weight: 400;
   font-size: clamp(1.3rem, 1.8vw, 1.65rem); line-height: 1.2; margin: 0;
 }
-.clx-path-lead { font-size: var(--type-small); color: var(--color-muted); margin: 0; }
+.clx-path-lead { font-size: var(--type-small); color: var(--color-muted); margin: 0; font-weight: 500; }
 .clx-path-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
 .clx-path-list li {
   position: relative; padding-left: var(--space-5);
