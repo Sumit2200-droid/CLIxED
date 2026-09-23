@@ -33,9 +33,9 @@
 
 ::selection { background: var(--accent); color: var(--blue-900); }
 
-::-webkit-scrollbar-track { background: var(--blue-50); }
-::-webkit-scrollbar-thumb { background: var(--blue-400); border: 3px solid var(--blue-50); }
-::-webkit-scrollbar-thumb:hover { background: var(--blue-500); }
+::-webkit-scrollbar-track { background: #E9EFED; }
+::-webkit-scrollbar-thumb { background: #0B3A35; border: 3px solid #E9EFED; }
+::-webkit-scrollbar-thumb:hover { background: #062A26; }
 
 h1, h2, h3, h4 { color: var(--blue-900); }
 
@@ -1084,8 +1084,8 @@ h1, h2, h3, h4 { color: var(--blue-900); }
 .footer-contact-line a { transition: color 0.2s; }
 .footer-contact-line a:hover { color: var(--accent); }
 
-.to-top { background: var(--blue-800); }
-.to-top:hover { background: var(--blue-900); }
+.to-top { background: #0B3A35; }
+.to-top:hover { background: #062A26; }
 
 /* ============ RESPONSIVE — CLIxED LAYER ============ */
 

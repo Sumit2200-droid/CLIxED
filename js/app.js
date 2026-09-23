@@ -118,6 +118,22 @@
     closeDropdowns();
   });
 
+  /* ---- Team dropdown: open on hover (desktop only) ---- */
+  document.querySelectorAll('.clx-nav-more').forEach(function (dd) {
+    var closeTimer = null;
+    function navDesktop() { return window.innerWidth > 1024; }
+    dd.addEventListener('mouseenter', function () {
+      if (!navDesktop()) return;
+      clearTimeout(closeTimer);
+      dd.setAttribute('open', '');
+    });
+    dd.addEventListener('mouseleave', function () {
+      if (!navDesktop()) return;
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(function () { dd.removeAttribute('open'); }, 150);
+    });
+  });
+
   /* ---- Scrollspy (single-page anchors only) ---- */
   var spySections = document.querySelectorAll('main section[id]');
   var spyLinks = Array.prototype.filter.call(document.querySelectorAll('.nav-link'), function (l) {

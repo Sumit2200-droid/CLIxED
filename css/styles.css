@@ -73,9 +73,11 @@ h1, h2, h3, h4 {
 ::selection { background: var(--accent); color: var(--blue-900); }
 
 ::-webkit-scrollbar { width: 11px; }
-::-webkit-scrollbar-track { background: var(--blue-50); }
-::-webkit-scrollbar-thumb { background: var(--blue-400); border-radius: 8px; border: 3px solid var(--blue-50); }
-::-webkit-scrollbar-thumb:hover { background: var(--blue-500); }
+::-webkit-scrollbar-track { background: #E9EFED; }
+::-webkit-scrollbar-thumb { background: #0B3A35; border-radius: 8px; border: 3px solid #E9EFED; }
+::-webkit-scrollbar-thumb:hover { background: #062A26; }
+
+html { scrollbar-color: #0B3A35 #E9EFED; scrollbar-width: auto; }
 
 .sr-only {
   position: absolute; width: 1px; height: 1px;
@@ -786,7 +788,7 @@ h1, h2, h3, h4 {
   height: 46px;
   border: none;
   border-radius: 50%;
-  background: var(--blue-600);
+  background: #0B3A35;
   color: var(--white);
   box-shadow: var(--shadow-2);
   opacity: 0;
@@ -795,7 +797,7 @@ h1, h2, h3, h4 {
   transition: all 0.3s var(--ease);
 }
 
-.to-top:hover { background: var(--blue-700); }
+.to-top:hover { background: #062A26; }
 
 .to-top.show {
   opacity: 1;

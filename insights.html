@@ -1,9 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-  <script>document.documentElement.classList.add('js')</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Insights — CLIxED | Research, Case Studies, Policy &amp; Media</title>
   <meta name="description" content="The CLIxED knowledge library — research reports, case studies, policy briefs, articles and multimedia. Browsable and filterable by category and search.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -141,7 +136,7 @@
       </div>
     </section>
 
-    <!-- ============ 02 — BROWSE THE LIBRARY ============ -->
+    <!-- ============ 02 — BROWSE THE LIBRARY (all shelves "to be published" — commented out) ============
     <section class="clx-section" id="library" aria-label="Browse the insights library">
       <div class="clx-container">
         <div class="clx-grid-12">
@@ -167,7 +162,6 @@
             /insights/podcast/{slug}
             /insights/media/{slug}
           No fictional titles, dates, URLs or statistics are used on this page.
-        -->
         <div class="clx-lib-tools clx-reveal" data-delay="1">
           <div class="clx-lib-filters" role="group" aria-label="Filter content by type">
             <button class="clx-lib-filter is-active" type="button" data-lib-filter="all" aria-pressed="true">All <span class="clx-lib-filter-count" data-lib-count aria-hidden="true"></span></button>
@@ -179,14 +173,14 @@
           </div>
           <label class="clx-lib-search">
             <span class="sr-only">Search the library</span>
-            <input class="clx-input" type="search" data-lib-search placeholder="Search the library—">
+            <input class="clx-input" type="search" data-lib-search placeholder="Search the library">
           </label>
         </div>
-        <p class="clx-lib-counter clx-reveal" data-delay="2" aria-live="polite">Showing <span data-lib-readout>7</span> of 7 items</p>
+        <p class="clx-lib-counter clx-reveal" data-delay="2" aria-live="polite">Showing <span data-lib-readout>4</span> of 4 items</p>
 
         <div class="clx-lib-grid clx-reveal" data-delay="2">
 
-          <!-- Research Reports — shelf (no content published yet) -->
+          Research Reports — shelf (no content published yet)
           <article class="clx-lib-card clx-lib-card--research" id="research" data-lib-card data-lib-category="research" data-lib-search="research reports publications findings evaluations methods evidence sources">
             <span class="clx-lib-tag">Research Report</span>
             <h3 class="clx-lib-title">Reports in preparation</h3>
@@ -194,7 +188,7 @@
             <p class="clx-lib-status">To be published</p>
           </article>
 
-          <!-- Case Studies — shelf (no content published yet) -->
+          Case Studies — shelf (no content published yet)
           <article class="clx-lib-card clx-lib-card--cases" id="cases" data-lib-card data-lib-category="cases" data-lib-search="case studies stories projects programmes interventions classrooms design implementation evaluation">
             <span class="clx-lib-tag">Case Study</span>
             <h3 class="clx-lib-title">Case studies in preparation</h3>
@@ -202,7 +196,7 @@
             <p class="clx-lib-status">To be published</p>
           </article>
 
-          <!-- Policy Briefs — shelf (no content published yet) -->
+          Policy Briefs — shelf (no content published yet)
           <article class="clx-lib-card clx-lib-card--policy" data-lib-card data-lib-category="policy" data-lib-search="policy briefs research decision making governments institutions recommendations analysis">
             <span class="clx-lib-tag">Policy Brief</span>
             <h3 class="clx-lib-title">Briefs for policy and decision-making</h3>
@@ -210,7 +204,7 @@
             <p class="clx-lib-status">To be published</p>
           </article>
 
-          <!-- Articles — shelf (no content published yet) -->
+          Articles — shelf (no content published yet)
           <article class="clx-lib-card clx-lib-card--articles" id="articles" data-lib-card data-lib-category="articles" data-lib-search="articles public writing commentary analysis educators researchers policymakers practice">
             <span class="clx-lib-tag">Article</span>
             <h3 class="clx-lib-title">Writing and commentary</h3>
@@ -218,7 +212,8 @@
             <p class="clx-lib-status">To be published</p>
           </article>
 
-          <!-- Podcast — live section (links to the podcast page) -->
+          <!--
+          Podcast — live section (links to the podcast page)
           <a class="clx-lib-card clx-lib-card--media clx-lib-card--link" data-lib-card data-lib-category="media podcast" data-lib-search="podcast clixed conversations episodes researchers policymakers educators practitioners audio" href="podcast.html">
             <span class="clx-lib-tag">Media — Podcast</span>
             <h3 class="clx-lib-title">CLIxED Conversations</h3>
@@ -226,7 +221,7 @@
             <span class="clx-lib-more">Visit the podcast <span class="clx-arrow" aria-hidden="true">→</span></span>
           </a>
 
-          <!-- YouTube — shelf (no content published yet) -->
+          YouTube — shelf (no content published yet)
           <article class="clx-lib-card clx-lib-card--youtube" data-lib-card data-lib-category="media youtube" data-lib-search="youtube videos episodes talks field recordings channel film">
             <span class="clx-lib-tag">Media — YouTube</span>
             <h3 class="clx-lib-title">CLIxED on YouTube</h3>
@@ -234,7 +229,7 @@
             <p class="clx-lib-status">To be published</p>
           </article>
 
-          <!-- Substack — shelf (no content published yet) -->
+          Substack — shelf (no content published yet)
           <article class="clx-lib-card clx-lib-card--substack" data-lib-card data-lib-category="articles substack" data-lib-search="substack newsletter field notes long form writing cross posted articles">
             <span class="clx-lib-tag">Substack</span>
             <h3 class="clx-lib-title">Field notes and long-form</h3>
@@ -244,7 +239,7 @@
 
         </div>
 
-        <!-- No-results empty state (shown when a search matches nothing) -->
+        No-results empty state (shown when a search matches nothing)
         <div class="clx-lib-empty" data-lib-empty hidden>
           <p class="clx-lib-empty-tag">No results</p>
           <h3 class="clx-lib-empty-title">Nothing matches your search.</h3>
@@ -252,6 +247,7 @@
         </div>
       </div>
     </section>
+    ============ END BROWSE THE LIBRARY (COMMENTED OUT) ============ -->
 
     <!-- ============ CONTACT / CTA ============ -->
     <section class="clx-section clx-close-band" aria-label="Contact CLIxED">
@@ -262,7 +258,7 @@
           <h2 class="clx-close-band-title">The library grows as our work becomes public.</h2>
           <p class="clx-close-band-lead" data-delay="1">If you want to know what we are releasing next — or want to discuss a finding, a programme or a partnership — write to us.</p>
           <p class="clx-close-cta" data-delay="2"><a class="clx-btn clx-btn--accent" href="contact.html">Start a Conversation <span class="clx-arrow" aria-hidden="true">→</span></a></p>
-        </div>
+</div>
       </div>
     </section>
 
@@ -318,12 +314,6 @@
             <li><a href="partners.html">Partners</a></li>
           </ul>
         </nav>
-        <nav class="clx-footer-cols" aria-label="Resources">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="insights.html#research">Research &amp; Reports</a></li>
-          </ul>
-        </nav>
         <nav class="clx-footer-cols" aria-label="Legal">
           <h4>Legal</h4>
           <ul>
@@ -336,7 +326,7 @@
       </div>
       <div class="clx-footer-legal">
         <p>&copy; <span id="year">2026</span> CLIxED Foundation. All rights reserved.</p>
-        <p>Developed by Perusya Education Private Limited.</p>
+        <p>Developed by Pyversity Education Private Limited.</p>
         <p>Registered: A4 Casa Lavelle Block 4, 12/5-5 Lavelle Road, MG Road, Bangalore North, Bangalore — 560001</p>
       </div>
     </div>
