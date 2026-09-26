@@ -3822,6 +3822,13 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
    ============================================================ */
 
 /* --- 32.1 Hero ------------------------------------------------- */
+/* Tighten the transition from the partner hero to the category section. */
+.clx-body--partners .clx-hero { padding-bottom: clamp(2rem, 3vw, 3rem); }
+.clx-body--partners section[aria-label="Partner categories"] { padding-top: clamp(2rem, 3vw, 3rem); }
+@media (max-width: 640px) {
+  .clx-body--partners .clx-hero { padding-bottom: 1.5rem; }
+  .clx-body--partners section[aria-label="Partner categories"] { padding-top: 1.5rem; }
+}
 .clx-part-hero {
   display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
   gap: var(--space-8) var(--space-7); align-items: start;
