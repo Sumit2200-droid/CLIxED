@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    CLIxED — Design System (v2 · Institutional)
    Education research, consulting, design, evaluation, policy & professional development
 
@@ -477,7 +477,7 @@
   line-height: 1.6;
 }
 .clx-footer-legal p + p {
-  margin-top: 0.5rem;
+  margin-top: 0;
 }
 
 @media (max-width: 1024px) {
