@@ -380,7 +380,7 @@
   margin-top: var(--space-2); font-size: var(--type-meta);
   color: var(--color-muted); display: flex; gap: var(--space-2); align-items: baseline;
 }
-.clx-caption::before { content: "fig."; color: var(--color-accent); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+
 
 /* --- 19.2b Fieldwork band: wide documentary crop + editorial caption ------- */
 .clx-band-caption {
@@ -907,7 +907,7 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
 .clx-hero--about .clx-h1 { max-width: none; font-size: clamp(2.25rem, 3.8vw, 3.75rem); }
 .clx-hero--about .clx-hero-cta { margin-top: var(--space-7); }
 .clx-hero-about-figure { width: 100%; margin: 0; }
-.clx-hero-about-figure .clx-hero-frame { aspect-ratio: 4 / 3; }
+.clx-hero-about-figure .clx-hero-frame { aspect-ratio: 2067 / 2327; }
 @media (max-width: 1024px) {
   .clx-hero--about .clx-hero-about-split { grid-template-columns: 1fr; text-align: center; }
   .clx-hero--about .clx-hero-cta { justify-content: center; }
@@ -949,6 +949,7 @@ body { background-color: var(--color-bg); color: var(--color-text); font-family:
   border-radius: 2px; background: var(--color-primary-dark);
 }
 .clx-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.clx-frame--3x2 { aspect-ratio: 3 / 2; }
 .clx-frame--16x10 { aspect-ratio: 16 / 10; }
 .clx-frame--4x5 { aspect-ratio: 4 / 5; }
 .clx-frame--4x3 { aspect-ratio: 4 / 3; }
@@ -3362,6 +3363,14 @@ html.js .clx-scroll-progress {
   to { height: 100%; }
 }
 
+/* --- 30.6b Panel of Experts page (panel-of-experts.html) ------------------ */
+/* The expert grid now sits inside the hero, directly under the intro copy. */
+.clx-body--experts .clx-hero { padding-top: clamp(2.75rem, 5vw, 4.5rem); padding-bottom: clamp(2.5rem, 5vw, 4.5rem); }
+.clx-body--experts .clx-hero .clx-team-grid { margin-top: clamp(2rem, 3.5vw, 3rem); }
+@media (max-width: 640px) {
+  .clx-body--experts .clx-hero { padding-top: 2rem; padding-bottom: 2rem; }
+}
+
 /* --- 30.7 Homepage team preview ---------------------------------------- */
 .clx-team-preview {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -4475,6 +4484,13 @@ main #library, main #research, main #cases, main #articles { scroll-margin-top: 
 .clx-body--prof-dev .clx-hero > .clx-container,
 .clx-body--research-policy .clx-hero > .clx-container,
 .clx-body--foresight .clx-hero > .clx-container { position: relative; z-index: 1; }
+/* Hero image is 2126x1412 (~3:2); the shared frame is 4:3 and would crop it. */
+.clx-body--foresight .clx-hero-figure .clx-hero-frame { aspect-ratio: 3 / 2; }
+/* Tighten the empty band between the sticky header and the hero copy. */
+.clx-body--foresight .clx-hero { padding-top: clamp(2.75rem, 5vw, 4.5rem); }
+@media (max-width: 640px) {
+  .clx-body--foresight .clx-hero { padding-top: 2rem; }
+}
 
 /* --- Shared: animation container base --- */
 .clx-svc-bg {
