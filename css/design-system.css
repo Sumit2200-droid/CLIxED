@@ -3215,16 +3215,6 @@ html.js .clx-scroll-progress {
   font-family: var(--font-display); font-weight: 400;
   font-size: clamp(1.9rem, 3.2vw, 2.9rem); line-height: 1.1; margin: var(--space-3) 0 0;
 }
-.clx-team-layer-status {
-  font-size: var(--type-meta); letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--color-muted); white-space: nowrap;
-  animation: teamStatusFloat 5s ease-in-out infinite;
-}
-@keyframes teamStatusFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-2px); }
-}
-
 /* --- 30.4 Layer panels (visual separation) ----------------------------- */
 .clx-team-panel {
   background: var(--color-surface);
@@ -3405,7 +3395,6 @@ html.js .clx-scroll-progress {
 @media (max-width: 720px) {
   .clx-team-grid--2, .clx-team-grid--3 { grid-template-columns: minmax(0, 1fr); }
   .clx-team-layer-head { grid-template-columns: minmax(0, 3.5rem) minmax(0, 1fr); }
-  .clx-team-layer-status { grid-column: 2; }
   .clx-team-panel { padding: var(--space-5); }
   .clx-team-preview { grid-template-columns: minmax(0, 1fr); }
 }
